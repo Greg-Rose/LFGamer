@@ -1,4 +1,6 @@
-# README
+# LFGamer
+
+A social networking site for gamers to find and connect with other people to play with.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
