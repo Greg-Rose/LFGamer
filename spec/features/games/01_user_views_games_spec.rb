@@ -7,7 +7,7 @@ feature 'user views games' do
   #
   # Acceptance Criteria:
   #   - I can view a list of games
-  #   - I can see each game’s title, cover image, and which console(s) it’s on
+  #   - I can see each game’s name, cover image, and which console(s) it’s on
   #   - I can click the game to view it’s show page info
 
   let!(:games) { create_list(:game, 2) }
@@ -18,5 +18,13 @@ feature 'user views games' do
     games.each do |game|
       expect(page).to have_content game.name
     end
+  end
+
+  scenario 'shows each game\'s cover image' do
+    
+  end
+
+  scenario 'shows each game\'s console availability' do
+
   end
 end
