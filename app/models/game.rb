@@ -1,4 +1,6 @@
 class Game < ApplicationRecord
+  mount_uploader :cover_image, GameCoverImageUploader
+  
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :cover_image, presence: true
