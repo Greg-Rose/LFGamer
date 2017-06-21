@@ -20,11 +20,15 @@ feature 'user views games' do
     end
   end
 
-  xscenario 'shows each game\'s cover image' do
+  scenario 'shows each game\'s cover image' do
+    visit games_path
 
+    expect(page).to have_css("img[src*='test_cover.jpg']")
   end
 
-  xscenario 'shows each game\'s console availability' do
+  scenario 'shows each game\'s console availability' do
+    visit games_path
 
+    expect(page).to have_css("img[src*='test_logo.png']")
   end
 end
