@@ -5,6 +5,6 @@ FactoryGirl.define do
     split_screen false
     cover_image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'images', 'test_cover.jpg'), 'image/jpg') }
 
-    after(:create) { |instance| instance.consoles << create(:console) }
+    before(:create) { |instance| instance.consoles << create(:console) }
   end
 end
