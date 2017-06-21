@@ -9,4 +9,10 @@ CarrierWave.configure do |config|
     }
     config.fog_directory  = ENV["S3_DEV_BUCKET"]
   end
+
+  if Rails.env.test? || Rails.env.cucumber?
+    config.storage = :file
+    config.enable_processing = false
+    config.root = "#{Rails.root}/tmp"
+  end
 end
