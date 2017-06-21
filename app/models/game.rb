@@ -9,4 +9,5 @@ class Game < ApplicationRecord
   validates :cover_image, presence: true
   validates :online, inclusion: { in: [ true, false ] }
   validates :split_screen, inclusion: { in: [ true, false ] }
+  validates :consoles, presence: true
 end
