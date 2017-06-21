@@ -1,1 +1,9 @@
 <h1>Games</h1>
+
+<% @games.each do |game| %>
+  <%= image_tag(game.cover_image.url) %>
+  <%= game.name %>
+  <% game.consoles.each do |c| %>
+    <%= image_tag(c.logo.url) %>
+  <% end %>
+<% end %>
