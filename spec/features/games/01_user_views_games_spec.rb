@@ -20,11 +20,11 @@ feature 'user views games' do
     end
   end
 
-  scenario 'shows each game\'s cover image' do
-    
+  xscenario 'shows each game\'s cover image' do
+
   end
 
-  scenario 'shows each game\'s console availability' do
+  xscenario 'shows each game\'s console availability' do
 
   end
 end
