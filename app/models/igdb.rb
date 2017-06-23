@@ -10,7 +10,7 @@ module IGDB
       url += "&filter#{filter}" if filter
       url += "&limit=#{limit}" if limit
       url += "&offset=#{offset}" if offset
-      HTTParty.get(url, headers: @@headers)
+      HTTParty.get(url, headers: @@headers).parsed_response
     end
 
     def self.all(fields = nil, filter = nil, order = nil, offset = 0, limit = 20)
@@ -21,7 +21,7 @@ module IGDB
       url += order || @order
       url += "&limit=#{limit}"
       url += "&offset=#{offset}"
-      HTTParty.get(url, headers: @@headers)
+      HTTParty.get(url, headers: @@headers).parsed_response
     end
   end
 
