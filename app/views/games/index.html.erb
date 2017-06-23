@@ -4,6 +4,10 @@
   <%= image_tag(game.cover_image.url) %>
   <%= game.name %>
   <% game.consoles.each do |c| %>
-    <%= image_tag(c.logo.url) %>
+    <% if c.abbreviation %>
+      <%= c.abbreviation %>
+    <% else %>
+      <%= c.name %>
+    <% end %>
   <% end %>
 <% end %>
