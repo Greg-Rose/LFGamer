@@ -3,7 +3,6 @@ module IGDB
     @@headers = { 'X-Mashape-Key' => ENV["IGDB_API_KEY"] }
     @@base_url = "https://igdbcom-internet-game-database-v1.p.mashape.com/"
 
-
     def self.search(query, fields = nil, filter = nil, limit = nil, offset = nil)
       url = "#{@@base_url}/#{@path}/?search=#{query}&fields="
       url += fields || @defualt_fields
