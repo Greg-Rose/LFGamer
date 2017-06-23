@@ -3,9 +3,7 @@ class PropagateDatabase
     seed_starting_consoles
   end
 
-  private
-
-  def seed_starting_consoles
+  private_class_method def self.seed_starting_consoles
     starting_consoles = [
       ["PlayStation 4", "PS4"],
       ["PlayStation 3", "PS3"],
@@ -14,9 +12,11 @@ class PropagateDatabase
     ]
 
     starting_consoles.each do |console|
-      new_console = Console.new(name: console[0])
-      new_console.abbreviation = console[1] if console[1]
-      new_console.save
+      new_console = Console.find_or_initialize_by(name: console[0])
+      if new_console.new_record?
+        new_console.abbreviation = console[1] if console[1]
+        new_console.save
+      end
     end
   end
 end
