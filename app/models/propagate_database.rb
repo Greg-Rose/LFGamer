@@ -23,7 +23,9 @@ class PropagateDatabase
   # private_class_method
    def self.seed_initial_games
     ps4_id = IGDB::Platform.search("PlayStation 4")[0]["id"]
-    filters = "[release_dates.platform][eq]=#{ps4_id}&filter[game_modes][eq]=2&filter[release_dates.date][lt]=2017-06-24&filter[category][eq]=0"
+    filters = "[release_dates.platform][eq]=#{ps4_id}&filter[game_modes][eq]=2"\
+              "&filter[release_dates.date][lt]=2017-06-24&filter[category][eq]"\
+              "=0&filter[cover][exists]"
     games = IGDB::Game.all(nil, filters, "popularity:desc", nil, 40)
     multiplayer_id = 2
     split_screen_id = 4
@@ -32,7 +34,8 @@ class PropagateDatabase
       name = game["name"]
       multiplayer = game["game_modes"].include?(multiplayer_id)
       split_screen = game["game_modes"].include?(split_screen_id)
-      cover_image_url = "https://images.igdb.com/igdb/image/upload/t_cover_big/#{game['cover']['cloudinary_id']}.jpg"
+      cover_image_url = "https://images.igdb.com/igdb/image/upload/t_cover_big"\
+                        "/#{game['cover']['cloudinary_id']}.jpg"
       
     end
   end
