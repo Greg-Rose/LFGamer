@@ -22,6 +22,12 @@ module IGDB
       url += "&offset=#{offset}"
       HTTParty.get(url, headers: @@headers).parsed_response
     end
+
+    def self.find(id, fields = nil)
+      url = "#{@@base_url}/#{@path}/#{id}?fields="
+      url += fields || @defualt_fields
+      HTTParty.get(url, headers: @@headers).parsed_response
+    end
   end
 
   class Game < IGDB::Base
