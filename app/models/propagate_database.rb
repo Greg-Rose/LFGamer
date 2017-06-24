@@ -46,7 +46,9 @@ class PropagateDatabase
         game["release_dates"].each do |rd|
           platform = IGDB::Platform.find(rd["platform"])[0]
           console = Console.find_by(name: platform["name"])
-          new_game.consoles << console if console
+          if console && !new_game.consoles.include?(console)
+            new_game.consoles << console
+          end
         end
 
         new_game.save
