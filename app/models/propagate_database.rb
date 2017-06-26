@@ -4,6 +4,36 @@ class PropagateDatabase
     seed_initial_games
   end
 
+  def self.add_game(game)
+    multiplayer_id = 2
+    split_screen_id = 4
+    name = game["name"]
+    multiplayer = game["game_modes"].include?(multiplayer_id)
+    split_screen = game["game_modes"].include?(split_screen_id)
+    cover_image_url = "https://images.igdb.com/igdb/image/upload/t_cover_big"\
+                      "/#{game['cover']['cloudinary_id']}.jpg"
+
+    new_game = Game.find_or_initialize_by(name: name)
+    if new_game.new_record?
+      new_game.online = multiplayer
+      new_game.split_screen = split_screen
+      new_game.remote_cover_image_url = cover_image_url
+
+      checked_platforms = []
+      game["release_dates"].each do |rd|
+        platform_id = rd["platform"]
+        if !checked_platforms.include?(platform_id)
+          platform = IGDB::Platform.find(platform_id)[0]
+          console = Console.find_by(name: platform["name"])
+          new_game.consoles << console if console
+          checked_platforms << platform_id
+        end
+      end
+
+      new_game.save
+    end
+  end
+
   private_class_method def self.seed_initial_consoles
     starting_consoles = [
       ["PlayStation 4", "PS4"],
@@ -25,7 +55,6 @@ class PropagateDatabase
   private_class_method def self.seed_initial_games
     ps4_id = IGDB::Platform.search("PlayStation 4")[0]["id"]
     multiplayer_id = 2
-    split_screen_id = 4
     # Filter by PS4, multiplayer, release date, main game(not DLC), cover image
     filters = [
       "[release_dates.platform][eq]=#{ps4_id}",
@@ -37,28 +66,7 @@ class PropagateDatabase
     games = IGDB::Game.all(nil, filters, "popularity:desc", 40)
 
     games.each do |game|
-      name = game["name"]
-      multiplayer = game["game_modes"].include?(multiplayer_id)
-      split_screen = game["game_modes"].include?(split_screen_id)
-      cover_image_url = "https://images.igdb.com/igdb/image/upload/t_cover_big"\
-                        "/#{game['cover']['cloudinary_id']}.jpg"
-
-      new_game = Game.find_or_initialize_by(name: name)
-      if new_game.new_record?
-        new_game.online = multiplayer
-        new_game.split_screen = split_screen
-        new_game.remote_cover_image_url = cover_image_url
-
-        game["release_dates"].each do |rd|
-          platform = IGDB::Platform.find(rd["platform"])[0]
-          console = Console.find_by(name: platform["name"])
-          if console && !new_game.consoles.include?(console)
-            new_game.consoles << console
-          end
-        end
-
-        new_game.save
-      end
+      add_game(game)
     end
   end
 end
