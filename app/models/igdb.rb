@@ -24,14 +24,24 @@ module IGDB
       HTTParty.get(url, headers: @@headers).parsed_response
     end
 
-    def self.all(fields = nil, filters = nil, order = nil, offset = 0, limit = 20)
+    # Get list of * from IGDB API
+    #
+    # params:
+    #   fields  = (optional) string of fields separated by commas
+    #   filters = (optional) array of strings, each being a filter
+    #   order   = (optional) string that is field to order results by
+    #   limit   = (optional, API default = 10) int for number of returned results
+    #   offset  = (optional) int for offsetting returned search results
+    # return:
+    #   an array of hashes
+    def self.all(fields = nil, filters = nil, order = nil, limit = nil, offset = nil)
       url = "#{@@base_url}/#{@path}/?fields="
       url += fields || @defualt_fields
       url += generate_filters(filters) if filters
       url += "&order="
       url += order || @order
-      url += "&limit=#{limit}"
-      url += "&offset=#{offset}"
+      url += "&limit=#{limit}" if limit
+      url += "&offset=#{offset}" if offset
       HTTParty.get(url, headers: @@headers).parsed_response
     end
 

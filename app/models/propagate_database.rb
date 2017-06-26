@@ -30,7 +30,7 @@ class PropagateDatabase
       "[category][eq]=0",
       "[cover][exists]"
     ]
-    games = IGDB::Game.all(nil, filters, "popularity:desc", nil, 40)
+    games = IGDB::Game.all(nil, filters, "popularity:desc", 40)
     multiplayer_id = 2
     split_screen_id = 4
 
