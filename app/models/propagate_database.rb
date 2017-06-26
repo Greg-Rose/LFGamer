@@ -5,8 +5,7 @@ class PropagateDatabase
   end
 
   # Adds a console to the database
-  #
-  # params:
+  # Params:
   #   console = array of 1..2 strings, 1st being name and 2nd being abbreviation
   def self.add_console(console)
     new_console = Console.find_or_initialize_by(name: console[0])
@@ -17,8 +16,7 @@ class PropagateDatabase
   end
 
   # Adds a game to the database
-  #
-  # params:
+  # Params:
   #   game = hash of game date returned from IGDB::Game
   def self.add_game(game)
     multiplayer_id = 2

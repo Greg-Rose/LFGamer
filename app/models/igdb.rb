@@ -6,14 +6,13 @@ module IGDB
     @@base_url = "https://igdbcom-internet-game-database-v1.p.mashape.com/"
 
     # Search the IGDB API with specific query
-    #
-    # params:
+    # Params:
     #   query   = string that is name of what you're searching for
     #   fields  = (optional) string of fields separated by commas
     #   filters = (optional) array of strings, each being a filter
     #   limit   = (optional, API default = 10) int for number of returned results
     #   offset  = (optional) int for offsetting returned search results
-    # return:
+    # Return:
     #   an array of hashes
     def self.search(query, fields = nil, filters = nil, limit = nil, offset = nil)
       url = "#{@@base_url}/#{@path}/?search=#{query}&fields="
@@ -25,14 +24,13 @@ module IGDB
     end
 
     # Get list of * from IGDB API
-    #
-    # params:
+    # Params:
     #   fields  = (optional) string of fields separated by commas
     #   filters = (optional) array of strings, each being a filter
     #   order   = (optional) string that is field to order results by
     #   limit   = (optional, API default = 10) int for number of returned results
     #   offset  = (optional) int for offsetting returned search results
-    # return:
+    # Return:
     #   an array of hashes
     def self.all(fields = nil, filters = nil, order = nil, limit = nil, offset = nil)
       url = "#{@@base_url}/#{@path}/?fields="
@@ -46,11 +44,10 @@ module IGDB
     end
 
     # Find exact * from IGDB using it's IGDB id
-    #
-    # params:
+    # Params:
     #   id     = int that is an IGDB id
     #   fields = (optional) string of fields separated by commas
-    # return:
+    # Return:
     #   an array of one hash
     def self.find(id, fields = nil)
       url = "#{@@base_url}/#{@path}/#{id}?fields="
