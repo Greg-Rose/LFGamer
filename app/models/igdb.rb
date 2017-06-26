@@ -45,6 +45,13 @@ module IGDB
       HTTParty.get(url, headers: @@headers).parsed_response
     end
 
+    # Find exact * from IGDB using it's IGDB id
+    #
+    # params:
+    #   id     = int that is an IGDB id
+    #   fields = (optional) string of fields separated by commas
+    # return:
+    #   an array of one hash
     def self.find(id, fields = nil)
       url = "#{@@base_url}/#{@path}/#{id}?fields="
       url += fields || @defualt_fields

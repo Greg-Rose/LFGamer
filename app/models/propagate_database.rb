@@ -21,18 +21,20 @@ class PropagateDatabase
     end
   end
 
+  # Seed database with "top" 40 PS4 games
   private_class_method def self.seed_initial_games
     ps4_id = IGDB::Platform.search("PlayStation 4")[0]["id"]
+    multiplayer_id = 2
+    split_screen_id = 4
+    # Filter by PS4, multiplayer, release date, main game(not DLC), cover image
     filters = [
       "[release_dates.platform][eq]=#{ps4_id}",
-      "[game_modes][eq]=2",
+      "[game_modes][eq]=#{multiplayer_id}",
       "[release_dates.date][lt]=2017-06-24",
       "[category][eq]=0",
       "[cover][exists]"
     ]
     games = IGDB::Game.all(nil, filters, "popularity:desc", 40)
-    multiplayer_id = 2
-    split_screen_id = 4
 
     games.each do |game|
       name = game["name"]
