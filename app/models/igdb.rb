@@ -5,6 +5,16 @@ module IGDB
     @@headers = { 'X-Mashape-Key' => ENV["IGDB_API_KEY"] }
     @@base_url = "https://igdbcom-internet-game-database-v1.p.mashape.com/"
 
+    # Search the IGDB API with specific query
+    #
+    # params:
+    #   query   = string that is name of what you're searching for
+    #   fields  = (optional) string of fields separated by commas
+    #   filters = (optional) array of strings, each being a filter
+    #   limit   = (optional, API default = 10) int for number of returned results
+    #   offset  = (optional) int for offsetting returned search results
+    # return:
+    #   an array of hashes
     def self.search(query, fields = nil, filters = nil, limit = nil, offset = nil)
       url = "#{@@base_url}/#{@path}/?search=#{query}&fields="
       url += fields || @defualt_fields
