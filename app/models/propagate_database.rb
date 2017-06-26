@@ -4,6 +4,22 @@ class PropagateDatabase
     seed_initial_games
   end
 
+  # Adds a console to the database
+  #
+  # params:
+  #   console = array of 1..2 strings, 1st being name and 2nd being abbreviation
+  def self.add_console(console)
+    new_console = Console.find_or_initialize_by(name: console[0])
+    if new_console.new_record?
+      new_console.abbreviation = console[1] if console[1]
+      new_console.save
+    end
+  end
+
+  # Adds a game to the database
+  #
+  # params:
+  #   game = hash of game date returned from IGDB::Game
   def self.add_game(game)
     multiplayer_id = 2
     split_screen_id = 4
@@ -43,11 +59,7 @@ class PropagateDatabase
     ]
 
     starting_consoles.each do |console|
-      new_console = Console.find_or_initialize_by(name: console[0])
-      if new_console.new_record?
-        new_console.abbreviation = console[1] if console[1]
-        new_console.save
-      end
+      add_console(console)
     end
   end
 
