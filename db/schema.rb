@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170620184324) do
 
   create_table "consoles", force: :cascade do |t|
     t.string "name", null: false
-    t.string "logo", null: false
+    t.string "abbreviation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_consoles_on_name", unique: true

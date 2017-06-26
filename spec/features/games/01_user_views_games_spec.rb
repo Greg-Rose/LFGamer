@@ -29,6 +29,14 @@ feature 'user views games' do
   scenario 'shows each game\'s console availability' do
     visit games_path
 
-    expect(page).to have_css("img[src*='test_logo.png']")
+    games.each do |game|
+      game.consoles.each do |console|
+        if console.abbreviation
+          expect(page).to have_content(console.abbreviation)
+        else
+          expect(page).to have_content(console.name)
+        end
+      end
+    end
   end
 end
