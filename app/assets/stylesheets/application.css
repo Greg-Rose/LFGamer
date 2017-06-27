@@ -43,6 +43,7 @@
 
 footer .navbar-default {
   float:none;
+  margin-top: 20px;
   margin-bottom: 0;
   text-align:center;
 }
@@ -50,4 +51,8 @@ footer .navbar-default {
 footer .navbar-default p {
   display:inline-block;
   float:none;
+}
+
+footer .navbar-static-top {
+  border-bottom-width: 0;
 }
