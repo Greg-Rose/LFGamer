@@ -24,7 +24,7 @@
       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
-/*------ Navbar ------*/
+/*------ Header Navbar ------*/
 
 .navbar-inverse {
   background-color: #324956;
@@ -37,4 +37,17 @@
 
 .navbar-inverse .navbar-nav li a {
   color: #FFFFFF;
+}
+
+/*------ Footer ------*/
+
+footer .navbar-default {
+  float:none;
+  margin-bottom: 0;
+  text-align:center;
+}
+
+footer .navbar-default p {
+  display:inline-block;
+  float:none;
 }
