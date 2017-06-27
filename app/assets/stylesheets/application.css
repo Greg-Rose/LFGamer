@@ -52,7 +52,9 @@ body {
 }
 
 .index-cover-image-div {
+  display: flex;
   height: 150px;
+  justify-content: center;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
