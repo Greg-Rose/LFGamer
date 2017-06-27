@@ -1,13 +1,19 @@
-<h1>Games</h1>
-
-<% @games.each do |game| %>
-  <%= image_tag(game.cover_image.url) %>
-  <%= game.name %>
-  <% game.consoles.each do |c| %>
-    <% if c.abbreviation %>
-      <%= c.abbreviation %>
-    <% else %>
-      <%= c.name %>
-    <% end %>
+<div class="row">
+  <% @games.each do |game| %>
+    <div class="col-lg-3 index-game-div">
+      <div class="index-cover-image-div">
+        <%= image_tag(game.cover_image.url, height: "150", class: "index-cover-image") %>
+      </div>
+      <h4 class="text-center"><%= game.name %></h4>
+      <p class="text-center">
+        <% game.consoles.each do |c| %>
+          <% if c.abbreviation %>
+            <%= c.abbreviation %>
+          <% else %>
+            <%= c.name %>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
   <% end %>
-<% end %>
+</div>

@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
   has_many :games_consoles
-  has_many :consoles, through: :games_consoles
+  has_many :consoles, -> { order(:name) }, through: :games_consoles
 
   mount_uploader :cover_image, GameCoverImageUploader
 

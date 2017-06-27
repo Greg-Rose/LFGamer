@@ -39,6 +39,30 @@
   color: #FFFFFF;
 }
 
+/*------ Main Content ------*/
+
+body {
+  background-color: #FAFAFA;
+}
+
+/*-------- Games Index --------*/
+
+.index-game-div {
+  height: 250px;
+}
+
+.index-cover-image-div {
+  height: 150px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 109px;
+}
+
+.index-cover-image {
+  position: absolute;
+}
+
 /*------ Footer ------*/
 
 footer .navbar-default {
