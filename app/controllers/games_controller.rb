@@ -7,4 +7,8 @@ class GamesController < ApplicationController
       @games = Game.includes(:consoles)
     end
   end
+
+  def show
+    @game = Game.find(params[:id])
+  end
 end
