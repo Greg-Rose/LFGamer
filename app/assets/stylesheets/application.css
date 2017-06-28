@@ -58,6 +58,7 @@ body {
 }
 
 .index-cover-image-div {
+  border-radius: 10px;
   display: flex;
   height: 150px;
   justify-content: center;
