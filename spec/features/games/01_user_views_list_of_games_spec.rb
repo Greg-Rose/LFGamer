@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user views games' do
+feature 'user views list of games' do
   # As a user
   # I want to view a list of games
   # So that I can see what games I can find people to play with
