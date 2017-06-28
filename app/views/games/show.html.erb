@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-lg-3 col-lg-offset-1">
+    <%= image_tag(@game.cover_image.url) %>
+  </div>
+  <div class="col-lg-4">
+    <h2 class="text-center"><%= @game.name %></h2>
+
+    <p class="text-center">
+      <% @game.consoles.each do |c| %>
+        <%= c.name %>
+        <%= "/" if @game.consoles.last != c %>
+      <% end %>
+  </div>
+  </p>
+</div>
