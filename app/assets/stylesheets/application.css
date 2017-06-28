@@ -68,6 +68,10 @@ body {
   width: 109px;
 }
 
+.index-cover-image {
+  border-radius: 10px;
+}
+
 /*------ Footer ------*/
 
 .footer {
