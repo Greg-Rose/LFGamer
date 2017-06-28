@@ -41,7 +41,7 @@ feature 'user filters games by console' do
   end
 
   scenario 'remove filters' do
-    visit games_path(console: consoles[0].name)
+    visit games_path(console: consoles[0].id)
     click_link "None"
 
     expect(page).to have_content game_0.name

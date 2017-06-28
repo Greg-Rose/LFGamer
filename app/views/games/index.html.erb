@@ -1,3 +1,10 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% @consoles.each do |c| %>
+      <%= link_to c.name, games_path(console: c.id), class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>
 <div class="row">
   <% @games.each do |game| %>
     <div class="col-sm-6 col-md-4 col-lg-3 index-game-div">
