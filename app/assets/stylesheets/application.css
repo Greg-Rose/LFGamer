@@ -24,7 +24,7 @@
       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
-/*------ Header Navbar ------*/
+/*------* Header Navbar *------*/
 
 .navbar-inverse {
   background-color: #324956;
@@ -47,7 +47,7 @@
   color: #1fdb6d;
 }
 
-/*------ Main Content ------*/
+/*------* Main Content *------*/
 
 html {
   position: relative;
@@ -59,7 +59,7 @@ body {
   margin-bottom: 50px;
 }
 
-/*------ Games Index ------*/
+/*------ Games#Index ------*/
 
 .index-game-div {
   height: 250px;
@@ -95,7 +95,19 @@ body {
 .index-filters .btn.disabled {
   opacity: 1;
 }
-/*------ Footer ------*/
+
+/*------ Games#Show ------*/
+
+.show-game {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.show-cover-image {
+  border-radius: 10px;
+}
+
+/*------* Footer *------*/
 
 .footer {
   background-color: #f5f5f5;

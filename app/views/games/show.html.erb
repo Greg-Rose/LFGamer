@@ -1,8 +1,8 @@
-<div class="row">
-  <div class="col-lg-3 col-lg-offset-1">
-    <%= image_tag(@game.cover_image.url) %>
+<div class="row show-game">
+  <div class="col-sm-6 col-md-4 col-md-offset-1 col-lg-3 col-lg-offset-1 text-center">
+    <%= image_tag(@game.cover_image.url, class: "show-cover-image") %>
   </div>
-  <div class="col-lg-4">
+  <div class="col-sm-6 col-md-4 col-md-offset-1 col-lg-4 col-lg-offset-1">
     <h2 class="text-center"><%= @game.name %></h2>
 
     <p class="text-center">
@@ -10,6 +10,6 @@
         <%= c.name %>
         <%= "/" if @game.consoles.last != c %>
       <% end %>
+    </p>
   </div>
-  </p>
 </div>
