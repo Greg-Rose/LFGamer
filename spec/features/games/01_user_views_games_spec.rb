@@ -39,4 +39,12 @@ feature 'user views games' do
       end
     end
   end
+
+  scenario 'each game\'s name is a link to it\'s show page' do
+    visit games_path
+
+    games.each do |game|
+      expect(page).to have_link(game.name)
+    end
+  end
 end

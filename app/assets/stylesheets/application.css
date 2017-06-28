@@ -84,6 +84,10 @@ body {
   margin-bottom: 5px;
 }
 
+.index-game-div h4 a {
+  color: inherit;
+}
+
 .index-game-div p {
   font-size: 13px;
 }

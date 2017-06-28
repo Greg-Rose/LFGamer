@@ -4,7 +4,7 @@
       <div class="index-cover-image-div">
         <%= image_tag(game.cover_image.url, height: "150", class: "index-cover-image") %>
       </div>
-      <h4 class="text-center"><%= game.name %></h4>
+      <h4 class="text-center"><%= link_to game.name, "#" %></h4>
       <p class="text-center">
         <% game.consoles.each do |c| %>
           <% if c.abbreviation %>
