@@ -1,8 +1,12 @@
 <div class="panel panel-default">
-  <div class="panel-body">
+  <div class="panel-body index-filters">
     <% @consoles.each do |c| %>
-      <%= link_to c.name, games_path(console: c.id), class: "btn btn-default" %>
+      <%= link_to c.name, games_path(console: c.id),
+          class: "btn btn-default#{' btn-success disabled' if
+          current_page?(games_path(console: c.id))}" %>
     <% end %>
+    <%= link_to "None", games_path, class: "btn btn-default#{' disabled' if
+        params[:console].nil?}" %>
   </div>
 </div>
 <div class="row">

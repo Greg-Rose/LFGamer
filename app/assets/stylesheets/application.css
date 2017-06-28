@@ -92,6 +92,9 @@ body {
   font-size: 13px;
 }
 
+.index-filters .btn.disabled {
+  opacity: 1;
+}
 /*------ Footer ------*/
 
 .footer {
