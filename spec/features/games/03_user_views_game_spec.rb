@@ -32,7 +32,7 @@ feature 'user views game' do
   end
 
   scenario 'shows console availability' do
-    visit game_path(games_path[0])
+    visit game_path(games[0])
 
     games[0].consoles.each do |console|
       expect(page).to have_content(console.name)
