@@ -41,8 +41,14 @@
 
 /*------ Main Content ------*/
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-color: #FAFAFA;
+  margin-bottom: 50px;
 }
 
 /*------ Games Index ------*/
@@ -67,18 +73,14 @@ body {
 
 /*------ Footer ------*/
 
-footer .navbar-default {
-  float:none;
-  margin-top: 20px;
-  margin-bottom: 0;
-  text-align:center;
+.footer {
+  background-color: #f5f5f5;
+  bottom: 0;
+  height: 50px;
+  position: absolute;
+  width: 100%;
 }
 
-footer .navbar-default p {
-  display:inline-block;
-  float:none;
-}
-
-footer .navbar-static-top {
-  border-bottom-width: 0;
+.footer .container p {
+  margin: 15px 0;
 }
