@@ -32,11 +32,19 @@
 }
 
 .navbar-inverse .navbar-header a {
-  color: #FFFFFF;
+  color: #1fdb6d;
+}
+
+.navbar-inverse .navbar-header a:hover {
+  color: #00fa68;
 }
 
 .navbar-inverse .navbar-nav li a {
   color: #FFFFFF;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+  color: #1fdb6d;
 }
 
 /*------ Main Content ------*/
@@ -70,6 +78,14 @@ body {
 
 .index-cover-image {
   border-radius: 10px;
+}
+
+.index-game-div h4 {
+  margin-bottom: 5px;
+}
+
+.index-game-div p {
+  font-size: 13px;
 }
 
 /*------ Footer ------*/

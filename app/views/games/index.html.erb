@@ -12,6 +12,7 @@
           <% else %>
             <%= c.name %>
           <% end %>
+          <%= "/" if game.consoles.last != c %>
         <% end %>
       </p>
     </div>
