@@ -69,14 +69,12 @@ class PropagateDatabase
     filters = [
       "[release_dates.platform][eq]=#{ps4_id}",
       "[game_modes][eq]=#{multiplayer_id}",
-      "[release_dates.date][lt]=2017-06-24",
+      "[release_dates.date][lt]=#{Time.now.strftime("%Y-%m-%d")}",
       "[category][eq]=0",
       "[cover][exists]"
     ]
     games = IGDB::Game.all(nil, filters, "popularity:desc", 40)
 
-    games.each do |game|
-      add_game(game)
-    end
+    games.each { |game| add_game(game) }
   end
 end
