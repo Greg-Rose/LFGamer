@@ -16,8 +16,8 @@ feature 'user searches for game' do
 
   scenario 'search using exact game name' do
     visit games_path
-    fill_in "Search", with: "Best Game Ever"
-    click_button "Search"
+    fill_in "search-box", with: "Best Game Ever"
+    click_button "search-btn"
 
     expect(page).to have_content desired_game.name
     games.each { |g| expect(page).to_not have_content g.name }
@@ -25,8 +25,8 @@ feature 'user searches for game' do
 
   scenario 'search using part of game\'s name' do
     visit games_path
-    fill_in "Search", with: "Best"
-    click_button "Search"
+    fill_in "search-box", with: "Best"
+    click_button "search-btn"
 
     expect(page).to have_content desired_game.name
     games.each { |g| expect(page).to_not have_content g.name }
@@ -34,8 +34,8 @@ feature 'user searches for game' do
 
   scenario 'show multiple games if they match search' do
     visit games_path
-    fill_in "Search", with: "Cool"
-    click_button "Search"
+    fill_in "search-box", with: "Cool"
+    click_button "search-btn"
 
     games.each { |g| expect(page).to have_content g.name }
     expect(page).to_not have_content desired_game.name
@@ -43,8 +43,8 @@ feature 'user searches for game' do
 
   scenario 'works with case insensitivity' do
     visit games_path
-    fill_in "Search", with: "gaME eVeR"
-    click_button "Search"
+    fill_in "search-box", with: "gaME eVeR"
+    click_button "search-btn"
 
     expect(page).to have_content desired_game.name
     games.each { |g| expect(page).to_not have_content g.name }
@@ -52,8 +52,8 @@ feature 'user searches for game' do
 
   scenario 'show\'s apology message if no game is found' do
     visit games_path
-    fill_in "Search", with: "Call of Duty"
-    click_button "Search"
+    fill_in "search-box", with: "Call of Duty"
+    click_button "search-btn"
 
     expect(page).to have_content "We're sorry but we couldn't find the game you're looking for."
     expect(page).to_not have_content desired_game.name

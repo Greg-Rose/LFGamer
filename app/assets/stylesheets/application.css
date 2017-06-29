@@ -59,18 +59,18 @@ body {
   margin-bottom: 50px;
 }
 
-.search-box {
+#search-box {
   background-color: #f2f2f2;
   border-color: #e6e6e6;
 }
 
-.search-box:focus{
+#search-box:focus{
   background-color: white;
   border-color: white;
   box-shadow: none;
 }
 
-.search-btn {
+#search-btn {
   background-color: #f2f2f2;
   border-color: #e6e6e6;
 }

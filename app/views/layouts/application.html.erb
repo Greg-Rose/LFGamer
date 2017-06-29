@@ -31,9 +31,9 @@
             </ul>
             <%= form_tag(games_path, method: "get", class: "navbar-form navbar-left") do %>
               <div class="input-group">
-                <%= text_field_tag :search, params[:search], placeholder: "Search Games", class: "form-control search-box" %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search Games", class: "form-control", id: "search-box" %>
                 <div class="input-group-btn">
-                  <%= button_tag(type: "submit", name: nil, class: "btn btn-default search-btn") do %>
+                  <%= button_tag(type: "submit", name: nil, class: "btn btn-default", id: "search-btn") do %>
                     <span class="glyphicon glyphicon-search"></span>
                   <% end %>
                 </div>
