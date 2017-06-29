@@ -10,4 +10,8 @@ class Game < ApplicationRecord
   validates :online, inclusion: { in: [ true, false ] }
   validates :split_screen, inclusion: { in: [ true, false ] }
   validates :consoles, presence: true
+
+  def self.search(search)
+    where("lower(name) LIKE ?", "%#{search}%")
+  end
 end
