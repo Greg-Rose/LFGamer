@@ -96,6 +96,18 @@ body {
   opacity: 1;
 }
 
+.btn-xbox {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.btn-playstation {
+  color: #fff;
+  background-color: #0079D0;
+  border-color: #0068b3;
+}
+
 /*------ Games#Show ------*/
 
 .show-game {
