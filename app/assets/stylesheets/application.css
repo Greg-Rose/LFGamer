@@ -124,6 +124,11 @@ body {
   border-color: #0068b3;
 }
 
+.search-apology {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 /*------ Games#Show ------*/
 
 .show-game {
