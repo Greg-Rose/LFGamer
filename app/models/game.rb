@@ -12,6 +12,6 @@ class Game < ApplicationRecord
   validates :consoles, presence: true
 
   def self.search(search)
-    where("lower(name) LIKE ?", "%#{search.downcase}%")
+    where("lower(games . name) LIKE ?", "%#{search.downcase}%")
   end
 end
