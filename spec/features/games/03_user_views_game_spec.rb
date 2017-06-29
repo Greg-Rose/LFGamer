@@ -38,4 +38,16 @@ feature 'user views game' do
       expect(page).to have_content(console.name)
     end
   end
+
+  scenario 'shows game\'s multiplayer info' do
+    visit game_path(games[0])
+
+    if games[0].online
+      expect(page).to have_content 'Online'
+    end
+
+    if games[0].split_screen
+      expect(page).to have_content 'Split Screen'
+    end
+  end
 end
