@@ -66,7 +66,7 @@ body {
 }
 
 .index-cover-image-div {
-  border-radius: 10px;
+  border-radius: 6px;
   display: flex;
   height: 150px;
   justify-content: center;
@@ -77,7 +77,7 @@ body {
 }
 
 .index-cover-image {
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 .index-game-div h4 {
