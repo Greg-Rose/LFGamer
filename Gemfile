@@ -30,3 +30,5 @@ end
 group :test do
   gem 'coveralls', require: false
 end
+
+ruby "2.4.1"
