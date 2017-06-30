@@ -32,4 +32,18 @@ describe PropagateDatabase do
       end
     end
   end
+
+  describe ".initial_seed" do
+    it "seeds database with initial consoles and games" do
+      # normally seeds 40 games, test only seeds 2 for speed
+      VCR.use_cassette("propagate_database/seed_initial_games") do
+        PropagateDatabase.initial_seed
+        consoles = Console.all
+        games = Game.all
+
+        expect(consoles.count).to be 4
+        expect(games.count).to be 2
+      end
+    end
+  end
 end
