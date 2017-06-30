@@ -17,3 +17,12 @@
 /yarn-error.log
 
 .byebug_history
+
+# Ignore uploaded files in test/development
+/public/uploads
+
+.env
+
+.DS_Store
+
+/coverage

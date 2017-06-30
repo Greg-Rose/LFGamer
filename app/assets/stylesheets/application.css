@@ -10,6 +10,146 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap.min
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+ font-family: 'Glyphicons Halflings';
+ src: url('../assets/glyphicons-halflings-regular.eot');
+ src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+      url('../assets/glyphicons-halflings-regular.woff') format('woff'),
+      url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
+      url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+/*------* Main Content (Application Layout) *------*/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: #FAFAFA;
+  margin-bottom: 50px;
+}
+
+/*------* Header Navbar *------*/
+
+.navbar-inverse {
+  background-color: #324956;
+  border-color: #324956;
+}
+
+.navbar-inverse .navbar-header a {
+  color: #1fdb6d;
+}
+
+.navbar-inverse .navbar-header a:hover {
+  color: #00fa68;
+}
+
+.navbar-inverse .navbar-nav li a {
+  color: #FFFFFF;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+  color: #1fdb6d;
+}
+
+#search-box {
+  background-color: #f2f2f2;
+  border-color: #e6e6e6;
+}
+
+#search-box:focus{
+  background-color: white;
+  border-color: white;
+  box-shadow: none;
+}
+
+#search-btn {
+  background-color: #f2f2f2;
+  border-color: #e6e6e6;
+}
+
+/*------ Games#Index ------*/
+
+.index-game-div {
+  height: 250px;
+}
+
+.index-cover-image-div {
+  border-radius: 6px;
+  display: flex;
+  height: 150px;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 109px;
+}
+
+.index-cover-image {
+  border-radius: 6px;
+}
+
+.index-game-div h4 {
+  margin-bottom: 5px;
+}
+
+.index-game-div h4 a {
+  color: inherit;
+}
+
+.index-game-div p {
+  font-size: 13px;
+}
+
+.index-filters .btn.disabled {
+  opacity: 1;
+}
+
+.btn-xbox {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.btn-playstation {
+  color: #fff;
+  background-color: #0079D0;
+  border-color: #0068b3;
+}
+
+.search-apology {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/*------ Games#Show ------*/
+
+.show-game {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.show-cover-image {
+  border-radius: 10px;
+}
+
+/*------* Footer *------*/
+
+.footer {
+  background-color: #f5f5f5;
+  bottom: 0;
+  min-height: 50px;
+  position: absolute;
+  width: 100%;
+}
+
+.footer .container p {
+  margin: 15px 0;
+}

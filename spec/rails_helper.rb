@@ -60,5 +60,10 @@ require "valid_attribute"
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
-end
 
+  config.after(:all) do
+    if Rails.env.test? || Rails.env.cucumber?
+      FileUtils.rm_rf(Dir["#{Rails.root}/tmp/uploads"])
+    end
+  end
+end
