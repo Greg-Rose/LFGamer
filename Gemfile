@@ -29,6 +29,8 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'webmock'
+  gem 'vcr'
 end
 
 ruby "2.4.1"
