@@ -1,7 +1,7 @@
 class PropagateDatabase
-  def self.initial_seed
+  def self.initial_seed(release_date = nil)
     seed_initial_consoles
-    seed_initial_games
+    seed_initial_games(release_date)
   end
 
   # Adds a console to the database
@@ -62,14 +62,14 @@ class PropagateDatabase
   end
 
   # Seed database with "top" 40 PS4 games
-  private_class_method def self.seed_initial_games
+  private_class_method def self.seed_initial_games(release_date = nil)
     ps4_id = IGDB::Platform.search("PlayStation 4")[0]["id"]
     multiplayer_id = 2
     # Filter by PS4, multiplayer, release date, main game(not DLC), cover image
     filters = [
       "[release_dates.platform][eq]=#{ps4_id}",
       "[game_modes][eq]=#{multiplayer_id}",
-      "[release_dates.date][lt]=#{Time.now.strftime("%Y-%m-%d")}",
+      "[release_dates.date][lt]=#{release_date || Time.now.strftime("%Y-%m-%d")}",
       "[category][eq]=0",
       "[cover][exists]"
     ]
