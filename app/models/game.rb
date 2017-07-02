@@ -14,4 +14,16 @@ class Game < ApplicationRecord
   def self.search(search)
     where("lower(games . name) LIKE ?", "%#{search.downcase}%")
   end
+
+  def self.browse(search = nil, filter = nil)
+    if search && filter
+      search(search).includes(:consoles).where(consoles: { id: filter })
+    elsif search
+      search(search).includes(:consoles)
+    elsif filter
+      includes(:consoles).where(consoles: { id: filter })
+    else
+      includes(:consoles)
+    end
+  end
 end
