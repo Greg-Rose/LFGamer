@@ -3,7 +3,7 @@
 module IGDB
   class Base
     @@headers = { 'X-Mashape-Key' => ENV["IGDB_API_KEY"] }
-    @@base_url = "https://igdbcom-internet-game-database-v1.p.mashape.com/"
+    @@base_url = "https://igdbcom-internet-game-database-v1.p.mashape.com"
 
     # Search the IGDB API with specific query
     # Params:

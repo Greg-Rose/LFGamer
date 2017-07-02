@@ -37,7 +37,7 @@ describe PropagateDatabase do
     it "seeds database with initial consoles and games" do
       # normally seeds 40 games, test only seeds 2 for speed
       VCR.use_cassette("propagate_database/seed_initial_games") do
-        PropagateDatabase.initial_seed
+        PropagateDatabase.initial_seed("2017-07-02")
         consoles = Console.all
         games = Game.all
 
