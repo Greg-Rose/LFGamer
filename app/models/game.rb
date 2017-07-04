@@ -17,11 +17,11 @@ class Game < ApplicationRecord
 
   def self.browse(search = nil, filter = nil)
     if search && filter
-      search(search).includes(:consoles).where(consoles: { id: filter })
+      search(search).joins(:consoles).where(consoles: { id: filter }).preload(:consoles)
     elsif search
       search(search).includes(:consoles)
     elsif filter
-      includes(:consoles).where(consoles: { id: filter })
+      joins(:consoles).where(consoles: { id: filter }).preload(:consoles)
     else
       includes(:consoles)
     end
