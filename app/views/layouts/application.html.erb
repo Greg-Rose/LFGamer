@@ -40,9 +40,11 @@
               </div>
             <% end %>
             <ul class="nav navbar-nav navbar-right">
-              <li>
-                <%= link_to "Sign Up", new_user_registration_path if !user_signed_in? %>
-              </li>
+              <% if user_signed_in? %>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -50,7 +52,7 @@
     </header>
 
     <% if flash[:notice] %>
-      <div class="alert alert-success alert-dismissible" role="alert">
+      <div class="alert alert-info alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <%= flash[:notice] %>
       </div>
