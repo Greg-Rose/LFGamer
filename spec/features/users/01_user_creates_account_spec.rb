@@ -49,7 +49,7 @@ feature 'user creates account' do
     fill_in 'Password Confirmation', with: 'iamtheship'
     click_button 'Sign Up'
 
-    expect(page).to have_content 'Sorry, that username\'s already taken.'
+    expect(page).to have_content 'Username has already been taken'
     expect(page).to_not have_content 'Sign Out'
   end
 
@@ -63,7 +63,7 @@ feature 'user creates account' do
     fill_in 'Password Confirmation', with: 'cookies'
     click_button 'Sign Up'
 
-    expect(page).to have_content 'Password doesn\'t match'
+    expect(page).to have_content 'Password confirmation doesn\'t match'
     expect(page).to_not have_content 'Sign Out'
   end
 end
