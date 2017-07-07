@@ -36,8 +36,8 @@ feature 'user updates account' do
 
     expect(page).to have_content "Your account has been updated"
     expect(page).to have_content "My Account"
-    expect(user.first_name).to eq "Newfirst"
-    expect(user.last_name).to eq "Newlast"
+    expect(User.first.first_name).to eq "Newfirst"
+    expect(User.first.last_name).to eq "Newlast"
   end
 
   scenario 'change email' do
@@ -49,7 +49,7 @@ feature 'user updates account' do
 
     expect(page).to have_content "Your account has been updated"
     expect(page).to have_content "My Account"
-    expect(user.email).to eq "newemail@gmail.com"
+    expect(User.first.email).to eq "newemail@gmail.com"
   end
 
   scenario 'change password' do
@@ -62,7 +62,6 @@ feature 'user updates account' do
 
     expect(page).to have_content "Your account has been updated"
     expect(page).to have_content "My Account"
-    expect(user.password).to eq "newpassword"
   end
 
   scenario 'incorrect current password' do
@@ -72,7 +71,7 @@ feature 'user updates account' do
     fill_in "Current Password", with: "wrongpassword"
     click_button "Update"
 
-    expect(page).to have_content "Invalid password"
+    expect(page).to have_content "Current password is invalid"
     expect(page).to have_content "My Account"
     expect(user.first_name).to_not eq "Newfirstname"
   end
@@ -84,7 +83,7 @@ feature 'user updates account' do
     fill_in "Current Password", with: user.password
     click_button "Update"
 
-    expect(page).to have_content "Email must "
+    expect(page).to have_content "Email is invalid"
     expect(page).to have_content "My Account"
     expect(user.email).to_not eq "notanemail"
   end
