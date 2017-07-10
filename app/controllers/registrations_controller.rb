@@ -1,4 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
+  prepend_before_action :authenticate_scope!, only: [:edit, :update, :delete, :destroy]
+
+  def delete
+    render :delete
+  end
 
   protected
 
