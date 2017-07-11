@@ -83,6 +83,33 @@ body {
   border-color: #e6e6e6;
 }
 
+.navbar-nav .user-nav-dropdown.open a:focus, .navbar-nav .user-nav-dropdown.open a {
+  background-color: inherit;
+  color: #1fdb6d;
+}
+
+// .user-nav-dropdown .dropdown-menu {
+//   background-color: #324956;
+// }
+
+.user-nav-dropdown.open .dropdown-menu li a {
+  color: inherit;
+}
+
+.user-nav-dropdown.open .dropdown-menu li a:hover {
+  color: #1fdb6d;
+}
+
+@media (max-width: 767px) {
+  .navbar-inverse .navbar-nav .user-nav-dropdown.open .dropdown-menu>li>a {
+    color: #FFFFFF;
+  }
+
+  .navbar-inverse .navbar-nav .user-nav-dropdown.open .dropdown-menu>li>a:hover {
+    color: #1fdb6d;
+  }
+}
+
 /*------ Games#Index ------*/
 
 .index-game-div {
