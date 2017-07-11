@@ -23,4 +23,28 @@ class User < ApplicationRecord
       where(conditions.to_hash).first
     end
   end
+
+  # instead of deleting, indicate the user requested a delete & timestamp it
+  def soft_delete_with_password(params)
+    current_password = params.delete(:current_password)
+    result = if valid_password?(current_password)
+      update_attribute(:deleted_at, Time.current)
+    else
+      self.valid?
+      self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
+      false
+    end
+
+    result
+  end
+
+  # ensure user account is active
+  def active_for_authentication?
+    super && !deleted_at
+  end
+
+  # provide a custom message for a deleted account
+  def inactive_message
+    !deleted_at ? super : :deleted_account
+  end
 end
