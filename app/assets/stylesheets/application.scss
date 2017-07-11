@@ -148,50 +148,22 @@ body {
   border-radius: 10px;
 }
 
-/*------ Devise/Registrations#New ------*/
+/*------ Devise ------*/
 
-.sign-up {
+.devise-forms {
   margin-bottom: 35px;
 }
 
-.sign-up h2 {
+.devise-forms h2 {
   margin-bottom: 22px;
 }
 
-/*------ Devise/Registrations#Edit ------*/
-
-.update-account {
-  margin-bottom: 35px;
-}
-
-.update-account h2 {
+.devise-forms h3 {
   margin-bottom: 22px;
 }
 
-.update-account p {
+.devise-forms p {
   margin-bottom: 0;
-}
-
-/*------ Devise/Registrations#Delete ------*/
-
-.delete-account h3 {
-  margin-bottom: 22px;
-}
-
-/*------ Devise/Passwords#New/Edit ------*/
-
-.forgot-pw {
-  margin-bottom: 35px;
-}
-
-.forgot-pw h2 {
-  margin-bottom: 22px;
-}
-
-/*------ Devise/Sessions#New ------*/
-
-.sign-in h2 {
-  margin-bottom: 22px;
 }
 
 /*------* Footer *------*/
