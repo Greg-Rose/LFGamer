@@ -44,6 +44,7 @@ feature 'user deletes account' do
     expect(page).to have_content "Current password can't be blank"
     expect(page).to have_content "Delete My Account"
     expect(page).to have_button "Delete Account"
+    expect(User.first.deleted_at).to be nil
   end
 
   scenario 'incorrect current password given' do
@@ -56,5 +57,6 @@ feature 'user deletes account' do
     expect(page).to have_content "Current password is invalid"
     expect(page).to have_content "Delete My Account"
     expect(page).to have_button "Delete Account"
+    expect(User.first.deleted_at).to be nil
   end
 end
