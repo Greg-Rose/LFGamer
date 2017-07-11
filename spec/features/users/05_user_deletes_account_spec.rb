@@ -32,7 +32,7 @@ feature 'user deletes account' do
     click_button "Delete Account"
 
     expect(User.count).to be 1
-    expect(User.first.delete_at).to_not be nil
+    expect(User.first.deleted_at).to_not be nil
   end
 
   scenario 'current password not submitted' do
@@ -41,8 +41,9 @@ feature 'user deletes account' do
     click_link "Delete My Account"
     click_button "Delete Account"
 
-    expect(page).to have_content "Password invalid"
-    expect(page).to have_current_path delete_user_registration_path
+    expect(page).to have_content "Current password can't be blank"
+    expect(page).to have_content "Delete My Account"
+    expect(page).to have_button "Delete Account"
   end
 
   scenario 'incorrect current password given' do
@@ -52,7 +53,8 @@ feature 'user deletes account' do
     fill_in "Current Password", with: "wrongpasswrd"
     click_button "Delete Account"
 
-    expect(page).to have_content "Password invalid"
-    expect(page).to have_current_path delete_user_registration_path
+    expect(page).to have_content "Current password is invalid"
+    expect(page).to have_content "Delete My Account"
+    expect(page).to have_button "Delete Account"
   end
 end
