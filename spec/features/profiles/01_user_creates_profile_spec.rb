@@ -20,7 +20,7 @@ feature 'user creates profile' do
   scenario 'blank profile created with account creation' do
     profile = User.first.profile
 
-    expect(profile).to exist
+    expect(profile).to_not be nil
     expect(profile.psn_id).to be nil
     expect(profile.xbox_gamertag).to be nil
     expect(profile.about_me).to be nil
