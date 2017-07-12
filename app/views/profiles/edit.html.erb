@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+    <h2 class="col-md-12">Profile</h2>
+
+    <%= form_for(@profile) do |f| %>
+      <div class="form-group col-md-12">
+        <%= f.label :psn_id, "PSN ID" %>
+        <%= f.text_field :psn_id, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group col-md-12">
+        <%= f.label :xbox_gamertag, "Xbox Gamertag" %>
+        <%= f.text_field :xbox_gamertag, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group col-md-12">
+        <%= f.label :about_me, "About Me" %>
+        <%= f.text_area :about_me, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group col-md-12">
+        <%= f.label :zipcode, "Location" %>
+        <%= f.text_field :zipcode, autofocus: true, placeholder: "Zipcode", class: "form-control" %>
+      </div>
+
+      <div class="form-group col-md-12">
+        <p>Make my PSN ID public:</p>
+
+        <%= f.label :psn_id_public_true, class: "radio-inline" do %>
+          <%= f.radio_button :psn_id_public, true %> Yes
+        <% end %>
+        <%= f.label :psn_id_public_false, class: "radio-inline" do %>
+          <%= f.radio_button :psn_id_public, false %> No
+        <% end %>
+      </div>
+
+      <div class="form-group col-md-12">
+        <p>Make my Xbox Gamertag public:</p>
+
+        <%= f.label :xbox_gamertag_public_true, class: "radio-inline" do %>
+          <%= f.radio_button :xbox_gamertag_public, true %> Yes
+        <% end %>
+        <%= f.label :xbox_gamertag_public_false, class: "radio-inline" do %>
+          <%= f.radio_button :xbox_gamertag_public, false %> No
+        <% end %>
+      </div>
+
+      <div class="form-group col-md-12">
+        <%= f.submit "Edit Profile", class: "btn btn-success btn-lg btn-block" %>
+      </div>
+    <% end %>
+  </div>
+</div>
