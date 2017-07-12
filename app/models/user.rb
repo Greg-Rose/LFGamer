@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_one :profile
+  
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login
 
