@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170705203838) do
+ActiveRecord::Schema.define(version: 20170712163837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 20170705203838) do
     t.datetime "updated_at", null: false
     t.index ["console_id"], name: "index_games_consoles_on_console_id"
     t.index ["game_id"], name: "index_games_consoles_on_game_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "about_me"
+    t.string "psn_id"
+    t.string "xbox_gamertag"
+    t.string "zipcode", limit: 5
+    t.boolean "psn_id_public", default: false
+    t.boolean "xbox_gamertag_public", default: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
