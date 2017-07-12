@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_one :profile
-  
+  before_create :build_profile
+
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login
 
