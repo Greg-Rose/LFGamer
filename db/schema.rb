@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170712163837) do
     t.string "zipcode", limit: 5
     t.boolean "psn_id_public", default: false
     t.boolean "xbox_gamertag_public", default: false
+    t.boolean "active", default: true
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
