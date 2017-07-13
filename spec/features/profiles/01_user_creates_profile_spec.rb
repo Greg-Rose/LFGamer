@@ -38,7 +38,7 @@ feature 'user creates profile' do
     click_button 'Sign Up'
 
     expect(page).to have_current_path edit_profile_path
-    expect(page).to have_content "Profile"
+    expect(page).to have_content "Create Profile"
     expect(page).to have_field "About Me"
   end
 
@@ -70,7 +70,7 @@ feature 'user creates profile' do
     click_button "Create Profile"
 
     expect(page).to have_content "Zipcode must be 5 digits"
-    expect(page).to have_content "Profile"
+    expect(page).to have_content "Create Profile"
     expect(page).to have_field "About Me"
   end
 end
