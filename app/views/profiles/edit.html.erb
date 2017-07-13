@@ -10,6 +10,8 @@
     </h2>
 
     <%= form_for(@profile) do |f| %>
+      <%= form_error_messages!(@profile) %>
+      
       <div class="form-group col-md-12">
         <%= f.label :psn_id, "PSN ID" %>
         <%= f.text_field :psn_id, autofocus: true, class: "form-control" %>
