@@ -53,12 +53,12 @@ feature 'user creates profile' do
     choose "profile_xbox_gamertag_public_false"
     click_button "Create Profile"
 
-    expect(page).to have_content "Your Profile Has Been Created!"
+    expect(page).to have_content "Your profile has been created!"
     profile = User.first.profile
     expect(profile.psn_id).to eq "coolname"
     expect(profile.xbox_gamertag).to eq "CoolName"
     expect(profile.about_me).to eq "I like playing games, etc. etc."
-    expect(profile.zipcode).to eq 11111
+    expect(profile.zipcode).to eq "11111"
     expect(profile.psn_id_public).to be true
     expect(profile.xbox_gamertag_public).to be false
   end
