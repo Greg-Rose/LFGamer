@@ -9,6 +9,8 @@ class CreateProfiles < ActiveRecord::Migration[5.1]
       t.boolean :psn_id_public, default: false
       t.boolean :xbox_gamertag_public, default: false
       t.boolean :active, default: true
+
+      t.timestamps
     end
   end
 end
