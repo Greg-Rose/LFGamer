@@ -46,7 +46,7 @@ feature 'user creates profile' do
     sign_in user
     visit edit_profile_path
     fill_in "PSN ID", with: "coolname"
-    fill_in "Xbox Live Gamertag", with: "CoolName"
+    fill_in "Xbox Gamertag", with: "CoolName"
     fill_in "About Me", with: "I like playing games, etc. etc."
     fill_in "Location", with: 11111
     choose "profile_psn_id_public_true"
