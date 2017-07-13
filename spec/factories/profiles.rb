@@ -7,5 +7,7 @@ FactoryGirl.define do
     psn_id_public true
     xbox_gamertag_public true
     active true
+
+    user
   end
 end

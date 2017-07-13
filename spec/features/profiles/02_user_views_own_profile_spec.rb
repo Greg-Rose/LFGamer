@@ -11,9 +11,7 @@ feature 'user views own profile' do
   #   - I can see my username
   #   - I can optionally see my about me description, psn id, xbox gamertag and zipcode
 
-  let!(:user) do
-    create(:user, profile: build(:profile))
-  end
+  let!(:user) { create(:profile).user }
 
   scenario 'accessible from link in navbar' do
     sign_in user
@@ -27,7 +25,9 @@ feature 'user views own profile' do
     sign_in user
     visit profile_path
 
-    expect(page).to have_content user.username
+    within ('#main-div') do
+      expect(page).to have_content user.username
+    end
   end
 
   scenario 'shows about me description' do
