@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
       else
         flash[:notice] = "Your profile has been updated!"
       end
-      redirect_to games_path
+      redirect_to profile_path
     else
       render :edit
     end
