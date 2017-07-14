@@ -7,6 +7,11 @@ FactoryGirl.define do
     psn_id_public true
     xbox_gamertag_public true
     active true
+    
+    after(:create) do |profile|
+      profile.updated_at += 1
+      profile.save
+    end
 
     user
   end
