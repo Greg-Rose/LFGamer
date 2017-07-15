@@ -18,12 +18,12 @@ feature 'user views own profile' do
     visit games_path
     click_link "My Profile"
 
-    expect(page).to have_current_path profile_path
+    expect(page).to have_current_path profile_path(user.profile)
   end
 
   scenario 'shows username' do
     sign_in user
-    visit profile_path
+    visit profile_path(user.profile)
 
     within ('#main-div') do
       expect(page).to have_content user.username
@@ -32,21 +32,21 @@ feature 'user views own profile' do
 
   scenario 'shows about me description' do
     sign_in user
-    visit profile_path
+    visit profile_path(user.profile)
 
     expect(page).to have_content user.profile.about_me
   end
 
   scenario 'shows PSN ID' do
     sign_in user
-    visit profile_path
+    visit profile_path(user.profile)
 
     expect(page).to have_content user.profile.psn_id
   end
 
   scenario 'shows Xbox Gamertag' do
     sign_in user
-    visit profile_path
+    visit profile_path(user.profile)
 
     expect(page).to have_content user.profile.xbox_gamertag
   end

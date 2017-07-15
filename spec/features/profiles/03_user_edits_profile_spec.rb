@@ -20,7 +20,7 @@ feature 'user edits profile' do
 
   scenario 'access edit page via link on profile page' do
     sign_in user
-    visit profile_path
+    visit profile_path(user.profile)
     click_link "Edit Profile"
 
     expect(page).to have_current_path edit_profile_path
@@ -37,7 +37,7 @@ feature 'user edits profile' do
     choose "profile_xbox_gamertag_public_false"
     click_button "Edit Profile"
 
-    expect(page).to have_current_path profile_path
+    expect(page).to have_current_path profile_path(user.profile)
     expect(page).to have_content "NewPSN"
     expect(page).to have_content "new description"
     expect(page).to have_content "77777"

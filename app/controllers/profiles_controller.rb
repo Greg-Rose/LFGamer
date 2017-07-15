@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update]
 
   def show
-    @profile = current_user.profile
+    @profile = Profile.find(params[:id])
   end
 
   def edit
@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
       else
         flash[:notice] = "Your profile has been updated!"
       end
-      redirect_to profile_path
+      redirect_to @profile
     else
       render :edit
     end
