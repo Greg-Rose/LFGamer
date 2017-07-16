@@ -39,13 +39,46 @@
                 </div>
               </div>
             <% end %>
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li class="dropdown user-nav-dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <%= current_user.username %> <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-left">
+                    <li><%= link_to "My Profile", profile_path(current_user.profile) %></li>
+                    <li><%= link_to "My Account", edit_user_registration_path %></li>
+                  </ul>
+                </li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                <li><%= link_to "Sign In", new_user_session_path %></li>
+              <% end %>
+            </ul>
           </div>
         </div>
       </nav>
     </header>
-    <div class="container">
+
+    <% if flash[:notice] %>
+      <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <div class="container" id="main-div">
       <%= yield %>
     </div>
+
     <footer class="footer">
       <div class="container">
         <p class="text-muted text-center">Our game information was freely provided by IGDB.com</p>

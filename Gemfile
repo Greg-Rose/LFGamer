@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'httparty'
+gem 'devise'
+gem 'sendgrid-ruby'
 
 group :development do
   gem 'listen', '~> 3.0.5'
