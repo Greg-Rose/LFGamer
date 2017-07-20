@@ -4,6 +4,6 @@ class GamesConsole < ApplicationRecord
   has_many :ownerships
 
   def console_name
-    self.console.name
+    console.abbreviation || console.name
   end
 end

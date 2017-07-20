@@ -21,7 +21,7 @@ feature 'user removes games from "My Games" that they no longer own' do
     sign_in user
     visit game_path(game)
 
-    expect(page).to have_checked_field("user_games_console_ids_#{game.games_consoles.first.id}")
+    expect(page).to have_checked_field(game.consoles.first.abbreviation || game.consoles.first.name)
   end
 
   scenario 'remove game ownership' do

@@ -23,8 +23,8 @@ feature 'user adds games they own to "My Games"' do
     visit game_path(game)
 
     expect(game.consoles.count).to be 3
-    game.games_consoles.each do |games_console|
-      expect(page).to have_unchecked_field("user_games_console_ids_#{games_console.id}")
+    game.consoles.each do |console|
+      expect(page).to have_unchecked_field(console.abbreviation || console.name)
     end
   end
 
