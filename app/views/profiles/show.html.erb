@@ -38,7 +38,7 @@
     </div>
   </div>
 
-  <div class="col-lg-6 col-lg-offset-3 owned-consoles">
+  <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 owned-consoles">
     <div class="well text-center">
       <h4><%= "My" if @user == current_user %> Consoles</h4>
 
@@ -57,7 +57,7 @@
     </div>
   </div>
 
-  <div class="col-lg-10 col-lg-offset-1 owned-games">
+  <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 owned-games">
     <div class="well">
       <h3 class="text-center"><%= "My" if @user == current_user %> Games</h3>
 
@@ -80,9 +80,9 @@
         </div>
       <% else %>
         <% if @user == current_user %>
-          <p>You haven't added any games yet.</p>
+          <p class="text-center">You haven't added any games yet.</p>
         <% else %>
-          <p><%= @user.username %> hasn't added any games yet.</p>
+          <p class="text-center"><%= @user.username %> hasn't added any games yet.</p>
         <% end %>
       <% end %>
     </div>
