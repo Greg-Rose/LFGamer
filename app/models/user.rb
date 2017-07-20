@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :games_consoles, through: :ownerships
   has_many :games, -> { distinct }, through: :games_consoles
   has_many :consoles, -> { distinct }, through: :games_consoles
-  
+
   before_create :build_profile
 
   validates :first_name, presence: true
@@ -53,5 +53,9 @@ class User < ApplicationRecord
   # provide a custom message for a deleted account
   def inactive_message
     !deleted_at ? super : :deleted_account
+  end
+
+  def has_game?(game)
+    games.include?(game)
   end
 end
