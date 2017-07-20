@@ -37,8 +37,8 @@ feature 'user adds games they own to "My Games"' do
     expect(page).to have_current_path game_path(game)
     expect(page).to have_content "Your Games Have Been Updated!"
     expect(user.ownerships.count).to be 1
-    expect(user.games.first).to be game
-    expect(user.consoles.first).to be game.games_consoles.all[1].console
+    expect(user.games.first).to eq game
+    expect(user.consoles.first).to eq game.games_consoles.all[1].console
   end
 
   scenario 'add game ownership for multiple consoles' do
@@ -54,7 +54,7 @@ feature 'user adds games they own to "My Games"' do
     expect(user.ownerships.count).to be 3
     expect(user.games.count).to be 1
     expect(user.consoles.count).to be 3
-    expect(user.games.first).to be game
+    expect(user.games.first).to eq game
     game.consoles.each do |console|
       expect(user.consoles.all.include?(console)).to be true
     end
