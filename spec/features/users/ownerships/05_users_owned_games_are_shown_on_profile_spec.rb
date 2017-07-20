@@ -15,11 +15,15 @@ feature 'users owned games are shown on users profile' do
 
   let!(:users) { create_list(:user, 3) }
   let!(:games) { create_list(:game, 3) }
+  let!(:console) { create(:console) }
   let!(:ownerships) do
     users[0].games_consoles << games[0].games_consoles.first
     users[0].games_consoles << games[1].games_consoles.first
+    games[1].consoles << console
     games.each do |game|
-      users[1].games_consoles << game.games_consoles.first
+      game.games_consoles.each do |games_console|
+        users[1].games_consoles << games_console
+      end
     end
   end
 

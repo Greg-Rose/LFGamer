@@ -61,7 +61,7 @@
     <div class="well">
       <h3 class="text-center"><%= "My" if @user == current_user %> Games</h3>
 
-      <% if @user.consoles.present? %>
+      <% if @user.games.present? %>
         <div class="row">
           <% @user.games.each do |game| %>
             <div class="col-sm-6 col-md-4 col-lg-3 index-game-div" id="owned-game-<%= game.id %>">
