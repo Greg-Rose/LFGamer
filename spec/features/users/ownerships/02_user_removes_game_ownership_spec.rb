@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'user removes games from "My Games" that they no longer own' do
   # As an authenticated user
-  # I want remove games I no longer own
+  # I want to remove games I no longer own
   # So that they no longer are shown in My Games on my profile
   #
   # Acceptance Criteria:

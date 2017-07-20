@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'user adds games they own to "My Games"' do
   # As an authenticated user
-  # I want select games I own
+  # I want to select games I own
   # So that they are added to My Games on my profile
   #
   # Acceptance Criteria:
