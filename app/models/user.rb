@@ -1,9 +1,19 @@
 class User < ApplicationRecord
-  has_one :profile
-  before_create :build_profile
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login
+
+  has_one :profile
+  has_many :ownerships
+  has_many :games_consoles, through: :ownerships
+  has_many :games, -> { distinct }, through: :games_consoles
+  has_many :consoles, -> { distinct }, through: :games_consoles
+  
+  before_create :build_profile
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -11,12 +21,6 @@ class User < ApplicationRecord
   validates :username, uniqueness: { case_sensitive: false }
   validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/, message: "must only contain letters and numbers" }
   validates :admin, inclusion: { in: [true, false] }
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
