@@ -26,7 +26,7 @@
           <h4>Add To My Games</h4>
         <% end %>
 
-        <%= form_tag("/ownerships", method: "post") do %>
+        <%= form_tag(ownerships_path, method: "post") do %>
           <%= hidden_field(:game, :id) %>
           <div class="form-group">
             <%= collection_check_boxes(:user, :games_console_ids, @game.games_consoles.reorder(:console_id), :id, :console_name) do |c| %>
