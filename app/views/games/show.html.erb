@@ -6,9 +6,9 @@
     <h2 class="text-center"><%= @game.name %></h2>
     <br>
     <p class="text-center">
-      <% @game.consoles.each do |c| %>
+      <% @game.consoles.reorder(:id).each do |c| %>
         <%= c.name %>
-        <%= "/" if @game.consoles.last != c %>
+        <%= "/" if @game.consoles.reorder(:id).last != c %>
       <% end %>
     </p>
     <p class="text-center">
@@ -17,4 +17,31 @@
       <%= "Split Screen" if @game.split_screen %>
     </p>
   </div>
+  <% if current_user %>
+    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 ownerships-form-div">
+      <div class="well text-center">
+        <% if @user.has_game?(@game) %>
+          <h4>Update My Games</h4>
+        <% else %>
+          <h4>Add To My Games</h4>
+        <% end %>
+
+        <%= form_tag(ownerships_path, method: "post") do %>
+          <%= hidden_field(:game, :id) %>
+          <div class="form-group">
+            <%= collection_check_boxes(:user, :games_console_ids, @game.games_consoles.reorder(:console_id), :id, :console_name) do |c| %>
+              <%= c.label(class: "checkbox-inline") { c.check_box + c.text } %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <% if @user.has_game?(@game) %>
+              <%= submit_tag "Update My Games", class: "btn btn-success" %>
+            <% else %>
+              <%= submit_tag "Add To My Games", class: "btn btn-success" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

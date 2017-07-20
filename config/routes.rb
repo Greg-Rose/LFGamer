@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :games, only: [:index, :show]
   resources :profiles, only: [:show]
   resource :profile, only: [:edit, :update]
+  resource :ownerships, only: [:create]
 
   root 'games#index'
 end

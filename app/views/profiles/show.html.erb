@@ -37,4 +37,54 @@
       <% end %>
     </div>
   </div>
+
+  <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 owned-consoles">
+    <div class="well text-center">
+      <h4><%= "My" if @user == current_user %> Consoles</h4>
+
+      <% if @user.consoles.present? %>
+        <% @user.consoles.each do |console| %>
+          <%= console.name %>
+          <%= "|" if @user.consoles.last != console %>
+        <% end %>
+      <% else %>
+        <% if @user == current_user %>
+          <p>You haven't added any consoles yet.</p>
+        <% else %>
+          <p><%= @user.username %> hasn't added any consoles yet.</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 owned-games">
+    <div class="well">
+      <h3 class="text-center"><%= "My" if @user == current_user %> Games</h3>
+
+      <% if @user.games.present? %>
+        <div class="row">
+          <% @user.games.each do |game| %>
+            <div class="col-sm-6 col-md-4 col-lg-3 index-game-div" id="owned-game-<%= game.id %>">
+              <div class="index-cover-image-div">
+                <%= image_tag(game.cover_image.url, height: "150", class: "index-cover-image") %>
+              </div>
+              <h4 class="text-center"><%= link_to game.name, game_path(game) %></h4>
+              <p class="text-center">
+                <% game.ownerships.where(user: @user).sort { |a, b| a.console_id <=> b.console_id }.each do |ownership| %>
+                  <%= ownership.console.abbreviation || ownership.console.name %>
+                  <%= "/" if game.ownerships.where(user: @user).sort { |a, b| a.console_id <=> b.console_id }.last != ownership %>
+                <% end %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <% if @user == current_user %>
+          <p class="text-center">You haven't added any games yet.</p>
+        <% else %>
+          <p class="text-center"><%= @user.username %> hasn't added any games yet.</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
