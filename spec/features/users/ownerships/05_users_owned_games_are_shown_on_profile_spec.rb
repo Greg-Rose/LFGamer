@@ -67,7 +67,7 @@ feature 'users owned games are shown on users profile' do
     within("div.owned-games") do
       expect(page).to have_content "Games"
       expect(page).to_not have_content "My Games"
-      expect(page).to have_content "#(users[2].username) hasn't added any games yet."
+      expect(page).to have_content "#{users[2].username} hasn't added any games yet."
     end
   end
 

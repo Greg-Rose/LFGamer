@@ -54,7 +54,7 @@ feature 'users owned consoles are shown on users profile' do
     within("div.owned-consoles") do
       expect(page).to have_content "Consoles"
       expect(page).to_not have_content "My Consoles"
-      expect(page).to have_content "#(users[2].username) hasn't added any consoles yet."
+      expect(page).to have_content "#{users[2].username} hasn't added any consoles yet."
     end
   end
 
