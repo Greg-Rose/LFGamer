@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show]
   resource :profile, only: [:edit, :update]
   resource :ownerships, only: [:create]
+  resources :lfgs, only: [:create]
 
   root 'games#index'
 end

@@ -8,4 +8,8 @@ class Ownership < ApplicationRecord
   def console_id
     console.id
   end
+
+  def console_name
+    console.name
+  end
 end
