@@ -9,5 +9,6 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @user = current_user if current_user
+    @lfg = @game.lfgs.find_by(user: @user) || LFG.new
   end
 end
