@@ -89,14 +89,24 @@
 
             <table class="table table-striped table-bordered">
               <tr>
+                <th>When?</th>
                 <th>LFG Username</th>
                 <th>Console</th>
-                <th>Console Username</th>
+                <th>
+                  <% if @lfg.console.name.include?("PlayStation") %>
+                    PSN ID
+                  <% elsif @lfg.console.name.include?("Xbox") %>
+                    Xbox Gamertag
+                  <% else %>
+                    Console Username
+                  <% end %>
+                </th>
                 <th>Specifics</th>
               </tr>
               <% @game.lfgs.each do |lfg| %>
                 <% if lfg.console == @lfg.console %>
                   <tr>
+                    <td><%= time_ago_in_words(lfg.created_at) %> ago</td>
                     <td><%= link_to lfg.user.username, profile_path(lfg.user.profile) %></td>
                     <td><%= lfg.console.abbreviation || lfg.console.name %></td>
                     <td><%= show_console_username_if_chosen(lfg) %></td>
