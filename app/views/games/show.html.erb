@@ -50,7 +50,9 @@
           <div class="panel-body">
             <h4 class="text-center">Create LFG</h4>
 
-            <%= form_for @lfg do |f| %>
+            <%= form_for @lfg, url: lfgs_path do |f| %>
+              <%= form_error_messages!(@lfg) %>
+              <%= hidden_field(:game, :id) %>
               <div class="form-group col-sm-4">
                 <%= f.label :ownership_id, "Console" %>
                 <%= f.collection_select(:ownership_id, @game.ownerships.where(user: @user), :id, :console_name, {}, {class: "form-control"}) %>
