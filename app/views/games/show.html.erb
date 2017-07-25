@@ -46,22 +46,35 @@
 
     <% if current_user.has_game?(@game) %>
       <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 lfg-form">
-        <div class="well text-center">
-          <h4>Create LFG</h4>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4 class="text-center">Create LFG</h4>
 
-          <%= form_for(@lfg) do |f| %>
-            <div class="form-group">
-              <%= f.collection_select(:ownership_id, @game.ownerships.where(user: @user), :id, :console_name) %>
-            </div>
+            <%= form_for @lfg do |f| %>
+              <div class="form-group col-sm-4">
+                <%= f.label :ownership_id, "Console" %>
+                <%= f.collection_select(:ownership_id, @game.ownerships.where(user: @user), :id, :console_name, {}, {class: "form-control"}) %>
+              </div>
 
-            <div class="form-group">
-              <%= f.text_field :specifics, class: "form-control" %>
-            </div>
+              <div class="form-group col-sm-6 col-sm-offset-2">
+                <h5>Show PSN ID/Xbox Gamertag?</h5>
+                <div class="checkbox">
+                  <%= f.label(:show_console_username) do %>
+                    <%= f.check_box(:show_console_username) %> Yes
+                  <% end %>
+                </div>
+              </div>
 
-            <div class="form-group">
-              <%= f.submit "Look For Group", class: "btn btn-success" %>
-            </div>
-          <% end %>
+              <div class="form-group col-sm-12">
+                <%= f.label :specifics %>
+                <%= f.text_field :specifics, placeholder: "Details about what you want to play, how many people are needed, etc.", class: "form-control" %>
+              </div>
+
+              <div class="form-groupc col-sm-6 col-sm-offset-3 text-center">
+                <%= f.submit "Look For Group", class: "btn btn-success btn-block" %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>

@@ -40,7 +40,7 @@ feature 'user creates LFG for game they own' do
     visit game_path(game)
     select(users[0].consoles.last.name, from: "Console")
     fill_in "Specifics", with: "need 3 people for..."
-    check "Show PSN ID/Xbox Gamertag"
+    check "lfg_show_console_username"
     click_button "Look For Group"
 
     expect(page).to have_content "You Are Now LFG!"
