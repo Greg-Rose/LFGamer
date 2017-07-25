@@ -95,12 +95,14 @@
                 <th>Specifics</th>
               </tr>
               <% @game.lfgs.each do |lfg| %>
-                <tr>
-                  <td><%= link_to lfg.user.username, profile_path(lfg.user.profile) %></td>
-                  <td><%= lfg.console.abbreviation || lfg.console.name %></td>
-                  <td><%= show_console_username_if_chosen(lfg) %></td>
-                  <td><%= lfg.specifics %></td>
-                </tr>
+                <% if lfg.console == @lfg.console %>
+                  <tr>
+                    <td><%= link_to lfg.user.username, profile_path(lfg.user.profile) %></td>
+                    <td><%= lfg.console.abbreviation || lfg.console.name %></td>
+                    <td><%= show_console_username_if_chosen(lfg) %></td>
+                    <td><%= lfg.specifics %></td>
+                  </tr>
+                <% end %>
               <% end %>
             </table>
           </div>

@@ -50,7 +50,7 @@ feature 'user creates LFG for game they own' do
       expect(page).to have_content "need 3 people for..."
       expect(page).to have_content users[0].profile.psn_id
     end
-    expect(LFG.count).to eq 1
+    expect(Lfg.count).to eq 1
     expect(users[0].lfgs.count).to eq 1
   end
 end

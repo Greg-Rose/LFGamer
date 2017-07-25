@@ -20,12 +20,12 @@ feature 'user deletes their LFG for a game' do
     game.consoles << console
     user.games_consoles << game.games_consoles.last
   end
-  let!(:lfgs) do
-    user.lfgs << LFG.create(ownership: users[0].ownerships.first, specifics: "Test 1 2 3", show_console_username: true)
+  let!(:lfg) do
+    Lfg.create(ownership: user.ownerships.first, specifics: "Test 1 2 3", show_console_username: true)
   end
 
   scenario 'successfully delete LFG' do
-    sign_in users[0]
+    sign_in user
     visit game_path(game)
     click_button "Delete LFG"
 
@@ -33,10 +33,10 @@ feature 'user deletes their LFG for a game' do
     within(".game-lfgs-list") do
       expect(page).to_not have_content "PS4"
       expect(page).to_not have_content "Test 1 2 3"
-      expect(page).to_not have_content users[0].profile.psn_id
+      expect(page).to_not have_content user.profile.psn_id
     end
     expect(page).to have_content "Create LFG"
-    expect(LFG.count).to eq 0
-    expect(users[0].lfgs.count).to eq 0
+    expect(Lfg.count).to eq 0
+    expect(user.lfgs.count).to eq 0
   end
 end

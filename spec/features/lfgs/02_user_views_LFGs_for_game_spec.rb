@@ -25,8 +25,8 @@ feature 'user views LFGs for game' do
     end
   end
   let!(:lfgs) do
-    users[0].lfgs << LFG.create(ownership: users[0].ownerships.first, specifics: "Test 1 2 3", show_console_username: true)
-    users[1].lfgs << LFG.create(ownership: users[1].ownerships.first, specifics: "Lets play...", show_console_username: true)
+    Lfg.create(ownership: users[0].ownerships.first, specifics: "Test 1 2 3", show_console_username: true)
+    Lfg.create(ownership: users[1].ownerships.first, specifics: "Lets play...", show_console_username: true)
   end
 
   scenario 'user owns game but doesn\'t have active LFG for it' do
@@ -58,7 +58,7 @@ feature 'user views LFGs for game' do
   scenario 'user doesn\'t see the game\'s LFGs for other consoles' do
     user = create(:user)
     user.games_consoles << game.games_consoles.first
-    user.lfgs << LFG.create(ownership: user.ownerships.first, specifics: "different console")
+    Lfg.create(ownership: user.ownerships.first, specifics: "different console")
 
     sign_in users[0]
     visit game_path(game)
