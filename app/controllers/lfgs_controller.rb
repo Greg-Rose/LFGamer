@@ -1,5 +1,5 @@
 class LfgsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update]
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   def create
     @user = current_user
@@ -30,6 +30,18 @@ class LfgsController < ApplicationController
       redirect_to @game
     else
       render "games/show"
+    end
+  end
+
+  def destroy
+    user = current_user
+    lfg = Lfg.find(params[:id])
+    game = lfg.game
+
+    if lfg.user == user
+      lfg.destroy
+      flash[:notice] = "Your LFG Has Been Removed!"
+      redirect_to game
     end
   end
 

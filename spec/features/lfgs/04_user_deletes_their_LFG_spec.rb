@@ -27,14 +27,10 @@ feature 'user deletes their LFG for a game' do
   scenario 'successfully delete LFG' do
     sign_in user
     visit game_path(game)
-    click_button "Delete LFG"
+    click_link "Remove"
 
-    expect(page).to have_content "Your LFG Has Been Deleted!"
-    within(".game-lfgs-list") do
-      expect(page).to_not have_content "PS4"
-      expect(page).to_not have_content "Test 1 2 3"
-      expect(page).to_not have_content user.profile.psn_id
-    end
+    expect(page).to have_content "Your LFG Has Been Removed!"
+    expect(page).to_not have_css ".game-lfgs-list"
     expect(page).to have_content "Create LFG"
     expect(Lfg.count).to eq 0
     expect(user.lfgs.count).to eq 0
