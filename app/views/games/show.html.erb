@@ -135,7 +135,9 @@
                     </td>
                     <td>
                       <div>
-                        <%= time_ago_in_words(lfg.created_at) %> ago
+                        <time class="timeago" datetime="<%= lfg.created_at.getutc.iso8601 %>" title="<%= lfg.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %b %e %Y %r EST") %>">
+                          <%= time_ago_in_words(lfg.created_at) %> ago
+                        </time>
                       </div>
                     </td>
                     <td><%= button_to "Request", "#", class: "btn btn-primary" %></td>

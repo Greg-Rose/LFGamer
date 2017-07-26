@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
+//= require timeago
 //= require_tree .
+
+$(document).ready(function() {
+  $("time.timeago").timeago();
+});
