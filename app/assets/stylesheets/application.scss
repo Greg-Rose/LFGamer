@@ -188,6 +188,10 @@ body {
   margin-bottom: 20px;
 }
 
+.game-lfgs-list .table>tbody>tr>th, .game-lfgs-list .table>tbody>tr>td {
+  vertical-align: middle;
+}
+
 /*------ Devise ------*/
 
 .devise-forms {

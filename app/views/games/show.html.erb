@@ -89,28 +89,44 @@
 
             <table class="table table-striped table-bordered">
               <tr>
-                <th>When?</th>
-                <th>LFG Username</th>
-                <th>Console</th>
-                <th>
-                  <% if @lfg.console.name.include?("PlayStation") %>
-                    PSN ID
-                  <% elsif @lfg.console.name.include?("Xbox") %>
-                    Xbox Gamertag
-                  <% else %>
-                    Console Username
-                  <% end %>
+                <th class="text-center center-th">
+                  <div>
+                    LFG Username
+                  </div>
+                  <div>
+                    Console -
+                    <% if @lfg.console.name.include?("PlayStation") %>
+                      PSN ID
+                    <% elsif @lfg.console.name.include?("Xbox") %>
+                      Xbox Gamertag
+                    <% end %>
+                  </div>
                 </th>
-                <th>Specifics</th>
+                <th class="text-center center-th">Specifics</th>
+                <th class="text-center center-th">
+                  When
+                </th>
               </tr>
-              <% @game.lfgs.each do |lfg| %>
+              <% @game.lfgs.order(created_at: :desc).each do |lfg| %>
                 <% if lfg.console == @lfg.console %>
-                  <tr>
-                    <td><%= time_ago_in_words(lfg.created_at) %> ago</td>
-                    <td><%= link_to lfg.user.username, profile_path(lfg.user.profile) %></td>
-                    <td><%= lfg.console.abbreviation || lfg.console.name %></td>
-                    <td><%= show_console_username_if_chosen(lfg) %></td>
-                    <td><%= lfg.specifics %></td>
+                  <tr class="text-center">
+                    <td>
+                      <div>
+                        <%= link_to lfg.user.username, profile_path(lfg.user.profile) %>
+                      </div>
+                      <div>
+                        <%= lfg.console.abbreviation || lfg.console.name %> <%= show_console_username_if_chosen(lfg) %>
+                      </div>
+                    <td>
+                      <div>
+                        <%= lfg.specifics %>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <%= time_ago_in_words(lfg.created_at) %> ago
+                      </div>
+                    </td>
                   </tr>
                 <% end %>
               <% end %>
