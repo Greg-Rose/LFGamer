@@ -4,4 +4,6 @@ class Lfg < ApplicationRecord
   has_one :games_console, through: :ownership
   has_one :game, through: :games_console
   has_one :console, through: :games_console
+
+  validates :specifics, length: { maximum: 150 }
 end
