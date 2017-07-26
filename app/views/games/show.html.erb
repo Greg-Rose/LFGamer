@@ -89,7 +89,7 @@
 
             <table class="table table-striped table-bordered">
               <tr>
-                <th class="text-center center-th">
+                <th class="text-center">
                   <div>
                     LFG Username
                   </div>
@@ -102,9 +102,11 @@
                     <% end %>
                   </div>
                 </th>
-                <th class="text-center center-th">Specifics</th>
-                <th class="text-center center-th">
-                  When
+                <th class="text-center">Specifics</th>
+                <th class="text-center">When</th>
+                <th class="text-center">
+                  <div>Request To</div>
+                  <div>Play Together</div>
                 </th>
               </tr>
               <% @game.lfgs.order(created_at: :desc).each do |lfg| %>
@@ -127,6 +129,7 @@
                         <%= time_ago_in_words(lfg.created_at) %> ago
                       </div>
                     </td>
+                    <td><%= button_to "Request", "#", class: "btn btn-primary" %></td>
                   </tr>
                 <% end %>
               <% end %>
