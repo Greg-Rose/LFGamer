@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require timeago
+//= require_tree ./channels
 //= require_tree .
 
 $(document).ready(function() {

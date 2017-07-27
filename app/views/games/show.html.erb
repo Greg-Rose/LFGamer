@@ -96,7 +96,7 @@
           <div class="panel-body">
             <h4 class="text-center">LFGs</h4>
 
-            <table class="table table-striped table-bordered">
+            <table class="table table-striped table-bordered lfgs-table">
               <tr>
                 <th class="text-center">
                   <div>
@@ -120,28 +120,7 @@
               </tr>
               <% @game.lfgs.order(created_at: :desc).each do |lfg| %>
                 <% if lfg.console == @lfg.console %>
-                  <tr class="text-center">
-                    <td>
-                      <div>
-                        <%= link_to lfg.user.username, profile_path(lfg.user.profile) %>
-                      </div>
-                      <div>
-                        <%= lfg.console.abbreviation || lfg.console.name %> <%= show_console_username_if_chosen(lfg) %>
-                      </div>
-                    <td>
-                      <div>
-                        <%= lfg.specifics %>
-                      </div>
-                    </td>
-                    <td>
-                      <div>
-                        <time class="timeago" datetime="<%= lfg.created_at.getutc.iso8601 %>" title="<%= lfg.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %b %e %Y %r EST") %>">
-                          <%= time_ago_in_words(lfg.created_at) %> ago
-                        </time>
-                      </div>
-                    </td>
-                    <td><%= button_to "Request", "#", class: "btn btn-primary" %></td>
-                  </tr>
+                  <%= render partial: "games/lfg", locals: {lfg: lfg} %>
                 <% end %>
               <% end %>
             </table>
