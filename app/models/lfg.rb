@@ -11,11 +11,11 @@ class Lfg < ApplicationRecord
   validates :specifics, length: { maximum: 150 }
 
   def broadcast_save
-    ActionCable.server.broadcast 'lfgs', status: 'saved', id: id, html: render_lfg
+    ActionCable.server.broadcast "lfgs_#{games_console.id}", status: 'saved', id: id, html: render_lfg
   end
 
   def broadcast_delete
-    ActionCable.server.broadcast 'lfgs', status: 'deleted', id: id
+    ActionCable.server.broadcast "lfgs_#{games_console.id}", status: 'deleted', id: id
   end
 
   private

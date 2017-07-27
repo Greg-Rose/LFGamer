@@ -1,9 +1,14 @@
 //= require cable
 //= require_self
 
-(function() {
+$(document).ready(function() {
+    var lfgsGamesConsoleId = $('.lfgs-table').data('lfgs-games-console-id').toString();
+
     // Subscribe to the class name of the channel
-    App.lfgs = App.cable.subscriptions.create('LfgsChannel', {
+    App.lfgs = App.cable.subscriptions.create({
+      channel: 'LfgsChannel',
+      lfgs_games_console_id: lfgsGamesConsoleId
+    }, {
         /**
          * Whenever this channel pushes content, it is received here
          */
@@ -28,4 +33,4 @@
             $("time.timeago").timeago();
         }
     });
-}).call(this);
+});
