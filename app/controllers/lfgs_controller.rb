@@ -25,11 +25,24 @@ class LfgsController < ApplicationController
     game_id = ? LIMIT 1"
     @lfg = (Lfg.find_by_sql [sql, @user, @game]).first
 
-    if @lfg.update_attributes(lfg_params)
-      flash[:notice] = "Your LFG Has Been Updated!"
-      redirect_to @game
+    if @lfg.ownership_id != params[:lfg][:ownership_id].to_i
+      # If console is changed via ownership, delete lfg and create new so that
+      #  ActionCable properly removes LFG from previous console's LFG list
+      @lfg.destroy
+      @lfg = Lfg.new(lfg_params)
+      if @lfg.save
+        flash[:notice] = "Your LFG Has Been Updated!"
+        redirect_to @game
+      else
+        render "games/show"
+      end
     else
-      render "games/show"
+      if @lfg.update_attributes(lfg_params)
+        flash[:notice] = "Your LFG Has Been Updated!"
+        redirect_to @game
+      else
+        render "games/show"
+      end
     end
   end
 
