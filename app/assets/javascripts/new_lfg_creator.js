@@ -36,7 +36,7 @@ var newLfgCreator = function(lfgAttributes) {
       var hiddenPatchInput = '<input type="hidden" name="_method" value="patch">';
       $('.edit_lfg').prepend(hiddenPatchInput);
       $('div#form-buttons').find('input').removeAttr('disabled');
-      var removeButton = `<a class="btn btn-danger" id="delete-lfg-btn" rel="nofollow" data-method="delete" href="/lfgs/${lfgId}">Remove</a>`;
+      var removeButton = '<a class="btn btn-danger" id="delete-lfg-btn" rel="nofollow" data-method="delete" href="/lfgs/' + lfgId + '">Remove</a>';
       $('div#form-buttons').append(removeButton);
     },
     showLfgsList: function(json) {
@@ -45,11 +45,11 @@ var newLfgCreator = function(lfgAttributes) {
                               '<div class="panel-body">' +
                                 '<h4 class="text-center">LFGs</h4>' +
                                 '<div class="table-responsive">' +
-                                  `<table class="table table-striped table-bordered lfgs-table" data-lfgs-games-console-id="${json.games_console_id}">` +
+                                  '<table class="table table-striped table-bordered lfgs-table" data-lfgs-games-console-id="' + json.games_console_id + '">' +
                                     '<tr>' +
                                       '<th class="text-center">' +
                                         '<div>LFG Username</div>' +
-                                        `<div>Console - ${json.console_username_type}</div>` +
+                                        '<div>Console - ' + json.console_username_type + '</div>' +
                                       '</th>' +
                                       '<th class="text-center">Specifics</th>' +
                                       '<th class="text-center">When</th>' +
