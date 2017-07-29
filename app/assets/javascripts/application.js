@@ -14,9 +14,21 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require timeago
+//= require channels/lfg
 //= require_tree ./channels
 //= require_tree .
 
 $(document).ready(function() {
   $("time.timeago").timeago();
+  lfgChannel();
+  $(function() {
+    $("form#new_lfg").submit(function(event) {
+      if ($("form#new_lfg").length) {
+        event.preventDefault();
+        var lfgForm = newLfgForm("form#new_lfg");
+        var lfgCreator = newLfgCreator(lfgForm.attributes());
+        lfgCreator.create();
+      }
+    });
+  });
 });

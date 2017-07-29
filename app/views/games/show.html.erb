@@ -78,7 +78,7 @@
                 <%= f.text_field :specifics, placeholder: "Details about what you want to play, how many people are needed, etc.", class: "form-control" %>
               </div>
 
-              <div class="form-groupc col-sm-6 col-sm-offset-3 text-center">
+              <div class="form-group col-sm-6 col-sm-offset-3 text-center" id="form-buttons">
                 <%= f.submit "Look For Group", class: "btn btn-success" %>
                 <% if @lfg.persisted? %>
                   <%= link_to "Remove", @lfg, method: :delete, class: "btn btn-danger", id: "delete-lfg-btn" %>

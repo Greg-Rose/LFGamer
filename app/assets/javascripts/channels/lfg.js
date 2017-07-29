@@ -1,7 +1,8 @@
 //= require cable
 //= require_self
 
-$(document).ready(function() {
+var lfgChannel = function() {
+  if ($('.lfgs-table').length) {
     var lfgsGamesConsoleId = $('.lfgs-table').data('lfgs-games-console-id').toString();
 
     // Subscribe to the class name of the channel
@@ -33,4 +34,5 @@ $(document).ready(function() {
             $("time.timeago").timeago();
         }
     });
-});
+  }
+};
