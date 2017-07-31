@@ -5,12 +5,7 @@ class Api::V1::LfgsController < ApplicationController
     lfg = Lfg.new(lfg_params)
 
     if lfg.save
-      lfgs_list_html = []
       lfgs_list = lfg.games_console.lfgs.order(created_at: :desc)
-      lfgs_list.each do |lfg|
-        lfg_html = ApplicationController.render(partial: 'games/lfg', locals: { lfg: lfg })
-        lfgs_list_html << lfg_html
-      end
       console_name = lfg.console.name
       console_username_type = ""
       if console_name.include?("PlayStation")
@@ -20,7 +15,7 @@ class Api::V1::LfgsController < ApplicationController
       end
       render json: {
         lfg: lfg,
-        lfgs_list: lfgs_list_html,
+        lfgs_list: render_lfgs(lfgs_list),
         console_username_type: console_username_type,
         games_console_id: lfg.games_console.id
        }, status: :created, location: api_v1_lfgs_path(lfg)
@@ -40,12 +35,7 @@ class Api::V1::LfgsController < ApplicationController
         new_lfg = Lfg.new(lfg_params)
         if new_lfg.save
           lfg.destroy
-          lfgs_list_html = []
           lfgs_list = new_lfg.games_console.lfgs.order(created_at: :desc)
-          lfgs_list.each do |lfg|
-            lfg_html = ApplicationController.render(partial: 'games/lfg', locals: { lfg: lfg })
-            lfgs_list_html << lfg_html
-          end
           console_name = new_lfg.console.name
           console_username_type = ""
           if console_name.include?("PlayStation")
@@ -55,7 +45,7 @@ class Api::V1::LfgsController < ApplicationController
           end
           render json: {
             lfg: new_lfg,
-            lfgs_list: lfgs_list_html,
+            lfgs_list: render_lfgs(lfgs_list),
             console_username_type: console_username_type,
             games_console_id: new_lfg.games_console.id
            }, status: :ok, location: api_v1_lfg_path(new_lfg)
@@ -91,7 +81,7 @@ class Api::V1::LfgsController < ApplicationController
     params.require(:lfg).permit(:ownership_id, :show_console_username, :specifics)
   end
 
-  def render_lfg(lfg)
-    ApplicationController.render(partial: 'games/lfg', locals: { lfg: lfg })
+  def render_lfgs(lfgs)
+    ApplicationController.render(partial: 'games/lfg', collection: lfgs)
   end
 end

@@ -71,9 +71,7 @@ var newLfgCreator = function(lfgAttributes) {
                             '</div>' +
                           '</div>';
       $('div.show-game').append(lfgsListHtml);
-      $.each(json.lfgs_list, function(index, value) {
-        $('.lfgs-table tr:last').after(value);
-      });
+      $('.lfgs-table tr:last').after(json.lfgs_list);
       $("time.timeago").timeago();
     }
   };

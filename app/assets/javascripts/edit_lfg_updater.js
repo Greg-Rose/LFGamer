@@ -46,9 +46,7 @@ var editLfgUpdater = function(lfgAttributes) {
         $('.lfgs-table').data('lfgs-games-console-id', json.games_console_id);
         $('th').first().find('div').last().text('Console - ' + json.console_username_type);
         $('tr:first').nextAll().remove();
-        $.each(json.lfgs_list, function(index, value) {
-          $('.lfgs-table tr:last').after(value);
-        });
+        $('.lfgs-table tr:last').after(json.lfgs_list);
         $("time.timeago").timeago();
         lfgChannel();
       }
