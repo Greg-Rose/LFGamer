@@ -119,11 +119,7 @@
                     <div>Play Together</div>
                   </th>
                 </tr>
-                <% @game.lfgs.order(created_at: :desc).each do |lfg| %>
-                  <% if lfg.console == @lfg.console %>
-                    <%= render partial: "games/lfg", locals: {lfg: lfg} %>
-                  <% end %>
-                <% end %>
+                <%= render partial: "games/lfg", collection: @lfgs %>
               </table>
             </div>
           </div>

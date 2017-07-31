@@ -15,5 +15,6 @@ class GamesController < ApplicationController
     ownerships . games_console_id = games_consoles . id WHERE ownerships . user_id = ? AND games_consoles .
     game_id = ? LIMIT 1"
     @lfg = (Lfg.find_by_sql [sql, @user, @game]).first || Lfg.new
+    @lfgs = @lfg.games_console.lfgs.order(created_at: :desc) if @lfg.persisted?
   end
 end
