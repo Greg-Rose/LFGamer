@@ -67,6 +67,7 @@ var newLfgCreator = function(lfgAttributes) {
       $.each(json.lfgs_list, function(index, value) {
         $('.lfgs-table tr:last').after(value);
       });
+      $("time.timeago").timeago();
     }
   };
 };

@@ -30,5 +30,13 @@ $(document).ready(function() {
         lfgCreator.create();
       }
     });
+    $("form.edit_lfg").submit(function(event) {
+      // if ($("form.edit_lfg").length) {
+        event.preventDefault();
+        var lfgForm = newLfgForm("form.edit_lfg");
+        var lfgUpdater = editLfgUpdater(lfgForm.attributes());
+        lfgUpdater.update();
+      // }
+    });
   });
 });

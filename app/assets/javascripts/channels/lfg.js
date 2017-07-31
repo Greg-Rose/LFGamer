@@ -4,7 +4,11 @@
 var lfgChannel = function() {
   if ($('.lfgs-table').length) {
     var lfgsGamesConsoleId = $('.lfgs-table').data('lfgs-games-console-id').toString();
-
+    // If a subscription already exists, remove it
+    if (App.hasOwnProperty("lfgs")) {
+      App.lfgs.unsubscribe();
+      delete App.lfgs;
+    }
     // Subscribe to the class name of the channel
     App.lfgs = App.cable.subscriptions.create({
       channel: 'LfgsChannel',
