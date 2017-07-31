@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :console do
-    sequence(:name) { |n| "PlayBox #{n}" }
-    sequence(:abbreviation) { |n| "PB#{n}" }
+    sequence(:name) { |n| "PlayStation #{n}" }
+    sequence(:abbreviation) { |n| "PS#{n}" }
   end
 end
