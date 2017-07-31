@@ -37,16 +37,16 @@ class Api::V1::LfgsController < ApplicationController
       if lfg.ownership_id != params[:lfg][:ownership_id].to_i
         # If console is changed via ownership, delete lfg and create new so that
         #  ActionCable properly removes LFG from previous console's LFG list
-        lfg.destroy
-        lfg = Lfg.new(lfg_params)
-        if lfg.save
+        new_lfg = Lfg.new(lfg_params)
+        if new_lfg.save
+          lfg.destroy
           lfgs_list_html = []
-          lfgs_list = lfg.games_console.lfgs.order(created_at: :desc)
+          lfgs_list = new_lfg.games_console.lfgs.order(created_at: :desc)
           lfgs_list.each do |lfg|
             lfg_html = ApplicationController.render(partial: 'games/lfg', locals: { lfg: lfg })
             lfgs_list_html << lfg_html
           end
-          console_name = lfg.console.name
+          console_name = new_lfg.console.name
           console_username_type = ""
           if console_name.include?("PlayStation")
             console_username_type = "PSN ID"
@@ -54,11 +54,11 @@ class Api::V1::LfgsController < ApplicationController
             console_username_type = "Xbox Gamertag"
           end
           render json: {
-            lfg: lfg,
+            lfg: new_lfg,
             lfgs_list: lfgs_list_html,
             console_username_type: console_username_type,
-            games_console_id: lfg.games_console.id
-           }, status: :ok, location: api_v1_lfg_path(lfg)
+            games_console_id: new_lfg.games_console.id
+           }, status: :ok, location: api_v1_lfg_path(new_lfg)
         else
           render json: :nothing, status: :not_found
         end

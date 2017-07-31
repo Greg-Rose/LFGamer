@@ -12,24 +12,31 @@ var newLfgCreator = function(lfgAttributes) {
       });
 
       request.done(function(response) {
-        // lfgCreatorObject.setFlash("notice", "Thank you for your input!");
         lfgCreatorObject.updateForm(response);
         lfgCreatorObject.showLfgsList(response);
         lfgChannel();
       });
 
       request.error(function() {
-        // lfgCreatorObject.setFlash("alert", "There was a problem with your comment.");
+        lfgCreatorObject.setFormAlert("danger", "Specifics is too long (maximum is 150 characters)");
+        setTimeout(function() {
+          $('div#form-buttons').find('input').removeAttr('disabled');
+        }, 10);
       });
     },
-    // setFlash: function(type, message) {
-    //   $("div.flash").remove();
-    //   var flash = $("<div>", { "class": "flash flash-" + type }).text(message);
-    //   $("body").prepend(flash);
-    // },
+    setFormAlert: function(type, message) {
+      $('.lfg-form-alert').remove();
+      var alert = '<div class="col-md-12 lfg-form-alert">' +
+                      '<div class="alert alert-' + type + '">' +
+                        '<ul>' + message + '</ul>' +
+                      '</div>' +
+                    '</div>';
+      $(".lfg-form").find("h4").after(alert);
+    },
     updateForm: function(json) {
       var lfgId = json.lfg.id;
       $('.lfg-form').find('h4').text('Edit LFG');
+      $('.lfg-form-alert').remove();
       $('.new_lfg').addClass('edit_lfg').removeClass('new_lfg');
       $('.edit_lfg').attr('id','edit_lfg_' + lfgId);
       $('.edit_lfg').attr('action', '/lfgs/' + lfgId);

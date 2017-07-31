@@ -18,10 +18,24 @@ var editLfgUpdater = function(lfgAttributes) {
       });
 
       request.error(function() {
+        lfgUpdaterObject.setFormAlert("danger", "Specifics is too long (maximum is 150 characters)");
+        setTimeout(function() {
+          $('div#form-buttons').find('input').removeAttr('disabled');
+        }, 10);
       });
+    },
+    setFormAlert: function(type, message) {
+      $('.lfg-form-alert').remove();
+      var alert = '<div class="col-md-12 lfg-form-alert">' +
+                      '<div class="alert alert-' + type + '">' +
+                        '<ul>' + message + '</ul>' +
+                      '</div>' +
+                    '</div>';
+      $(".lfg-form").find("h4").after(alert);
     },
     updateForm: function(json) {
       var lfgId = json.lfg.id;
+      $('.lfg-form-alert').remove();
       $('.edit_lfg').attr('id','edit_lfg_' + lfgId);
       $('.edit_lfg').attr('action', '/lfgs/' + lfgId);
       $('div#form-buttons').find('input').removeAttr('disabled');
