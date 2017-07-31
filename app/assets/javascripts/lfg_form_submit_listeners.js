@@ -15,3 +15,12 @@ var lfgEditFormListener = function() {
     lfgUpdater.update();
   });
 };
+
+var lfgRemoveButtonListener = function() {
+  $("div.lfg-form").on("click", "#delete-lfg-btn", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var deleter = lfgDeleter();
+    deleter.delete();
+  });
+};

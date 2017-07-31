@@ -13,20 +13,13 @@ var editLfgUpdater = function(lfgAttributes) {
       });
 
       request.done(function(response) {
-        // lfgCreatorObject.setFlash("notice", "Thank you for your input!");
         lfgUpdaterObject.updateForm(response);
         lfgUpdaterObject.updateLfgsList(response);
       });
 
       request.error(function() {
-        // lfgCreatorObject.setFlash("alert", "There was a problem with your comment.");
       });
     },
-    // setFlash: function(type, message) {
-    //   $("div.flash").remove();
-    //   var flash = $("<div>", { "class": "flash flash-" + type }).text(message);
-    //   $("body").prepend(flash);
-    // },
     updateForm: function(json) {
       var lfgId = json.lfg.id;
       $('.edit_lfg').attr('id','edit_lfg_' + lfgId);
