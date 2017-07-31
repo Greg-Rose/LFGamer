@@ -50,6 +50,15 @@ RSpec.describe Api::V1::LfgsController, type: :controller do
       expect(response.header["Location"]).to match /\/api\/v1\/lfgs\/#{lfg.id}/
     end
 
+    it "returns 'not_found' if validations fail" do
+      ownership = create(:ownership, user: User.first)
+      lfg = create(:lfg, ownership: ownership)
+      too_long_specifics = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis pi"
+      lfg.specifics = too_long_specifics
+      patch :update, params: { lfg: lfg.attributes, id: lfg.id }
+      expect(response).to have_http_status(:not_found)
+    end
+
     it "updates an lfg with console change" do
       user = User.first
       ownership = create(:ownership, user: user)
@@ -69,12 +78,17 @@ RSpec.describe Api::V1::LfgsController, type: :controller do
       expect(json_response["lfg"]["specifics"]).to eq "new specifics"
     end
 
-    it "returns 'not_found' if validations fail" do
-      ownership = create(:ownership, user: User.first)
-      lfg = create(:lfg, ownership: ownership)
+    it "returns 'not_found' if validations fail with console change" do
+      user = User.first
+      ownership = create(:ownership, user: user)
+      xbox = create(:console, name: "Xbox One")
+      game = ownership.game
+      game.consoles << xbox
+      user.games_consoles << game.games_consoles.last
+      lfg = create(:lfg, ownership: user.ownerships.last)
       too_long_specifics = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis pi"
-      lfg.specifics = too_long_specifics
-      patch :update, params: { lfg: lfg.attributes, id: lfg.id }
+      new_lfg = build(:lfg, ownership: ownership, specifics: too_long_specifics)
+      patch :update, params: { lfg: new_lfg.attributes, id: lfg.id }
       expect(response).to have_http_status(:not_found)
     end
   end
