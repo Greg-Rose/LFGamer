@@ -6,17 +6,10 @@ class Api::V1::LfgsController < ApplicationController
 
     if lfg.save
       lfgs_list = lfg.games_console.lfgs.order(created_at: :desc)
-      console_name = lfg.console.name
-      console_username_type = ""
-      if console_name.include?("PlayStation")
-        console_username_type = "PSN ID"
-      elsif console_name.include?("Xbox")
-        console_username_type = "Xbox Gamertag"
-      end
       render json: {
         lfg: lfg,
         lfgs_list: render_lfgs(lfgs_list),
-        console_username_type: console_username_type,
+        console_username_type: lfg.console.username_type,
         games_console_id: lfg.games_console.id
        }, status: :created, location: api_v1_lfgs_path(lfg)
     else
@@ -36,17 +29,10 @@ class Api::V1::LfgsController < ApplicationController
         if new_lfg.save
           lfg.destroy
           lfgs_list = new_lfg.games_console.lfgs.order(created_at: :desc)
-          console_name = new_lfg.console.name
-          console_username_type = ""
-          if console_name.include?("PlayStation")
-            console_username_type = "PSN ID"
-          elsif console_name.include?("Xbox")
-            console_username_type = "Xbox Gamertag"
-          end
           render json: {
             lfg: new_lfg,
             lfgs_list: render_lfgs(lfgs_list),
-            console_username_type: console_username_type,
+            console_username_type: new_lfg.console.username_type,
             games_console_id: new_lfg.games_console.id
            }, status: :ok, location: api_v1_lfg_path(new_lfg)
         else

@@ -104,12 +104,7 @@
                       LFG Username
                     </div>
                     <div>
-                      Console -
-                      <% if @lfg.console.name.include?("PlayStation") %>
-                        PSN ID
-                      <% elsif @lfg.console.name.include?("Xbox") %>
-                        Xbox Gamertag
-                      <% end %>
+                      Console - <%= @lfg.console.username_type %>
                     </div>
                   </th>
                   <th class="text-center">Specifics</th>

@@ -6,4 +6,12 @@ class Console < ApplicationRecord
 
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  def username_type
+    if name.include?("PlayStation")
+      "PSN ID"
+    elsif name.include?("Xbox")
+      "Xbox Gamertag"
+    end
+  end
 end
