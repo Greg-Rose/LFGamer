@@ -36,6 +36,8 @@ class User < ApplicationRecord
   def soft_delete_with_password(params)
     current_password = params.delete(:current_password)
     result = if valid_password?(current_password)
+      # delete all of the users current LFGs
+      lfgs.each { |lfg| lfg.destroy }
       update_attribute(:deleted_at, Time.current)
     else
       self.valid?
