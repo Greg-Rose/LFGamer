@@ -14,6 +14,7 @@ var lfgDeleter = function() {
       request.done(function() {
         App.lfgs.unsubscribe();
         lfgDeleterObject.updateForm();
+        setLfgFormAlert("info", "Your LFG Has Been Removed");
         lfgDeleterObject.removeLfgsList();
       });
 
@@ -22,6 +23,7 @@ var lfgDeleter = function() {
     },
     updateForm: function() {
       $('.lfg-form').find('h4').text('Create LFG');
+      $('.lfg-form-alert').remove();
       $('.edit_lfg').addClass('new_lfg').removeClass('edit_lfg');
       $('.new_lfg').attr('id','new_lfg');
       $('.new_lfg').attr('action', '/lfgs');

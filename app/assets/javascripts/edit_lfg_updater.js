@@ -14,24 +14,16 @@ var editLfgUpdater = function(lfgAttributes) {
 
       request.done(function(response) {
         lfgUpdaterObject.updateForm(response);
+        setLfgFormAlert("info", "Your LFG Has Been Updated!");
         lfgUpdaterObject.updateLfgsList(response);
       });
 
       request.error(function() {
-        lfgUpdaterObject.setFormAlert("danger", "Specifics is too long (maximum is 150 characters)");
+        setLfgFormAlert("danger", "Specifics is too long (maximum is 150 characters)");
         setTimeout(function() {
           $('div#form-buttons').find('input').removeAttr('disabled');
         }, 10);
       });
-    },
-    setFormAlert: function(type, message) {
-      $('.lfg-form-alert').remove();
-      var alert = '<div class="col-md-12 lfg-form-alert">' +
-                      '<div class="alert alert-' + type + '">' +
-                        '<ul>' + message + '</ul>' +
-                      '</div>' +
-                    '</div>';
-      $(".lfg-form").find("h4").after(alert);
     },
     updateForm: function(json) {
       var lfgId = json.lfg.id;
