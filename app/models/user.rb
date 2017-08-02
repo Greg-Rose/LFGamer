@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :games, -> { distinct }, through: :games_consoles
   has_many :consoles, -> { distinct }, through: :games_consoles
   has_many :lfgs, through: :ownerships
+  has_many :conversations, foreign_key: :sender_id
 
   before_create :build_profile
 
