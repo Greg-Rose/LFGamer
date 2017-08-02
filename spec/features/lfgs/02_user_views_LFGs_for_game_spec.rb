@@ -51,7 +51,7 @@ feature 'user views LFGs for game' do
       expect(page).to have_content users[1].username
       expect(page).to have_content users[1].profile.psn_id
       expect(page).to have_content "Lets play..."
-      expect(page).to have_button "Request"
+      expect(page).to have_css ".glyphicon-comment"
     end
   end
 
