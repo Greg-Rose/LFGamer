@@ -25,6 +25,7 @@ var lfgChannel = function() {
                 switch (lfg.status) {
                     case 'saved':
                         $lfg.replaceWith(lfg.html);
+                        listenForChatboxes();
                         break;
 
                     case 'deleted':
@@ -34,6 +35,7 @@ var lfgChannel = function() {
             } else {
                 // New Lfg
                 $('.lfgs-table tr:first').after(lfg.html);
+                listenForChatboxes();
             }
             $("time.timeago").timeago();
         }
