@@ -51,11 +51,7 @@ var newLfgCreator = function(lfgAttributes) {
                                         '<div>Console - ' + json.console_username_type + '</div>' +
                                       '</th>' +
                                       '<th class="text-center">Specifics</th>' +
-                                      '<th class="text-center">When</th>' +
-                                      '<th class="text-center">' +
-                                        '<div>Request To</div>' +
-                                        '<div>Play Together</div>'+
-                                      '</th>' +
+                                      '<th class="text-center">When - Chat</th>' +
                                     '</tr>' +
                                   '</table>' +
                                 '</div>' +
