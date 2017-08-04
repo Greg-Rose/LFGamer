@@ -17,10 +17,6 @@ var ready = function () {
             chatBox.createChatBox(conversation_id);
             $("#chatbox_" + conversation_id + " .chatboxtextarea").focus();
             chatBox.restructure();
-
-            var otherUsersUsername = $("#chatbox_" + conversation_id + " .chatboxtitle").find("h1").text();
-            $("#chatbox_" + conversation_id + " .chatboxcontent li").addClass('self');
-            $("#chatbox_" + conversation_id + " .chatboxcontent li.msg-usr-" + otherUsersUsername).removeClass('self').addClass('other');
         },
 
         /**
@@ -117,7 +113,6 @@ var ready = function () {
                 var otherUsersUsername = $(h1).text();
                 $(html[2]).children("li").addClass('self');
                 $(html[2]).children("li.msg-usr-" + otherUsersUsername).removeClass('self').addClass('other');
-                // $('#chatbox_' + conversation_id).html(data);
                 $('#chatbox_' + conversation_id).append(html);
                 $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
             }, "html");
@@ -177,9 +172,6 @@ var ready = function () {
                 }
             });
 
-            // var otherUsersUsername = $("#chatbox_" + conversation_id + ":hidden .chatboxtitle").find("h1").text();
-            // $("#chatbox_" + conversation_id + ":hidden .chatboxcontent li").addClass('self');
-            // $("#chatbox_" + conversation_id + ":hidden .chatboxcontent li.msg-usr-" + otherUsersUsername).removeClass('self').addClass('other');
             $("#chatbox_" + conversation_id).show();
             chatChannel(conversation_id);
         },
@@ -203,7 +195,6 @@ var ready = function () {
 
                 if (message !== '') {
                     App["chat" + conversationId].send_message(message, conversationId);
-                    // $('#conversation_form_' + conversation_id).submit();
                     $(chatboxtextarea).val('');
                     $(chatboxtextarea).focus();
                     $(chatboxtextarea).css('height', '44px');
