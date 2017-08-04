@@ -30,11 +30,24 @@ var ready = function () {
 
         close: function (conversation_id) {
             $('#chatbox_' + conversation_id).remove();
+            chatBoxes.splice(chatBoxes.indexOf(conversation_id), 1);
             if (App.hasOwnProperty("chat" + conversation_id)) {
               App["chat" + conversation_id].unsubscribe();
               delete App["chat" + conversation_id];
             }
             chatBox.restructure();
+
+            var request = $.ajax({
+              method: "DELETE",
+              url: "/conversations/" + conversation_id,
+              data: { id: conversation_id }
+            });
+
+            request.done(function() {
+            });
+
+            request.error(function() {
+            });
         },
 
         /**

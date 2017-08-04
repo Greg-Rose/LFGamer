@@ -1,4 +1,6 @@
 class Conversation < ApplicationRecord
+  after_destroy :broadcast_delete
+
   belongs_to :sender, foreign_key: :sender_id, class_name: 'User'
   belongs_to :recipient, foreign_key: :recipient_id, class_name: 'User'
 
@@ -12,5 +14,9 @@ class Conversation < ApplicationRecord
 
   scope :between, -> (sender_id, recipient_id) do
     where("(conversations.sender_id = ? AND conversations.recipient_id = ?) OR (conversations.sender_id = ? AND conversations.recipient_id = ?)", sender_id, recipient_id, recipient_id, sender_id)
+  end
+
+  def broadcast_delete
+    ActionCable.server.broadcast "conversations_#{id}", status: 'deleted'
   end
 end

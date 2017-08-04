@@ -7,7 +7,7 @@ class Message < ApplicationRecord
   validates_presence_of :body, :conversation_id, :user_id
 
   def broadcast_message
-    ActionCable.server.broadcast "conversations_#{conversation_id}", html: render_message
+    ActionCable.server.broadcast "conversations_#{conversation_id}", status: 'sent', html: render_message
   end
 
   private

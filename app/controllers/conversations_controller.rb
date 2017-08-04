@@ -3,6 +3,15 @@ class ConversationsController < ApplicationController
 
   layout false
 
+  def index
+    ids = Conversation.involving(current_user).ids
+    if ids.present?
+      render json: { conversation_ids: ids }
+    else
+      render json: :nothing, status: :not_found
+    end
+  end
+
   def create
     sender_id = current_user.id
     recipient_id = params[:recipient_id].to_i
@@ -28,12 +37,13 @@ class ConversationsController < ApplicationController
     @message = Message.new
   end
 
-  def check
-    ids = Conversation.involving(current_user).ids
-    if ids.present?
-      render json: { conversation_ids: ids }
-    else
-      render json: :nothing, status: :not_found
+  def destroy
+    user = current_user
+    conversation = Conversation.find(params[:id])
+
+    if conversation.sender == user || conversation.recipient == user
+      conversation.destroy
+      render json: :nothing, status: :ok
     end
   end
 
