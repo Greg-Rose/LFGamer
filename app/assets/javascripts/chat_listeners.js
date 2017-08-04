@@ -1,12 +1,11 @@
 var listenForChatboxes = function () {
 
     /**
-     * When the send message link on our home page is clicked
-     * send an ajax request to our rails app with the sender_id and
-     * recipient_id
+     * When the send message link is clicked
+     * send an ajax request to our rails app with recipient_id
      */
 
-    $('.start-conversation').click(function (e) {
+    $('.start-conversation').off('click').click(function (e) {
         e.preventDefault();
         var recipient_id = $(this).data('rid');
         $.post("/conversations", { recipient_id: recipient_id }, function (data) {
@@ -18,7 +17,7 @@ var listenForChatboxes = function () {
      * Used to minimize the chatbox
      */
 
-    $(document).on('click', '.toggleChatBox', function (e) {
+    $(document).off('click', '.toggleChatBox').on('click', '.toggleChatBox', function (e) {
         e.preventDefault();
 
         var id = $(this).data('cid');
@@ -29,7 +28,7 @@ var listenForChatboxes = function () {
      * Used to close the chatbox
      */
 
-    $(document).on('click', '.closeChat', function (e) {
+    $(document).off('click', '.closeChat').on('click', '.closeChat', function (e) {
         e.preventDefault();
 
         var id = $(this).data('cid');
@@ -46,20 +45,6 @@ var listenForChatboxes = function () {
         var id = $(this).data('cid');
         chatBox.checkInputKey(event, $(this), id);
     });
-
-    /**
-     * When a conversation link is clicked show up the respective
-     * conversation chatbox
-     */
-
-    $('a.conversation').click(function (e) {
-        e.preventDefault();
-
-        var conversation_id = $(this).data('cid');
-        chatBox.chatWith(conversation_id);
-        chatChannel(data.conversation_id);
-    });
-
 
 };
 

@@ -15,6 +15,7 @@ var newLfgCreator = function(lfgAttributes) {
         lfgCreatorObject.updateForm(response);
         setLfgFormAlert("info", "You Are Now LFG!");
         lfgCreatorObject.showLfgsList(response);
+        listenForChatboxes();
         lfgChannel();
       });
 

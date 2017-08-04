@@ -84,7 +84,7 @@ var ready = function () {
 
         /**
          * Takes in two parameters. It is responsible for fetching the specific conversation's
-         * html page and appending it to the body of our home page e.g if conversation_id = 1
+         * html and appending it to the page e.g if conversation_id = 1
          *
          * $.get("conversations/1, function(data){
          *    // rest of the logic here
