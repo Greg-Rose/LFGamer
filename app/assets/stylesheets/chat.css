@@ -1,7 +1,7 @@
 .chatbox {
     position: fixed;
     position: expression("absolute");
-    width: 500px;
+    width: 350px;
     display: none;
 }
 
@@ -21,6 +21,10 @@
     font-weight: 700;
 }
 
+.chatboxminimized {
+  width: 200px;
+}
+
 .chatboxblink {
     background-color: #176689;
     border-right: 1px solid #176689;
@@ -30,7 +34,7 @@
 .chatboxcontent {
     font-family: arial, sans-serif;
     height: 180px;
-    width: 500px;
+    width: 350px;
     overflow-y: auto;
     padding: 7px;
     border-left: 1px solid #cccccc;
@@ -130,7 +134,7 @@
 }
 
 .chatboxtextarea {
-    width: 482px;
+    width: 332px;
     height: 44px;
     padding: 3px 0pt 3px 3px;
     border: 1px solid #eeeeee;
