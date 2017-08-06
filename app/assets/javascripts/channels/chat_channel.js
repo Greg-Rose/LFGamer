@@ -22,7 +22,7 @@ var chatChannel = function(chatboxId) {
               else {
                 $(html).addClass('self');
               }
-              $(`#chatbox_${chatboxId} .chatboxcontent`).append(html);
+              $("#chatbox_" + chatboxId + " .chatboxcontent").append(html);
               $("#chatbox_" + chatboxId + " .chatboxcontent").scrollTop($("#chatbox_" + chatboxId + " .chatboxcontent")[0].scrollHeight);
             }
             else {
@@ -31,7 +31,7 @@ var chatChannel = function(chatboxId) {
           }
           else if (message.status == 'deleted') {
             var deletedMessage = $.parseHTML("<li>" + otherUsersUsername + " has left the chat</li>");
-            $(`#chatbox_${chatboxId} .chatboxcontent`).append(deletedMessage);
+            $("#chatbox_" + chatboxId + " .chatboxcontent").append(deletedMessage);
             $("#chatbox_" + chatboxId + " .chatboxcontent").scrollTop($("#chatbox_" + chatboxId + " .chatboxcontent")[0].scrollHeight);
             $("#chatbox_" + chatboxId + " .chatboxtextarea").prop("disabled", true);
           }
