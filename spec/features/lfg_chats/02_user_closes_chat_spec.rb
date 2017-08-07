@@ -10,7 +10,7 @@ feature 'user closes chat with another user' do
   #   - Clicking the chat's close (X) button, closes the chat and deletes the conversation and messages
 
   let!(:users) { create_list(:user, 2) }
-  let!(:console) { create(:console, name: "PlayStation 4", abbreviation: "PS4")}
+  let!(:console) { create(:console)}
   let!(:game) { create(:game) }
   let!(:ownerships) do
     game.consoles << console
