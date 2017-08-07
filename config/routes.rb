@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :conversations, only: [:index, :create, :show, :destroy] do
-    resources :messages, only: [:create, :destroy]
+    resources :messages, only: [:create]
   end
 
   root 'games#index'
