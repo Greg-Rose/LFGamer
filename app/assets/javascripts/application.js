@@ -13,4 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
+//= require timeago
+//= require channels/lfg
+//= require_tree ./channels
 //= require_tree .
+
+$(document).ready(function() {
+  $("time.timeago").timeago();
+  if ($("#sign-out-btn").length) {
+    lfgChannel();
+    lfgNewFormListener();
+    lfgEditFormListener();
+    lfgRemoveButtonListener();
+    checkForChats();
+    setInterval(function(){ checkForChats(); }, 3000);
+  }
+});

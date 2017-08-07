@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :games_consoles, through: :ownerships
   has_many :games, -> { distinct }, through: :games_consoles
   has_many :consoles, -> { distinct }, through: :games_consoles
+  has_many :lfgs, through: :ownerships
+  has_many :conversations, foreign_key: :sender_id
+  has_many :messages
 
   before_create :build_profile
 
@@ -35,6 +38,8 @@ class User < ApplicationRecord
   def soft_delete_with_password(params)
     current_password = params.delete(:current_password)
     result = if valid_password?(current_password)
+      # delete all of the users current LFGs
+      lfgs.each { |lfg| lfg.destroy }
       update_attribute(:deleted_at, Time.current)
     else
       self.valid?

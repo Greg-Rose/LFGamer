@@ -4,8 +4,10 @@
     <meta name="viewport" content="initial-scale=1">
     <title>LFGamer</title>
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'https://use.fontawesome.com/02f7f0c065.js' %>
   </head>
 
   <body>
@@ -50,7 +52,7 @@
                     <li><%= link_to "My Account", edit_user_registration_path %></li>
                   </ul>
                 </li>
-                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, id: "sign-out-btn" %></li>
               <% else %>
                 <li><%= link_to "Sign Up", new_user_registration_path %></li>
                 <li><%= link_to "Sign In", new_user_session_path %></li>

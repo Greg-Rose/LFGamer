@@ -33,6 +33,7 @@ group :test do
   gem 'coveralls', require: false
   gem 'webmock'
   gem 'vcr'
+  gem 'poltergeist'
 end
 
 ruby "2.4.1"

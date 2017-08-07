@@ -3,6 +3,7 @@ class Game < ApplicationRecord
   has_many :consoles, -> { order(:name) }, through: :games_consoles
   has_many :ownerships, through: :games_consoles
   has_many :users, -> { distinct }, through: :ownerships
+  has_many :lfgs, through: :ownerships
 
   mount_uploader :cover_image, GameCoverImageUploader
 

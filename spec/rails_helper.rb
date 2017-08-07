@@ -57,6 +57,14 @@ RSpec.configure do |config|
 end
 require "capybara/rails"
 require "valid_attribute"
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+
+Capybara.register_driver :poltergeist do |app|
+  #  Change domain name as necessary
+  options = { url_blacklist: ['/uploads/game/cover_image/*/test_cover.jpg'] } # you can also use * as a wildcard
+  Capybara::Poltergeist::Driver.new(app, options)
+end
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
@@ -66,8 +74,17 @@ RSpec.configure do |config|
       FileUtils.rm_rf(Dir["#{Rails.root}/tmp/uploads"])
     end
   end
+
+  config.before(:all, js: true) do
+    # enables ActionCable during tests
+    Capybara.server = :puma
+  end
 end
+
+require_relative 'support/controller_macros'
 
 RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.extend ControllerMacros, type: :controller
 end

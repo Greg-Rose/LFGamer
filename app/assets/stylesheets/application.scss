@@ -179,6 +179,23 @@ body {
   margin-top: 20px;
 }
 
+.lfg-form h5 {
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.show-game h4 {
+  margin-bottom: 20px;
+}
+
+.game-lfgs-list .table>tbody>tr>th, .game-lfgs-list .table>tbody>tr>td {
+  vertical-align: middle;
+}
+
+.lfgs-specifics {
+  min-width: 300px;
+}
+
 /*------ Devise ------*/
 
 .devise-forms {
