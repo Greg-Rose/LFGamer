@@ -7,7 +7,7 @@
       <%= lfg.console.abbreviation || lfg.console.name %> <%= show_console_username_if_chosen(lfg) %>
     </div>
   <td>
-    <div>
+    <div class="lfgs-specifics">
       <%= lfg.specifics %>
     </div>
   </td>
@@ -16,7 +16,9 @@
       <time class="timeago" datetime="<%= lfg.created_at.getutc.iso8601 %>" title="<%= lfg.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %b %e %Y %r EST") %>">
         <%= time_ago_in_words(lfg.created_at) %> ago
       </time>
+      <%= link_to "#", class: "btn start-conversation", "data-rid" => lfg.user.id do %>
+        <span class="fa fa-comments" aria-hidden="true"></span>
+      <% end %>
     </div>
   </td>
-  <td><%= button_to "Request", "#", class: "btn btn-primary" %></td>
 </tr>

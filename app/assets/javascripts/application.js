@@ -20,8 +20,12 @@
 
 $(document).ready(function() {
   $("time.timeago").timeago();
-  lfgChannel();
-  lfgNewFormListener();
-  lfgEditFormListener();
-  lfgRemoveButtonListener();
+  if ($("#sign-out-btn").length) {
+    lfgChannel();
+    lfgNewFormListener();
+    lfgEditFormListener();
+    lfgRemoveButtonListener();
+    checkForChats();
+    setInterval(function(){ checkForChats(); }, 3000);
+  }
 });
