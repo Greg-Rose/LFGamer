@@ -74,6 +74,11 @@ RSpec.configure do |config|
       FileUtils.rm_rf(Dir["#{Rails.root}/tmp/uploads"])
     end
   end
+
+  config.before(:all, js: true) do
+    # enables ActionCable during tests
+    Capybara.server = :puma
+  end
 end
 
 require_relative 'support/controller_macros'
