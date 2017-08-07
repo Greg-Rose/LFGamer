@@ -11,6 +11,7 @@ gem 'fog-aws'
 gem 'httparty'
 gem 'devise'
 gem 'sendgrid-ruby'
+gem 'redis'
 
 group :development do
   gem 'listen', '~> 3.0.5'
