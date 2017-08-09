@@ -40,6 +40,13 @@ var newLfgCreator = function(lfgAttributes) {
       $('div#form-buttons').append(removeButton);
     },
     showLfgsList: function(json) {
+      var themed_console_color_class;
+      if (json.console_username_type.includes("PSN")) {
+        themed_console_color_class = 'playstation';
+      }
+      else if (json.console_username_type.includes("Xbox")) {
+        themed_console_color_class = 'xbox';
+      }
       var lfgsListHtml =  '<div class="col-sm-12 game-lfgs-list">' +
                             '<div class="panel panel-default">' +
                               '<div class="panel-body">' +
@@ -48,11 +55,11 @@ var newLfgCreator = function(lfgAttributes) {
                                   '<table class="table table-striped table-bordered lfgs-table" data-lfgs-games-console-id="' + json.games_console_id + '">' +
                                     '<tr>' +
                                       '<th class="text-center">' +
-                                        '<div>LFG Username</div>' +
-                                        '<div>Console - ' + json.console_username_type + '</div>' +
+                                        '<div><span class="lfg-username">Username</span></div>' +
+                                        '<span class="' + themed_console_color_class + '">Console</span> - <span class="' + themed_console_color_class + '">' + json.console_username_type + '</span></div>' +
                                       '</th>' +
-                                      '<th class="text-center">Specifics</th>' +
-                                      '<th class="text-center">When - Chat</th>' +
+                                      '<th class="text-center"><span class="lfgs-specifics-header">Specifics</span></th>' +
+                                      '<th class="text-center"><span class="lfg-when">When</span> - <span class="lfg-chat-btns">Chat</span></th>' +
                                     '</tr>' +
                                   '</table>' +
                                 '</div>' +
