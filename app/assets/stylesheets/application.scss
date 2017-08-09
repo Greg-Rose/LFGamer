@@ -327,6 +327,10 @@ span.lfg-chat-btns, a.lfg-chat-btns {
   color: $monokai-pink;
 }
 
+a.lfg-chat-btns:hover {
+  color: #f471a1;
+}
+
 .game-lfgs-list .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
    background-color: #333333;
    border-color: #595959;
