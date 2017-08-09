@@ -347,6 +347,8 @@ a.lfg-chat-btns:hover {
 }
 
 .devise-forms h2 {
+  color: $monokai-gold;
+  font-weight: 400;
   margin-bottom: 22px;
 }
 
@@ -356,6 +358,36 @@ a.lfg-chat-btns:hover {
 
 .devise-forms p {
   margin-bottom: 0;
+}
+
+.devise-forms .panel {
+  background-color: #282828;
+  border-color: #262626;
+  color: $monokai-white;
+}
+
+.devise-forms .form-first-name, .devise-forms .form-last-name {
+  color: $monokai-blue;
+}
+
+.devise-forms .form-username {
+  color: $monokai-orange;
+}
+
+.devise-forms .form-email {
+  color: $monokai-pink;
+}
+
+.devise-forms .form-new-pw {
+  color: $monokai-green;
+}
+
+.devise-forms .form-pw {
+  color: $monokai-purple;
+}
+
+.devise-forms a.delete-account-link {
+  color: #808080;
 }
 
 /*------ Profiles#Show ------*/
