@@ -407,15 +407,37 @@ a.lfg-chat-btns:hover {
   color: $monokai-gold;
 }
 
-.gaming-names .playstation {
+.playstation {
   color: $monokai-blue;
 }
 
-.gaming-names .xbox {
+.xbox {
   color: $monokai-green;
 }
 
 /*------ Profiles#Edit ------*/
+
+.profile-edit .panel {
+  background-color: #282828;
+  border-color: #262626;
+}
+
+.profile-edit {
+  color: $monokai-white;
+}
+
+.profile-edit h2 {
+  color: $monokai-orange;
+  font-weight: 400;
+}
+
+.profile-form-about-me {
+  color: $monokai-pink;
+}
+
+.profile-form-location {
+  color: $monokai-gold;
+}
 
 p.profile-privacy-options-label {
   font-weight: 700;

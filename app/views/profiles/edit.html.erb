@@ -1,66 +1,70 @@
-<div class="row devise-forms">
+<div class="row devise-forms profile-edit">
   <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-    <h2 class="col-md-12">
-      <% if @profile.updated_at == @profile.created_at %>
-        Create
-      <% else %>
-        Edit
-      <% end %>
-      Profile
-    </h2>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2 class="col-md-12">
+          <% if @profile.updated_at == @profile.created_at %>
+            Create
+          <% else %>
+            Edit
+          <% end %>
+          Profile
+        </h2>
 
-    <%= form_for(@profile, url: "/profile") do |f| %>
-      <%= form_error_messages!(@profile) %>
+        <%= form_for(@profile, url: "/profile") do |f| %>
+          <%= form_error_messages!(@profile) %>
 
-      <div class="form-group col-md-12">
-        <%= f.label :psn_id, "PSN ID" %>
-        <%= f.text_field :psn_id, autofocus: true, class: "form-control" %>
-      </div>
+          <div class="form-group col-md-12">
+            <%= f.label :psn_id, "PSN ID", class: "playstation" %>
+            <%= f.text_field :psn_id, autofocus: true, class: "form-control" %>
+          </div>
 
-      <div class="form-group col-md-12">
-        <%= f.label :xbox_gamertag, "Xbox Gamertag" %>
-        <%= f.text_field :xbox_gamertag, autofocus: true, class: "form-control" %>
-      </div>
+          <div class="form-group col-md-12">
+            <%= f.label :xbox_gamertag, "Xbox Gamertag", class: "xbox" %>
+            <%= f.text_field :xbox_gamertag, autofocus: true, class: "form-control" %>
+          </div>
 
-      <div class="form-group col-md-12">
-        <%= f.label :about_me, "About Me" %>
-        <%= f.text_area :about_me, autofocus: true, class: "form-control" %>
-      </div>
+          <div class="form-group col-md-12">
+            <%= f.label :about_me, "About Me", class: "profile-form-about-me" %>
+            <%= f.text_area :about_me, autofocus: true, class: "form-control" %>
+          </div>
 
-      <div class="form-group col-md-12">
-        <%= f.label :zipcode, "Location" %>
-        <%= f.text_field :zipcode, autofocus: true, placeholder: "Zipcode", class: "form-control" %>
-      </div>
+          <div class="form-group col-md-12">
+            <%= f.label :zipcode, "Location", class: "profile-form-location" %>
+            <%= f.text_field :zipcode, autofocus: true, placeholder: "Zipcode", class: "form-control" %>
+          </div>
 
-      <div class="form-group col-md-12">
-        <p class="profile-privacy-options-label">Make my PSN ID public</p>
+          <div class="form-group col-md-12">
+            <p class="profile-privacy-options-label playstation">Make my PSN ID public</p>
 
-        <%= f.label :psn_id_public_true, class: "radio-inline" do %>
-          <%= f.radio_button :psn_id_public, true %> Yes
+            <%= f.label :psn_id_public_true, class: "radio-inline" do %>
+              <%= f.radio_button :psn_id_public, true %> Yes
+            <% end %>
+            <%= f.label :psn_id_public_false, class: "radio-inline" do %>
+              <%= f.radio_button :psn_id_public, false %> No
+            <% end %>
+          </div>
+
+          <div class="form-group col-md-12">
+            <p class="profile-privacy-options-label xbox">Make my Xbox Gamertag public</p>
+
+            <%= f.label :xbox_gamertag_public_true, class: "radio-inline" do %>
+              <%= f.radio_button :xbox_gamertag_public, true %> Yes
+            <% end %>
+            <%= f.label :xbox_gamertag_public_false, class: "radio-inline" do %>
+              <%= f.radio_button :xbox_gamertag_public, false %> No
+            <% end %>
+          </div>
+
+          <div class="form-group col-md-12">
+            <% if @profile.updated_at == @profile.created_at %>
+              <%= f.submit "Create Profile", class: "btn btn-success btn-lg btn-block" %>
+            <% else %>
+              <%= f.submit "Edit Profile", class: "btn btn-success btn-lg btn-block" %>
+            <% end %>
+          </div>
         <% end %>
-        <%= f.label :psn_id_public_false, class: "radio-inline" do %>
-          <%= f.radio_button :psn_id_public, false %> No
-        <% end %>
       </div>
-
-      <div class="form-group col-md-12">
-        <p class="profile-privacy-options-label">Make my Xbox Gamertag public</p>
-
-        <%= f.label :xbox_gamertag_public_true, class: "radio-inline" do %>
-          <%= f.radio_button :xbox_gamertag_public, true %> Yes
-        <% end %>
-        <%= f.label :xbox_gamertag_public_false, class: "radio-inline" do %>
-          <%= f.radio_button :xbox_gamertag_public, false %> No
-        <% end %>
-      </div>
-
-      <div class="form-group col-md-12">
-        <% if @profile.updated_at == @profile.created_at %>
-          <%= f.submit "Create Profile", class: "btn btn-success btn-lg btn-block" %>
-        <% else %>
-          <%= f.submit "Edit Profile", class: "btn btn-success btn-lg btn-block" %>
-        <% end %>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
