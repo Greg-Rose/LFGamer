@@ -44,7 +44,7 @@
 
       <% if @user.consoles.present? %>
         <% @user.consoles.each do |console| %>
-          <%= console.name %>
+          <%= themed_console_name(console) %>
           <%= "|" if @user.consoles.last != console %>
         <% end %>
       <% else %>
@@ -66,12 +66,14 @@
           <% @user.games.each do |game| %>
             <div class="col-sm-6 col-md-4 col-lg-3 index-game-div" id="owned-game-<%= game.id %>">
               <div class="index-cover-image-div">
-                <%= image_tag(game.cover_image.url, height: "150", class: "index-cover-image") %>
+                <%= link_to game_path(game) do %>
+                  <%= image_tag(game.cover_image.url, height: "150", class: "index-cover-image") %>
+                <% end %> 
               </div>
               <h4 class="text-center"><%= link_to game.name, game_path(game) %></h4>
               <p class="text-center">
                 <% game.ownerships.where(user: @user).sort { |a, b| a.console_id <=> b.console_id }.each do |ownership| %>
-                  <%= ownership.console.abbreviation || ownership.console.name %>
+                  <%= themed_console_name(ownership.console, true) %>
                   <%= "/" if game.ownerships.where(user: @user).sort { |a, b| a.console_id <=> b.console_id }.last != ownership %>
                 <% end %>
               </p>
