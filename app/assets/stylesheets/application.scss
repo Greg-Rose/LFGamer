@@ -359,6 +359,15 @@ span.lfg-chat-btns, a.lfg-chat-btns {
 .profile-show {
   margin-top: 20px;
   margin-bottom: 35px;
+  color: $monokai-white;
+}
+
+.profile-show h2 {
+  color: $monokai-orange;
+}
+
+.edit-profile-link, .edit-profile-link:hover {
+  color: $monokai-purple;
 }
 
 .profile-info {
@@ -371,15 +380,35 @@ span.lfg-chat-btns, a.lfg-chat-btns {
 
 .owned-consoles h4 {
   margin-bottom: 15px;
+  color: $monokai-purple;
+  font-weight: 400;
 }
 
 .owned-games h3 {
+  color: $monokai-purple;
+  font-weight: 400;
   margin-bottom: 40px;
 }
 
 .owned-consoles .well, .owned-games .well {
   background-color: #282828;
   border-color: #262626;
+}
+
+.about-me h5 {
+  color: $monokai-pink;
+}
+
+.location h5 {
+  color: $monokai-gold;
+}
+
+.gaming-names .playstation {
+  color: $monokai-blue;
+}
+
+.gaming-names .xbox {
+  color: $monokai-green;
 }
 
 /*------ Profiles#Edit ------*/
