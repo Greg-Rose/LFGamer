@@ -52,7 +52,7 @@ body {
   margin-top: 20px;
 }
 
-.btn-success {
+.devise-forms .btn-success, .form-group .btn-success {
   background: -webkit-linear-gradient(top, #00b300, #006600);
   background: -o-linear-gradient(top, #00b300, #006600);
   background: -moz-linear-gradient(top, #00b300, #006600);
@@ -61,7 +61,7 @@ body {
   border-color: #003300;
 }
 
-.btn-success:hover {
+.devise-forms .btn-success:hover, .form-group .btn-success:hover {
   border-color: #003300;
   outline: none;
   -webkit-box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
@@ -69,7 +69,7 @@ body {
           box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
 }
 
-.btn-danger {
+.devise-forms .btn-danger, .form-group .btn-danger {
   background: -webkit-linear-gradient(top, #cc0000, #990000);
   background: -o-linear-gradient(top, #cc0000, #990000);
   background: -moz-linear-gradient(top, #cc0000, #990000);
@@ -78,7 +78,7 @@ body {
   border-color: #660000;
 }
 
-.btn-danger:hover {
+.devise-forms .btn-danger:hover, .form-group .btn-danger:hover {
   border-color: #660000;
   outline: none;
   -webkit-box-shadow: inset 0 0 0 1px #660000,inset 0 5px 30px #330000;
@@ -96,7 +96,7 @@ body {
   color: $monokai-white;
 }
 
-.devise-forms .btn-primary:hover, .btn-primary:active {
+.devise-forms .btn-primary:hover, .devise-forms .btn-primary:active {
   border-color: #002266;
   outline: none;
   -webkit-box-shadow: inset 0 0 0 1px #002266,inset 0 5px 30px #001133;
