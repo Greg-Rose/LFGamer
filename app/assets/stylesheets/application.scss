@@ -105,12 +105,12 @@ body {
 }
 
 .alert-disappear {
+  padding-top: 5px;
+  padding-bottom: 5px;
   position: fixed;
   top: 0;
   text-align: center;
   left: 0;
-  padding-left: 0;
-  padding-right: 0;
   width: 100%;
   z-index: 1001;
 }
@@ -348,17 +348,6 @@ span.xbox {
 .lfg-form h5 {
   font-weight: 700;
   margin-top: 0;
-}
-
-.lfg-form-alert {
-  position: fixed;
-  top: 0;
-  text-align: center;
-  left: 0;
-  padding-left: 0;
-  padding-right: 0;
-  width: 100%;
-  z-index: 1001;
 }
 
 .show-game h4 {
