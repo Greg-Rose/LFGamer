@@ -353,6 +353,7 @@ a.lfg-chat-btns:hover {
 }
 
 .devise-forms h3 {
+  color: $monokai-gold;
   margin-bottom: 22px;
 }
 
@@ -384,6 +385,15 @@ a.lfg-chat-btns:hover {
 
 .devise-forms .form-pw {
   color: $monokai-purple;
+}
+
+.devise-forms a {
+  color: $monokai-white;
+}
+
+.devise-forms a:hover {
+  color: $monokai-green;
+  text-decoration: none;
 }
 
 .devise-forms a.delete-account-link {
