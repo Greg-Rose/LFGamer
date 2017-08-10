@@ -19,6 +19,7 @@
 //= require_tree .
 
 $(document).ready(function() {
+  fadeFormAlert();
   $("time.timeago").timeago();
   if ($("#sign-out-btn").length) {
     lfgChannel();

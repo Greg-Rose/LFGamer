@@ -52,6 +52,38 @@ body {
   margin-top: 20px;
 }
 
+.btn-success {
+  background: -webkit-linear-gradient(top, #00b300, #006600);
+  background: -o-linear-gradient(top, #00b300, #006600);
+  background: -moz-linear-gradient(top, #00b300, #006600);
+  background: linear-gradient(top, #00b300, #006600);
+  background-color: #5cb85c;
+  border-color: #003300;
+}
+
+.btn-success:hover {
+  border-color: #003300;
+  outline: none;
+  -webkit-box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
+     -moz-box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
+          box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
+}
+
+.alert-disappear {
+  position: fixed;
+  top: 0;
+  text-align: center;
+  left: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+.alert-disappear ul {
+  list-style: none;
+}
+
 /*------* Header Navbar *------*/
 
 .navbar {
@@ -281,6 +313,17 @@ span.xbox {
 .lfg-form h5 {
   font-weight: 700;
   margin-top: 0;
+}
+
+.lfg-form-alert {
+  position: fixed;
+  top: 0;
+  text-align: center;
+  left: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  z-index: 1001;
 }
 
 .show-game h4 {

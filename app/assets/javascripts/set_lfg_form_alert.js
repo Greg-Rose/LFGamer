@@ -7,9 +7,7 @@ var setLfgFormAlert = function(type, message) {
                   '</div>' +
                 '</div>';
   $(".lfg-form").find("h4").after(alert);
-  if (type == "info") {
-    $(".lfg-form-alert").fadeTo(2000, 500).slideUp(500, function(){
-      $(".lfg-form-alert").slideUp(500);
-    });
-  }
+  $(".lfg-form-alert").fadeTo(3000, 1000).slideUp(1000, function(){
+    $(".lfg-form-alert").slideUp(1000);
+  });
 };
