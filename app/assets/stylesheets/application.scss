@@ -69,6 +69,23 @@ body {
           box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
 }
 
+.btn-danger {
+  background: -webkit-linear-gradient(top, #cc0000, #990000);
+  background: -o-linear-gradient(top, #cc0000, #990000);
+  background: -moz-linear-gradient(top, #cc0000, #990000);
+  background: linear-gradient(top, #cc0000, #990000);
+  background-color: #d9534f;
+  border-color: #660000;
+}
+
+.btn-danger:hover {
+  border-color: #660000;
+  outline: none;
+  -webkit-box-shadow: inset 0 0 0 1px #660000,inset 0 5px 30px #330000;
+     -moz-box-shadow: inset 0 0 0 1px #660000,inset 0 5px 30px #330000;
+          box-shadow: inset 0 0 0 1px #660000,inset 0 5px 30px #330000;
+}
+
 .alert-disappear {
   position: fixed;
   top: 0;
