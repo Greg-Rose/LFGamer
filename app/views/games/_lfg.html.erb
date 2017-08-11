@@ -1,10 +1,10 @@
 <tr class="text-center" data-lfg-id="<%= lfg.id %>">
   <td>
     <div>
-      <%= link_to lfg.user.username, profile_path(lfg.user.profile) %>
+      <span class="lfg-username"><%= link_to lfg.user.username, profile_path(lfg.user.profile) %></span>
     </div>
     <div>
-      <%= lfg.console.abbreviation || lfg.console.name %> <%= show_console_username_if_chosen(lfg) %>
+      <%= themed_console_name(lfg.console, true) %> <%= show_console_username_if_chosen(lfg) %>
     </div>
   <td>
     <div class="lfgs-specifics">
@@ -13,10 +13,10 @@
   </td>
   <td>
     <div>
-      <time class="timeago" datetime="<%= lfg.created_at.getutc.iso8601 %>" title="<%= lfg.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %b %e %Y %r EST") %>">
+      <time class="timeago lfg-when" datetime="<%= lfg.created_at.getutc.iso8601 %>" title="<%= lfg.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %b %e %Y %r EST") %>">
         <%= time_ago_in_words(lfg.created_at) %> ago
       </time>
-      <%= link_to "#", class: "btn start-conversation", "data-rid" => lfg.user.id do %>
+      <%= link_to "#", class: "btn start-conversation lfg-chat-btns", "data-rid" => lfg.user.id do %>
         <span class="fa fa-comments" aria-hidden="true"></span>
       <% end %>
     </div>

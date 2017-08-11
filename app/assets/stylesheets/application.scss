@@ -24,6 +24,16 @@
       url(asset_path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular')) format('svg');
 }
 
+$monokai-blue:            #4DBBDD;
+$monokai-brighter-blue:   #39c4ef;
+$monokai-gold:            #E3D96E;
+$monokai-green:           #9CD62C;
+$monokai-brighter-green:  #a5ec18;
+$monokai-orange:          #ec7813;
+$monokai-pink:            #EF266F;
+$monokai-purple:          #AE81FF;
+$monokai-white:           #F8F8F2;
+
 /*------* Main Content (Application Layout) *------*/
 
 html {
@@ -32,12 +42,81 @@ html {
 }
 
 body {
-  background-color: #FAFAFA;
+  background: url("/backgrounds/black_linen_V2.png");
+  background-color: #252525;
+  color: #cccccc;
   margin-bottom: 50px;
 }
 
 #main-div {
   margin-top: 20px;
+}
+
+.devise-forms .btn-success, .form-group .btn-success {
+  background: -webkit-linear-gradient(top, #00b300, #006600);
+  background: -o-linear-gradient(top, #00b300, #006600);
+  background: -moz-linear-gradient(top, #00b300, #006600);
+  background: linear-gradient(top, #00b300, #006600);
+  background-color: #5cb85c;
+  border-color: #003300;
+}
+
+.devise-forms .btn-success:hover, .form-group .btn-success:hover {
+  border-color: #003300;
+  outline: none;
+  -webkit-box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
+     -moz-box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
+          box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
+}
+
+.devise-forms .btn-danger, .form-group .btn-danger {
+  background: -webkit-linear-gradient(top, #cc0000, #990000);
+  background: -o-linear-gradient(top, #cc0000, #990000);
+  background: -moz-linear-gradient(top, #cc0000, #990000);
+  background: linear-gradient(top, #cc0000, #990000);
+  background-color: #d9534f;
+  border-color: #660000;
+}
+
+.devise-forms .btn-danger:hover, .form-group .btn-danger:hover {
+  border-color: #660000;
+  outline: none;
+  -webkit-box-shadow: inset 0 0 0 1px #660000,inset 0 5px 30px #330000;
+     -moz-box-shadow: inset 0 0 0 1px #660000,inset 0 5px 30px #330000;
+          box-shadow: inset 0 0 0 1px #660000,inset 0 5px 30px #330000;
+}
+
+.devise-forms .btn-primary {
+  background: -webkit-linear-gradient(top, #0044cc, #003399);
+  background: -o-linear-gradient(top, #0044cc, #003399);
+  background: -moz-linear-gradient(top, #0044cc, #003399);
+  background: linear-gradient(top, #0044cc, #003399);
+  background-color: #337ab7;
+  border-color: #002266;
+  color: $monokai-white;
+}
+
+.devise-forms .btn-primary:hover, .devise-forms .btn-primary:active {
+  border-color: #002266;
+  outline: none;
+  -webkit-box-shadow: inset 0 0 0 1px #002266,inset 0 5px 30px #001133;
+     -moz-box-shadow: inset 0 0 0 1px #002266,inset 0 5px 30px #001133;
+          box-shadow: inset 0 0 0 1px #002266,inset 0 5px 30px #001133;
+}
+
+.alert-disappear {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+.alert-disappear ul {
+  list-style: none;
 }
 
 /*------* Header Navbar *------*/
@@ -47,24 +126,28 @@ body {
 }
 
 .navbar-inverse {
-  background-color: #324956;
-  border-color: #324956;
+  background: -webkit-linear-gradient(top, #333333, #242424);
+  background: -o-linear-gradient(top, #333333, #242424);
+  background: -moz-linear-gradient(top, #333333, #242424);
+  background: linear-gradient(top, #333333, #242424);
+  background-color: #262626;
+  border-color: #262626;
 }
 
 .navbar-inverse .navbar-header a {
-  color: #1fdb6d;
+  color: $monokai-brighter-blue;
 }
 
 .navbar-inverse .navbar-header a:hover {
-  color: #00fa68;
+  color: $monokai-brighter-green;
 }
 
 .navbar-inverse .navbar-nav li a {
-  color: #FFFFFF;
+  color: $monokai-white;
 }
 
 .navbar-inverse .navbar-nav li a:hover {
-  color: #1fdb6d;
+  color: $monokai-brighter-green;
 }
 
 #search-box {
@@ -85,28 +168,28 @@ body {
 
 .navbar-nav .user-nav-dropdown.open a:focus, .navbar-nav .user-nav-dropdown.open a {
   background-color: inherit;
-  color: #1fdb6d;
+  color: $monokai-brighter-green;
 }
 
-// .user-nav-dropdown .dropdown-menu {
-//   background-color: #324956;
-// }
+.user-nav-dropdown.open .dropdown-menu {
+  background: #242424;
+}
 
 .user-nav-dropdown.open .dropdown-menu li a {
-  color: inherit;
+  color: $monokai-white;
 }
 
 .user-nav-dropdown.open .dropdown-menu li a:hover {
-  color: #1fdb6d;
+  color: $monokai-brighter-green;
 }
 
 @media (max-width: 767px) {
   .navbar-inverse .navbar-nav .user-nav-dropdown.open .dropdown-menu>li>a {
-    color: #FFFFFF;
+    color: $monokai-white;
   }
 
   .navbar-inverse .navbar-nav .user-nav-dropdown.open .dropdown-menu>li>a:hover {
-    color: #1fdb6d;
+    color: $monokai-brighter-green;
   }
 }
 
@@ -132,6 +215,8 @@ body {
 }
 
 .index-game-div h4 {
+  color: $monokai-orange;
+  font-weight: 400;
   margin-bottom: 5px;
 }
 
@@ -143,23 +228,85 @@ body {
   font-size: 13px;
 }
 
+span.playstation {
+  color: $monokai-blue;
+}
+
+span.xbox {
+  color: $monokai-green;
+}
+
+.index-filters {
+  background: none;
+  border: none;
+  text-align: center;
+}
+
+.index-filters .btn-filter-all {
+  background: -webkit-linear-gradient(top, #bfbfbf, #808080);
+  background: -o-linear-gradient(top, #bfbfbf, #808080);
+  background: -moz-linear-gradient(top, #bfbfbf, #808080);
+  background: linear-gradient(top, #bfbfbf, #808080);
+  background-color: #bfbfbf;
+  border-color: #4d4d4d;
+  width: 70px;
+}
+
+.index-filters .btn-filter-all.disabled, .index-filters .btn-filter-all:hover {
+  border-color: #4d4d4d;
+  color: #1a1a1a;
+  outline: none;
+  -webkit-box-shadow: inset 0 0 0 1px #666666,inset 0 5px 30px #4d4d4d;
+     -moz-box-shadow: inset 0 0 0 1px #666666,inset 0 5px 30px #4d4d4d;
+          box-shadow: inset 0 0 0 1px #666666,inset 0 5px 30px #4d4d4d;
+}
+
 .index-filters .btn.disabled {
   opacity: 1;
 }
 
-.btn-xbox {
+.index-filters .btn-xbox {
   color: #fff;
+  background: -webkit-linear-gradient(top, #5cb85c, #367c36);
+  background: -o-linear-gradient(top, #5cb85c, #367c36);
+  background: -moz-linear-gradient(top, #5cb85c, #367c36);
+  background: linear-gradient(top, #5cb85c, #367c36);
   background-color: #5cb85c;
-  border-color: #4cae4c;
+  border-color: #275927;
+  text-shadow: 2px 2px 5px #2f6a2f;
 }
 
-.btn-playstation {
+.index-filters .btn-xbox.disabled, .index-filters .btn-xbox:hover, .index-filters .btn-xbox:active {
+  border-color: #173517;
   color: #fff;
+  outline: none;
+  -webkit-box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
+     -moz-box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
+          box-shadow: inset 0 0 0 1px #275927,inset 0 5px 30px #173517;
+}
+
+.index-filters .btn-playstation {
+  color: #e6f4ff;
+  background: -webkit-linear-gradient(top, #0079D0, #004a80);
+  background: -o-linear-gradient(top, #0079D0, #004a80);
+  background: -moz-linear-gradient(top, #0079D0, #004a80);
+  background: linear-gradient(top, #0079D0, #004a80);
   background-color: #0079D0;
-  border-color: #0068b3;
+  border-color: #002d4d;
+  text-shadow: 2px 2px 5px #003c66;
+}
+
+.index-filters .btn-playstation.disabled, .index-filters .btn-playstation:hover, .index-filters .btn-playstation:active {
+  border-color: #001e33;
+  color: #e6f4ff;
+  outline: none;
+  -webkit-box-shadow: inset 0 0 0 1px #002d4d,inset 0 5px 30px #001e33;
+     -moz-box-shadow: inset 0 0 0 1px #002d4d,inset 0 5px 30px #001e33;
+          box-shadow: inset 0 0 0 1px #002d4d,inset 0 5px 30px #001e33;
 }
 
 .search-apology {
+  text-align: center;
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -167,6 +314,7 @@ body {
 /*------ Games#Show ------*/
 
 .show-game {
+  color: $monokai-white;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -175,8 +323,26 @@ body {
   border-radius: 10px;
 }
 
+#show-game-name {
+  color: $monokai-orange;
+}
+
+.show-game-online-status {
+  color: $monokai-gold;
+}
+
 .ownerships-form-div {
   margin-top: 20px;
+}
+
+.ownerships-form-div .well {
+  background-color: #282828;
+  border-color: #262626;
+}
+
+.lfg-form .panel {
+  background-color: #282828;
+  border-color: #262626;
 }
 
 .lfg-form h5 {
@@ -185,15 +351,60 @@ body {
 }
 
 .show-game h4 {
+  color: $monokai-gold;
   margin-bottom: 20px;
+}
+
+.game-lfgs-list .panel {
+  background-color: #282828;
+  border-color: #262626;
+}
+
+.game-lfgs-list h4 {
+  color: $monokai-gold;
 }
 
 .game-lfgs-list .table>tbody>tr>th, .game-lfgs-list .table>tbody>tr>td {
   vertical-align: middle;
 }
 
+.game-lfgs-list .table>tbody>tr>td {
+  background: #404040;
+  border-color: #595959;
+}
+
+.game-lfgs-list span.lfg-username, .game-lfgs-list span.lfg-username a {
+  color: $monokai-orange;
+  font-weight: 400;
+}
+
+.lfgs-specifics-header {
+  color: $monokai-purple;
+}
+
 .lfgs-specifics {
   min-width: 300px;
+}
+
+.game-lfgs-list .lfg-when {
+  color: $monokai-gold;
+}
+
+span.lfg-chat-btns, a.lfg-chat-btns {
+  color: $monokai-pink;
+}
+
+a.lfg-chat-btns:hover {
+  color: #f471a1;
+}
+
+.game-lfgs-list .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #333333;
+   border-color: #595959;
+}
+
+.game-lfgs-list .table-striped > tbody > tr:nth-child(1) > td, .table-striped > tbody > tr:nth-child(1) > th {
+   background-color: #282828;
 }
 
 /*------ Devise ------*/
@@ -202,11 +413,18 @@ body {
   margin-bottom: 35px;
 }
 
+.devise-forms label {
+  font-weight: 400;
+}
+
 .devise-forms h2 {
+  color: $monokai-gold;
+  font-weight: 400;
   margin-bottom: 22px;
 }
 
 .devise-forms h3 {
+  color: $monokai-gold;
   margin-bottom: 22px;
 }
 
@@ -214,11 +432,60 @@ body {
   margin-bottom: 0;
 }
 
+.devise-forms .panel {
+  background-color: #282828;
+  border-color: #262626;
+  color: $monokai-white;
+}
+
+.devise-forms .form-first-name, .devise-forms .form-last-name {
+  color: $monokai-blue;
+}
+
+.devise-forms .form-username {
+  color: $monokai-orange;
+}
+
+.devise-forms .form-email {
+  color: $monokai-pink;
+}
+
+.devise-forms .form-new-pw {
+  color: $monokai-green;
+}
+
+.devise-forms .form-pw {
+  color: $monokai-purple;
+}
+
+.devise-forms a {
+  color: $monokai-white;
+  font-weight: 300;
+}
+
+.devise-forms a:hover {
+  color: $monokai-green;
+  text-decoration: none;
+}
+
+.devise-forms a.delete-account-link {
+  color: #808080;
+}
+
 /*------ Profiles#Show ------*/
 
 .profile-show {
   margin-top: 20px;
   margin-bottom: 35px;
+  color: $monokai-white;
+}
+
+.profile-show h2 {
+  color: $monokai-orange;
+}
+
+.edit-profile-link, .edit-profile-link:hover {
+  color: $monokai-purple;
 }
 
 .profile-info {
@@ -231,13 +498,60 @@ body {
 
 .owned-consoles h4 {
   margin-bottom: 15px;
+  color: $monokai-purple;
+  font-weight: 400;
 }
 
 .owned-games h3 {
+  color: $monokai-purple;
+  font-weight: 400;
   margin-bottom: 40px;
 }
 
+.owned-consoles .well, .owned-games .well {
+  background-color: #282828;
+  border-color: #262626;
+}
+
+.about-me h5 {
+  color: $monokai-pink;
+}
+
+.location h5 {
+  color: $monokai-gold;
+}
+
+.playstation {
+  color: $monokai-blue;
+}
+
+.xbox {
+  color: $monokai-green;
+}
+
 /*------ Profiles#Edit ------*/
+
+.profile-edit .panel {
+  background-color: #282828;
+  border-color: #262626;
+}
+
+.profile-edit {
+  color: $monokai-white;
+}
+
+.profile-edit h2 {
+  color: $monokai-orange;
+  font-weight: 400;
+}
+
+.profile-form-about-me {
+  color: $monokai-pink;
+}
+
+.profile-form-location {
+  color: $monokai-gold;
+}
 
 p.profile-privacy-options-label {
   font-weight: 700;
@@ -247,6 +561,10 @@ p.profile-privacy-options-label {
 /*------* Footer *------*/
 
 .footer {
+  background: -webkit-linear-gradient(bottom, #262626, #242424);
+  background: -o-linear-gradient(bottom, #262626, #242424);
+  background: -moz-linear-gradient(bottom, #262626, #242424);
+  background: linear-gradient(bottom, #262626, #242424);
   background-color: #f5f5f5;
   bottom: 0;
   min-height: 50px;

@@ -1,11 +1,11 @@
-<div class="panel panel-default">
-  <div class="panel-body index-filters">
+<div class="panel panel-default index-filters">
+  <div class="panel-body">
     <% @consoles.each do |c| %>
       <%= link_to c.name, games_path(console: c.id, search: params[:search]),
           class: "btn btn-default#{add_console_color_to_button(c)}" %>
     <% end %>
-    <%= link_to "None", games_path(search: params[:search]),
-        class: "btn btn-default#{' disabled' if params[:console].nil?}" %>
+    <%= link_to "All", games_path(search: params[:search]),
+        class: "btn btn-default btn-filter-all#{' disabled' if params[:console].nil?}" %>
   </div>
 </div>
 <% if params[:search] && @games.blank? %>
@@ -15,16 +15,14 @@
   <% @games.each do |game| %>
     <div class="col-sm-6 col-md-4 col-lg-3 index-game-div">
       <div class="index-cover-image-div">
-        <%= image_tag(game.cover_image.url, height: "150", class: "index-cover-image") %>
+        <%= link_to game_path(game) do %>
+          <%= image_tag(game.cover_image.url, height: "150", class: "index-cover-image") %>
+        <% end %>
       </div>
       <h4 class="text-center"><%= link_to game.name, game_path(game) %></h4>
       <p class="text-center">
         <% game.consoles.each do |c| %>
-          <% if c.abbreviation %>
-            <%= c.abbreviation %>
-          <% else %>
-            <%= c.name %>
-          <% end %>
+          <%= themed_console_name(c, true) %>
           <%= "/" if game.consoles.last != c %>
         <% end %>
       </p>

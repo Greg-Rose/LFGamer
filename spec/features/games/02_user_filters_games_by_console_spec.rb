@@ -42,7 +42,7 @@ feature 'user filters games by console' do
 
   scenario 'remove filters' do
     visit games_path(console: console_0.id)
-    click_link "None"
+    click_link "All"
 
     expect(page).to have_content games[0].name
     expect(page).to have_content games[1].name

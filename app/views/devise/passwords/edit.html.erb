@@ -1,28 +1,32 @@
 <div class="row devise-forms">
   <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-    <h2 class="col-md-12">Change your password</h2>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3 class="col-md-12">Change your password</h3>
 
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
-      <%= f.hidden_field :reset_password_token %>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+          <%= f.hidden_field :reset_password_token %>
 
-      <div class="form-group col-md-12">
-        <%= f.label :password, "New password" %>
-        <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
+          <div class="form-group col-md-12">
+            <%= f.label :password, "New password", class: "form-new-pw" %>
+            <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
+          </div>
+
+          <div class="form-group col-md-12">
+            <%= f.label :password_confirmation, "Confirm new password", class: "form-new-pw" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+          </div>
+
+          <div class="form-group col-md-12">
+            <%= f.submit "Change my password", class: "btn btn-success btn-block" %>
+          </div>
+        <% end %>
+
+        <div class="col-md-12">
+          <%= render "devise/shared/links" %>
+        </div>
       </div>
-
-      <div class="form-group col-md-12">
-        <%= f.label :password_confirmation, "Confirm new password" %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-      </div>
-
-      <div class="form-group col-md-12">
-        <%= f.submit "Change my password", class: "btn btn-success btn-lg btn-block" %>
-      </div>
-    <% end %>
-
-    <div class="col-md-12">
-      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

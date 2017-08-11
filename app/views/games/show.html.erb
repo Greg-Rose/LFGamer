@@ -3,18 +3,18 @@
     <%= image_tag(@game.cover_image.url, class: "show-cover-image") %>
   </div>
   <div class="col-sm-6 col-md-4 col-md-offset-1 col-lg-4 col-lg-offset-1">
-    <h2 class="text-center"><%= @game.name %></h2>
+    <h2 class="text-center" id="show-game-name"><%= @game.name %></h2>
     <br>
     <p class="text-center">
       <% @game.consoles.reorder(:id).each do |c| %>
-        <%= c.name %>
+        <%= themed_console_name(c) %>
         <%= "/" if @game.consoles.reorder(:id).last != c %>
       <% end %>
     </p>
     <p class="text-center">
-      <%= "Online" if @game.online %>
+      <span class="show-game-online-status"><%= "Online" if @game.online %></span>
       <%= "/" if @game.online && @game.split_screen %>
-      <%= "Split Screen" if @game.split_screen %>
+      <span class="show-game-online-status"><%= "Split Screen" if @game.split_screen %></span>
     </p>
   </div>
   <% if current_user %>
@@ -101,14 +101,14 @@
                 <tr>
                   <th class="text-center">
                     <div>
-                      LFG Username
+                      <span class="lfg-username">Username</span>
                     </div>
                     <div>
-                      Console - <%= @lfg.console.username_type %>
+                      <span class="<%= themed_console_color(@lfg.console) %>">Console</span> - <span class="<%= themed_console_color(@lfg.console) %>"><%= @lfg.console.username_type %></span>
                     </div>
                   </th>
-                  <th class="text-center">Specifics</th>
-                  <th class="text-center">When - Chat</th>
+                  <th class="text-center"><span class="lfgs-specifics-header">Specifics</span></th>
+                  <th class="text-center"><span class="lfg-when">When</span> - <span class="lfg-chat-btns">Chat</span></th>
                 </tr>
                 <%= render partial: "games/lfg", collection: @lfgs %>
               </table>
