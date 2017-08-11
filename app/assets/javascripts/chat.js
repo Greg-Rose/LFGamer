@@ -68,7 +68,7 @@ var ready = function () {
                 chatbox_id = chatBoxes[x];
 
                 if ($("#chatbox_" + chatbox_id).css('display') != 'none') {
-                    if (align == 0) {
+                    if (align === 0) {
                         $("#chatbox_" + chatbox_id).css('right', '20px');
                     } else {
                         var previousChatboxId = chatBoxes[x - 1];
@@ -127,7 +127,7 @@ var ready = function () {
                 }
             }
 
-            if (chatBoxeslength == 0) {
+            if (chatBoxeslength === 0) {
                 $("#chatbox_" + conversation_id).css('right', '20px');
             } else {
                 width = (chatBoxeslength) * (280 + 7) + 20;
@@ -186,7 +186,7 @@ var ready = function () {
          */
 
         checkInputKey: function (event, chatboxtextarea, conversationId) {
-            if (event.keyCode == 13 && event.shiftKey == 0) {
+            if (event.keyCode == 13 && event.shiftKey === false) {
                 event.preventDefault();
                 event.stopPropagation();
 
@@ -223,6 +223,7 @@ var ready = function () {
          */
 
         toggleChatBoxGrowth: function (conversation_id) {
+            var newCookie;
             if ($('#chatbox_' + conversation_id + ' .chatboxcontent').css('display') == 'none') {
 
                 var minimizedChatBoxes = [];
@@ -231,7 +232,7 @@ var ready = function () {
                     minimizedChatBoxes = $.cookie('chatbox_minimized').split(/\|/);
                 }
 
-                var newCookie = '';
+                newCookie = '';
 
                 for (i = 0; i < minimizedChatBoxes.length; i++) {
                     if (minimizedChatBoxes[i] != conversation_id) {
@@ -249,7 +250,7 @@ var ready = function () {
                 $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
             } else {
 
-                var newCookie = conversation_id;
+                newCookie = conversation_id;
 
                 if ($.cookie('chatbox_minimized')) {
                     newCookie += '|' + $.cookie('chatbox_minimized');
