@@ -20,5 +20,9 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+  namespace :admin do
+    get '', to: 'dashboard#index', as: '/'
+  end
+
   root 'games#index'
 end
