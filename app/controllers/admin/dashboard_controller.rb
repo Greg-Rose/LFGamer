@@ -3,8 +3,8 @@ class Admin::DashboardController < ApplicationController
 
   def index
     @user_count = User.count
-    @consoles_count = Console.count
-    @games_count = Game.count
+    @console_count = Console.count
+    @game_count = Game.count
     @ownership_count = Ownership.count
     @lfg_count = Lfg.count
     @conversation_count = Conversation.count
@@ -14,7 +14,7 @@ class Admin::DashboardController < ApplicationController
 
   def authorize_user
     if !user_signed_in? || !current_user.admin?
-      raise ActionController::RoutingError.new("Not Found")
+      redirect_to root_path, alert: "Access Denied"
     end
   end
 end
