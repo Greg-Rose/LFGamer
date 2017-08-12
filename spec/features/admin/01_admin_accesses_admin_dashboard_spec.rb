@@ -25,7 +25,7 @@ feature 'admin views admin dashboard' do
 
     expect(page).to have_current_path admin_path
     expect(page).to have_content "Administrative Dashboard"
-    expect(page).to have_content "Total Users"
+    expect(page).to have_content "Users"
   end
 
   scenario 'non admin user can\'t access admin dashboard' do
@@ -38,7 +38,7 @@ feature 'admin views admin dashboard' do
 
     expect(page).to have_current_path root_path
     expect(page).to_not have_content "Administrative Dashboard"
-    expect(page).to_not have_content "Total Users"
+    expect(page).to_not have_content "Users"
     expect(page).to have_content "Access Denied"
   end
 
@@ -46,33 +46,33 @@ feature 'admin views admin dashboard' do
     sign_in admin
     visit admin_path
 
-    expect(page).to have_content "Total Users"
     within ".users-count" do
+      expect(page).to have_content "Users"
       expect(page).to have_content User.count
     end
 
-    expect(page).to have_content "Total Consoles"
     within ".consoles-count" do
+      expect(page).to have_content "Consoles"
       expect(page).to have_content Console.count
     end
 
-    expect(page).to have_content "Total Games"
     within ".games-count" do
+      expect(page).to have_content "Games"
       expect(page).to have_content Game.count
     end
 
-    expect(page).to have_content "Total LFGs"
     within ".lfgs-count" do
+      expect(page).to have_content "LFGs"
       expect(page).to have_content Lfg.count
     end
 
-    expect(page).to have_content "Total Ownerships"
     within ".ownerships-count" do
+      expect(page).to have_content "Ownerships"
       expect(page).to have_content Ownership.count
     end
 
-    expect(page).to have_content "Total Conversations"
     within ".conversations-count" do
+      expect(page).to have_content "Conversations"
       expect(page).to have_content Conversation.count
     end
   end
