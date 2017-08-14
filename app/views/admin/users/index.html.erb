@@ -1,0 +1,21 @@
+<div class="row admin-users">
+  <div class="col-md-6">
+    <h4>Active Accounts</h4>
+    <div class="count"><%= @active_accounts %></div>
+  </div>
+
+  <div class="col-md-6">
+    <h4>Deleted Accounts</h4>
+    <div class="count"><%= @deleted_accounts %></div>
+  </div>
+
+  <div class="col-md-12">
+    <ul>
+      <% @all_users.each do |user| %>
+        <li>
+          <%= user.username %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
