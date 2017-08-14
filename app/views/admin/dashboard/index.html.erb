@@ -6,45 +6,57 @@
 
         <div class="row">
           <div class="col-xs-6 col-sm-4 col-md-2 users-count">
-            <div class="count-stats">
-              <span>Users</span>
-              <div class="count"><%= @user_count %></div>
-            </div>
+            <%= link_to "#" do %>
+              <div class="count-stats">
+                <span>Users</span>
+                <div class="count"><%= @user_count %></div>
+              </div>
+            <% end %>
           </div>
 
           <div class="col-xs-6 col-sm-4 col-md-2 games-count">
-            <div class="count-stats">
-              <span>Games</span>
-              <div class="count"><%= @game_count %></div>
-            </div>
+            <%= link_to "#" do %>
+              <div class="count-stats">
+                <span>Games</span>
+                <div class="count"><%= @game_count %></div>
+              </div>
+            <% end %>
           </div>
 
           <div class="col-xs-6 col-sm-4 col-md-2 consoles-count">
-            <div class="count-stats">
-              <span>Consoles</span>
-              <div class="count"><%= @console_count %></div>
-            </div>
+            <%= link_to "#" do %>
+              <div class="count-stats">
+                <span>Consoles</span>
+                <div class="count"><%= @console_count %></div>
+              </div>
+            <% end %>
           </div>
 
           <div class="col-xs-6 col-sm-4 col-md-2 ownerships-count">
-            <div class="count-stats">
-              <span>Ownerships</span>
-              <div class="count"><%= @ownership_count %></div>
-            </div>
+            <%= link_to "#" do %>
+              <div class="count-stats">
+                <span>Ownerships</span>
+                <div class="count"><%= @ownership_count %></div>
+              </div>
+            <% end %>
           </div>
 
           <div class="col-xs-6 col-sm-4 col-md-2 lfgs-count">
-            <div class="count-stats">
-              <span>LFGs</span>
-              <div class="count"><%= @lfg_count %></div>
-            </div>
+            <%= link_to "#" do %>
+              <div class="count-stats">
+                <span>LFGs</span>
+                <div class="count"><%= @lfg_count %></div>
+              </div>
+            <% end %>
           </div>
 
           <div class="col-xs-6 col-sm-4 col-md-2 conversations-count">
-            <div class="count-stats">
-              <span>Conversations</span>
-              <div class="count"><%= @conversation_count %></div>
-            </div>
+            <%= link_to "#" do %>
+              <div class="count-stats">
+                <span>Conversations</span>
+                <div class="count"><%= @conversation_count %></div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
