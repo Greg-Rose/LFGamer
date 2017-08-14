@@ -1,0 +1,33 @@
+<tr class="text-center">
+  <td>
+    <%= user.id %>
+  <td>
+    <div>
+      <%= user.username %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= user.full_name %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= user.email %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= user.games.count %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <% if user.deleted_at %>
+        Deleted
+      <% else %>
+        Active
+      <% end %>
+    </div>
+  </td>
+</tr>

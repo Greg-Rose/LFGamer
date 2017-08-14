@@ -66,4 +66,8 @@ class User < ApplicationRecord
   def has_game?(game)
     games.include?(game)
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

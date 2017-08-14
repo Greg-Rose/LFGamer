@@ -1,21 +1,27 @@
 <div class="row admin-users">
-  <div class="col-md-6">
+  <div class="col-xs-6 col-md-4 col-md-offset-2 col-lg-2 col-lg-offset-4 text-center">
     <h4>Active Accounts</h4>
-    <div class="count"><%= @active_accounts %></div>
+    <div class="accounts-count"><%= @active_accounts %></div>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-xs-6 col-md-4 col-lg-2 text-center">
     <h4>Deleted Accounts</h4>
-    <div class="count"><%= @deleted_accounts %></div>
+    <div class="accounts-count"><%= @deleted_accounts %></div>
   </div>
 
-  <div class="col-md-12">
-    <ul>
-      <% @all_users.each do |user| %>
-        <li>
-          <%= user.username %>
-        </li>
-      <% end %>
-    </ul>
+  <div class="col-xs-12 users-table-div">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <tr>
+          <th class="text-center">#</th>
+          <th class="text-center">Username</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Email</th>
+          <th class="text-center">Games</th>
+          <th class="text-center">Account Status</th>
+        </tr>
+        <%= render partial: "user", collection: @all_users %>
+      </table>
+    </div>
   </div>
 </div>

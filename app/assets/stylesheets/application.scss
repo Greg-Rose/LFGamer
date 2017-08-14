@@ -398,12 +398,12 @@ a.lfg-chat-btns:hover {
   color: #f471a1;
 }
 
-.game-lfgs-list .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+.game-lfgs-list .table-striped > tbody > tr:nth-child(2n+1) > td, .game-lfgs-list .table-striped > tbody > tr:nth-child(2n+1) > th {
    background-color: #333333;
    border-color: #595959;
 }
 
-.game-lfgs-list .table-striped > tbody > tr:nth-child(1) > td, .table-striped > tbody > tr:nth-child(1) > th {
+.game-lfgs-list .table-striped > tbody > tr:nth-child(1) > td, .game-lfgs-list .table-striped > tbody > tr:nth-child(1) > th {
    background-color: #282828;
 }
 
@@ -601,6 +601,36 @@ p.profile-privacy-options-label {
   .count-stats .count {
     font-size: 40px;
   }
+}
+
+.admin-users {
+  margin-top: 30px;
+}
+
+.admin-users .accounts-count {
+  font-size: 30px;
+}
+
+.admin-users .table>tbody>tr>th, .admin-users .table>tbody>tr>td {
+  vertical-align: middle;
+}
+
+.admin-users .table>tbody>tr>td {
+  background: #404040;
+  border-color: #595959;
+}
+
+.admin-users .table-striped > tbody > tr:nth-child(2n+1) > td, .admin-users .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #333333;
+   border-color: #595959;
+}
+
+.admin-users .table-striped > tbody > tr:nth-child(1) > td, .admin-users .table-striped > tbody > tr:nth-child(1) > th {
+   background-color: #282828;
+}
+
+.users-table-div {
+  margin-top: 30px;
 }
 
 /*------* Footer *------*/
