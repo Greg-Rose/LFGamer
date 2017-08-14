@@ -1,8 +1,8 @@
 $(document).ready(function() {
   $(".admin-dashboard").on("click", ".count-stats", function(event) {
     $( ".admin-dashboard h2").slideUp(500);
-    $(".admin-dashboard .count-stats").css("background-color", "#4d4d4d");
-    $(this).css("background-color", "#333333");
+    $(".admin-dashboard .count-stats").removeClass("stats-clicked");
+    $(this).addClass("stats-clicked");
   });
 
   $(".admin-dashboard").on("click", ".users-count a", function(event) {
