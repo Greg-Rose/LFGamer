@@ -18,15 +18,10 @@
   </td>
   <td>
     <div>
-      <%= user.games.count %>
-    </div>
-  </td>
-  <td>
-    <div>
       <% if user.deleted_at %>
-        Deleted
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
       <% else %>
-        Active
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
       <% end %>
     </div>
   </td>

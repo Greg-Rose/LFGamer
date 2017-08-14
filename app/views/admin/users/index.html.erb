@@ -9,7 +9,7 @@
     <div class="accounts-count"><%= @deleted_accounts %></div>
   </div>
 
-  <div class="col-xs-12 users-table-div">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 users-table-div">
     <div class="table-responsive">
       <table class="table table-striped table-bordered">
         <tr>
@@ -17,8 +17,7 @@
           <th class="text-center">Username</th>
           <th class="text-center">Name</th>
           <th class="text-center">Email</th>
-          <th class="text-center">Games</th>
-          <th class="text-center">Account Status</th>
+          <th class="text-center account-status">Account Status</th>
         </tr>
         <%= render partial: "user", collection: @all_users %>
       </table>
