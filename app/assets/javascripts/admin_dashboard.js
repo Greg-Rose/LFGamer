@@ -13,4 +13,13 @@ $(document).ready(function() {
       });
     }
   });
+
+  $(".admin-dashboard").on("click", ".pagination-links a", function(event) {
+    event.preventDefault();
+    var link = $(this).attr('href');
+    $.get( link, function( data ) {
+      $('.admin-dashboard .panel-body .admin-users').remove();
+      $('.admin-dashboard .panel-body').append(data);
+    });
+  });
 });

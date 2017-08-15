@@ -12,6 +12,7 @@ gem 'httparty'
 gem 'devise'
 gem 'sendgrid-ruby'
 gem 'redis'
+gem 'will_paginate'
 
 group :development do
   gem 'listen', '~> 3.0.5'

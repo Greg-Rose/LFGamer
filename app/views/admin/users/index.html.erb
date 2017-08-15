@@ -22,5 +22,6 @@
         <%= render partial: "user", collection: @all_users %>
       </table>
     </div>
+    <%= will_paginate @all_users, class: "text-center pagination-links" %>
   </div>
 </div>
