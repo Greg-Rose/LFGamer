@@ -1,5 +1,11 @@
 <div class="row admin-users">
-  <div class="col-xs-6 col-md-4 col-md-offset-2 col-lg-2 col-lg-offset-4 text-center">
+  <div class="col-xs-12 col-md-1 col-lg-1">
+    <%= link_to "#", class: "btn btn-lg admin-back-btn" do %>
+      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+    <% end %>
+  </div>
+
+  <div class="col-xs-6 col-md-4 col-md-offset-1 col-lg-2 col-lg-offset-3 text-center">
     <h4>Active Accounts</h4>
     <div class="accounts-count"><%= @active_accounts %></div>
   </div>

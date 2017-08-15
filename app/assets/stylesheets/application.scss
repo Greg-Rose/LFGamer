@@ -611,6 +611,14 @@ p.profile-privacy-options-label {
   margin-top: 30px;
 }
 
+.admin-back-btn {
+  color: $monokai-white;
+}
+
+.admin-back-btn:hover {
+  color: $monokai-pink;
+}
+
 .admin-users h4 {
   color: $monokai-gold;
   font-weight: 400;

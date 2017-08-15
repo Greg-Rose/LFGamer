@@ -22,4 +22,10 @@ $(document).ready(function() {
       $('.admin-dashboard .panel-body').append(data);
     });
   });
+
+  $(".admin-dashboard").on("click", ".admin-back-btn", function(event) {
+    $(".admin-back-btn").parent().parent().remove();
+    $( ".admin-dashboard h2").slideDown(500);
+    $(".admin-dashboard .count-stats").removeClass("stats-clicked");
+  });
 });
