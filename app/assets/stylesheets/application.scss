@@ -650,6 +650,16 @@ p.profile-privacy-options-label {
   margin-top: 30px;
 }
 
+.users-table-div .user-info-btn {
+  color: $monokai-blue;
+  padding: 0;
+  padding-right: 12px;
+}
+
+.users-table-div .user-info-btn:hover {
+  color: #186881;
+}
+
 .users-table-div .account-status {
   width: 100px;
 }

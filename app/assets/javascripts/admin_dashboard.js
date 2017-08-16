@@ -25,7 +25,19 @@ $(document).ready(function() {
 
   $(".admin-dashboard").on("click", ".admin-back-btn", function(event) {
     $(".admin-back-btn").parent().parent().remove();
-    $( ".admin-dashboard h2").slideDown(500);
+    $(".admin-dashboard h2").slideDown(500);
     $(".admin-dashboard .count-stats").removeClass("stats-clicked");
+  });
+
+  $(".admin-dashboard").on("click", ".user-info-btn", function(event) {
+    event.preventDefault();
+    var uid = $(this).data('uid');
+    $.get( '/admin/users/' + uid, function( data ) {
+      if ($('.admin-dashboard .modal').length) {
+        $('.admin-dashboard .modal').remove();
+      }
+      $('.admin-dashboard .admin-users').append(data);
+      $('#userModal').modal('show');
+    });
   });
 });

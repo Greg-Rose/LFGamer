@@ -8,6 +8,11 @@ class Admin::UsersController < ApplicationController
     render layout: false
   end
 
+  def show
+    @user = User.find(params[:id])
+    render layout: false
+  end
+
   protected
 
   def authorize_user

@@ -1,8 +1,11 @@
-<tr class="text-center">
-  <td>
+<tr>
+  <td class="text-center">
     <%= user.id %>
   <td>
     <div>
+      <%= link_to "#", class: "btn user-info-btn", "data-uid" => user.id do %>
+        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+      <% end %>
       <%= user.username %>
     </div>
   </td>
@@ -16,7 +19,7 @@
       <%= user.email %>
     </div>
   </td>
-  <td>
+  <td class="text-center">
     <div>
       <% if user.deleted_at %>
         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
