@@ -5,51 +5,68 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
         </button>
-        <h4 class="modal-title" id="userModalLabel"><%= @user.username %></h4>
+        <h3 class="modal-title" id="userModalLabel"><%= @user.username %></h3>
+        - <%= link_to "Profile", profile_path(@user.profile), target: "_blank" %>
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-xs-6">
-            <h5>First Name:</h5>
-            <%= @user.first_name %>
+          <div class="col-xs-6 modal-users-name">
+            <span>First Name:</span> <%= @user.first_name %>
           </div>
-          <div class="col-xs-6">
-            <h5>Last Name:</h5>
-            <%= @user.last_name %>
+          <div class="col-xs-6 modal-users-name">
+            <span>Last Name:</span> <%= @user.last_name %>
           </div>
 
-          <div class="col-xs-12">
-            <h5>Email:</h5>
-            <%= @user.email %>
+          <div class="col-xs-12 modal-email">
+            <span>Email:</span> <%= @user.email %>
+          </div>
+        </div>
+
+        <div class="row text-center">
+          <div class="col-xs-6 col-sm-3">
+            <div class="modal-count-stats">
+              <h5>Games</h5>
+              <span class="count"><%= @user.games.count %></span>
+            </div>
           </div>
 
           <div class="col-xs-6 col-sm-3">
-            <h5>Games</h5>
-            <%= @user.games.count %>
+            <div class="modal-count-stats">
+              <h5>Consoles</h5>
+              <span class="count"><%= @user.consoles.count %></span>
+            </div>
           </div>
 
           <div class="col-xs-6 col-sm-3">
-            <h5>Consoles</h5>
-            <%= @user.consoles.count %>
+            <div class="modal-count-stats">
+              <h5>Ownerships</h5>
+              <span class="count"><%= @user.ownerships.count %></span>
+            </div>
           </div>
 
           <div class="col-xs-6 col-sm-3">
-            <h5>Ownerships</h5>
-            <%= @user.ownerships.count %>
+            <div class="modal-count-stats">
+              <h5>LFGs</h5>
+              <span class="count"><%= @user.lfgs.count %></span>
+            </div>
           </div>
 
-          <div class="col-xs-6 col-sm-3">
-            <h5>LFGs</h5>
-            <%= @user.lfgs.count %>
-          </div>
-
-          <div class="col-md-12">
-            <h5>Account Status(Active/Deleted)</h5>
+          <div class="col-md-6">
+            <h5>Account Status (<span class="active">Active</span>/<span class="deleted">Deleted</span>):</h5>
             <% if @user.deleted_at %>
               <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               <%= @user.deleted_at.in_time_zone("Eastern Time (US & Canada)").strftime("%b %e, %Y %r EST") %>
             <% else %>
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <% end %>
+          </div>
+
+          <div class="col-md-6">
+            <h5>Admin:</h5>
+            <% if @user.admin? %>
+              <span class="active">Yes</span>
+            <% else %>
+              <span class="deleted">No</span>
             <% end %>
           </div>
         </div>

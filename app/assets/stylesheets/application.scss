@@ -674,6 +674,7 @@ p.profile-privacy-options-label {
 
 .modal-content {
   background-color: #595959;
+  color: $monokai-white;
 }
 
 .modal-header .close {
@@ -684,6 +685,64 @@ p.profile-privacy-options-label {
 
 .modal-header .close:hover {
   opacity: 0.6;
+}
+
+.modal-header h3 {
+  color: $monokai-orange;
+  display: inline-block;
+  font-weight: 400;
+}
+
+.modal-header a {
+  color: $monokai-blue;
+}
+
+.modal-header a:hover {
+  text-decoration: underline;
+}
+
+.modal-users-name span {
+  color: $monokai-blue;
+}
+
+.modal-users-name {
+  margin-top: 10px;
+}
+
+.modal-email span {
+  color: $monokai-pink;
+}
+
+.modal-email {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.modal-count-stats {
+  background-color: #4d4d4d;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.modal-count-stats h5 {
+  color: $monokai-gold;
+}
+
+.modal-count-stats .count {
+  color: $monokai-white;
+  font-size: 30px;
+}
+
+.modal .active, .modal .glyphicon-ok {
+  color: #5cb85c;
+}
+
+.modal .deleted, .modal .glyphicon-remove {
+  color: #d9534f;
 }
 
 .modal-backdrop.in {
