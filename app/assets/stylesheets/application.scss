@@ -672,6 +672,24 @@ p.profile-privacy-options-label {
   color: #d9534f;
 }
 
+.modal-content {
+  background-color: #595959;
+}
+
+.modal-header .close {
+  color: $monokai-white;
+  opacity: 1;
+  text-shadow: none;
+}
+
+.modal-header .close:hover {
+  opacity: 0.6;
+}
+
+.modal-backdrop.in {
+  opacity: 0.8;
+}
+
 /*------* Footer *------*/
 
 .footer {
