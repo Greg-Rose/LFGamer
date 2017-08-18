@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'admin views admin dashboard' do
+feature 'admin views user table' do
   # As an admin
   # I want to view a table of all the site's users
   # So that I can see who's using the site

@@ -3,7 +3,7 @@
     <%= user.id %>
   <td>
     <div>
-      <%= link_to "#", class: "btn user-info-btn", "data-uid" => user.id do %>
+      <%= link_to "#", class: "btn user-info-btn", "data-uid" => user.id, id: user.username do %>
         <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
       <% end %>
       <%= user.username %>
