@@ -16,7 +16,14 @@ feature 'user edits profile' do
   #   - If I provide valid information, my profile is submitted
   #   - If I provide an invalid zipcode, I receive an error message
 
-  let!(:user) { create(:profile).user }
+  let!(:user) { create(:user) }
+
+  before(:each) do
+    temp_profile = build(:profile)
+    users_profile = user.profile
+    users_profile.about_me = temp_profile.about_me
+    users_profile.save
+  end
 
   scenario 'access edit page via link on profile page' do
     sign_in user
