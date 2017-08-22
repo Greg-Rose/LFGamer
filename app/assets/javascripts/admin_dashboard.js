@@ -55,4 +55,13 @@ $(document).ready(function() {
       });
     }
   });
+
+  $(".admin-dashboard").on("click", ".consoles-table-div .pagination-links a", function(event) {
+    event.preventDefault();
+    var link = $(this).attr('href');
+    $.get( link, function( data ) {
+      $('.admin-dashboard .panel-body .admin-consoles').remove();
+      $('.admin-dashboard .panel-body').append(data);
+    });
+  });
 });
