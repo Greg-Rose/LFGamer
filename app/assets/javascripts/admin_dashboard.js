@@ -14,7 +14,7 @@ $(document).ready(function() {
     }
   });
 
-  $(".admin-dashboard").on("click", ".pagination-links a", function(event) {
+  $(".admin-dashboard").on("click", ".users-table-div .pagination-links a", function(event) {
     event.preventDefault();
     var link = $(this).attr('href');
     $.get( link, function( data ) {
