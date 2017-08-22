@@ -749,6 +749,24 @@ p.profile-privacy-options-label {
   opacity: 0.8;
 }
 
+.admin-consoles .table>tbody>tr>th, .admin-consoles .table>tbody>tr>td {
+  vertical-align: middle;
+}
+
+.admin-consoles .table>tbody>tr>td {
+  background: #404040;
+  border-color: #595959;
+}
+
+.admin-consoles .table-striped > tbody > tr:nth-child(2n+1) > td, .admin-consoles .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #333333;
+   border-color: #595959;
+}
+
+.admin-consoles .table-striped > tbody > tr:nth-child(1) > td, .admin-consoles .table-striped > tbody > tr:nth-child(1) > th {
+   background-color: #282828;
+}
+
 /*------* Footer *------*/
 
 .footer {

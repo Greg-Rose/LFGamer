@@ -7,6 +7,9 @@ $(document).ready(function() {
 
   $(".admin-dashboard").on("click", ".users-count a", function(event) {
     if (!$(".admin-dashboard .admin-users").length) {
+      if ($(".admin-dashboard .panel-body").children().length > 2) {
+        $(".admin-dashboard .panel-body").children().last().remove();
+      }
       $.get( "/admin/users", function( data ) {
         $('.admin-dashboard .panel-body').append(data);
         $( ".admin-dashboard .admin-users").hide().slideDown(500);
@@ -39,5 +42,17 @@ $(document).ready(function() {
       $('.admin-dashboard .admin-users').append(data);
       $('#userModal').modal('show');
     });
+  });
+
+  $(".admin-dashboard").on("click", ".consoles-count a", function(event) {
+    if (!$(".admin-dashboard .admin-consoles").length) {
+      if ($(".admin-dashboard .panel-body").children().length > 2) {
+        $(".admin-dashboard .panel-body").children().last().remove();
+      }
+      $.get( "/admin/consoles", function( data ) {
+        $('.admin-dashboard .panel-body').append(data);
+        $( ".admin-dashboard .admin-consoles").hide().slideDown(500);
+      });
+    }
   });
 });
