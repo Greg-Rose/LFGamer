@@ -1,5 +1,5 @@
 class Admin::DashboardController < ApplicationController
-  before_action :authorize_user
+  before_action :authorize_admin
 
   def index
     @user_count = User.count
@@ -12,7 +12,7 @@ class Admin::DashboardController < ApplicationController
 
   protected
 
-  def authorize_user
+  def authorize_admin
     if !user_signed_in? || !current_user.admin?
       redirect_to root_path, alert: "Access Denied"
     end
