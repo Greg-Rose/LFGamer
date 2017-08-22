@@ -72,15 +72,4 @@ feature 'admin views a users info' do
     expect(page).to_not have_css "#userModal"
     expect(page).to have_css ".users-table-div"
   end
-
-  scenario 'clicking Close button closes user info and goes back to users table', js: true do
-    sign_in admin
-    visit admin_path
-    find('.users-count').click
-    find("a##{users[1].username}").click
-    find('#userModal .modal-footer .btn').click
-
-    expect(page).to_not have_css "#userModal"
-    expect(page).to have_css ".users-table-div"
-  end
 end
