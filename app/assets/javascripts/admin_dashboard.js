@@ -76,4 +76,13 @@ $(document).ready(function() {
       });
     }
   });
+
+  $(".admin-dashboard").on("click", ".ownerships-table-div .pagination-links a", function(event) {
+    event.preventDefault();
+    var link = $(this).attr('href');
+    $.get( link, function( data ) {
+      $('.admin-dashboard .panel-body .admin-ownerships').remove();
+      $('.admin-dashboard .panel-body').append(data);
+    });
+  });
 });
