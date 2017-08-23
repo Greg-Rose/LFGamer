@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     get '', to: 'dashboard#index', as: '/'
     resources :users, only: [:index, :show]
     resources :consoles, only: [:index]
+    resources :ownerships, only: [:index]
   end
 
   root 'games#index'
