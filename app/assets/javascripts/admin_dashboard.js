@@ -64,4 +64,16 @@ $(document).ready(function() {
       $('.admin-dashboard .panel-body').append(data);
     });
   });
+
+  $(".admin-dashboard").on("click", ".ownerships-count a", function(event) {
+    if (!$(".admin-dashboard .admin-ownerships").length) {
+      if ($(".admin-dashboard .panel-body").children().length > 2) {
+        $(".admin-dashboard .panel-body").children().last().remove();
+      }
+      $.get( "/admin/ownerships", function( data ) {
+        $('.admin-dashboard .panel-body').append(data);
+        $( ".admin-dashboard .admin-ownerships").hide().slideDown(500);
+      });
+    }
+  });
 });
