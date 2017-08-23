@@ -1,0 +1,23 @@
+<div class="row admin-ownerships">
+  <div class="col-xs-12">
+    <%= link_to "#", class: "btn btn-lg admin-back-btn" do %>
+      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+    <% end %>
+  </div>
+
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 ownerships-table-div">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <tr>
+          <th class="text-center">#</th>
+          <th class="text-center">User</th>
+          <th class="text-center">Game</th>
+          <th class="text-center">Console</th>
+          <th class="text-center">Created At</th>
+        </tr>
+        <%= render partial: "ownership", collection: @ownerships %>
+      </table>
+    </div>
+    <%= will_paginate @ownerships, class: "text-center pagination-links" %>
+  </div>
+</div>
