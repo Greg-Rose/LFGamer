@@ -66,7 +66,6 @@ feature 'admin views a users info' do
     visit admin_path
     find('.users-count').click
     find("a##{users[1].username}").click
-    sleep(0.1)
     find('#userModal .close').click
 
     expect(page).to_not have_css "#userModal"
