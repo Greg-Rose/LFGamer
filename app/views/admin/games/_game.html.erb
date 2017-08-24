@@ -19,8 +19,7 @@
   <td>
     <div>
       <%= "Online" if game.online? %>
-    </div>
-    <div>
+      <%= "/" if game.online? && game.split_screen? %>
       <%= "Split Screen" if game.split_screen? %>
     </div>
   </td>
