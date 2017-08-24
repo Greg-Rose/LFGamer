@@ -12,7 +12,7 @@ feature 'admin views games table' do
   #   - I can view a table that shows each games name, number of consoles, number of users, multiplayer type, created at date
 
   let!(:admin) { create(:user, admin: true) }
-  let!(:games) { create_list(:games, 4) }
+  let!(:games) { create_list(:game, 4) }
 
   scenario 'view games table', js: true do
     sign_in admin
