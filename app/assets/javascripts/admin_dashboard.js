@@ -85,4 +85,16 @@ $(document).ready(function() {
       $('.admin-dashboard .panel-body').append(data);
     });
   });
+
+  $(".admin-dashboard").on("click", ".games-count a", function(event) {
+    if (!$(".admin-dashboard .admin-games").length) {
+      if ($(".admin-dashboard .panel-body").children().length > 2) {
+        $(".admin-dashboard .panel-body").children().last().remove();
+      }
+      $.get( "/admin/games", function( data ) {
+        $('.admin-dashboard .panel-body').append(data);
+        $( ".admin-dashboard .admin-games").hide().slideDown(500);
+      });
+    }
+  });
 });
