@@ -1,0 +1,32 @@
+<tr>
+  <td class="text-center">
+    <%= game.id %>
+  <td>
+    <div>
+      <%= game.name %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= game.consoles.count %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= game.users.count %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= "Online" if game.online? %>
+    </div>
+    <div>
+      <%= "Split Screen" if game.split_screen? %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= game.created_at %>
+    </div>
+  </td>
+</tr>
