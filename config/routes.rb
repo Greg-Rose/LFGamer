@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show]
     resources :consoles, only: [:index]
     resources :ownerships, only: [:index]
+    resources :games, only: [:index]
   end
 
   root 'games#index'
