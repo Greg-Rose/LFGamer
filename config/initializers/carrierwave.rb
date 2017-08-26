@@ -7,6 +7,7 @@ CarrierWave.configure do |config|
       aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
       region: 'us-east-2'
     }
+    config.storage = :fog
     config.fog_directory  = ENV["S3_PRODUCTION_BUCKET"]
   end
 
@@ -18,6 +19,7 @@ CarrierWave.configure do |config|
       aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
       region: 'us-east-2'
     }
+    config.storage = :fog
     config.fog_directory  = ENV["S3_DEV_BUCKET"]
   end
 
