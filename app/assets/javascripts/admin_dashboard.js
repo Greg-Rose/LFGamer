@@ -139,4 +139,13 @@ $(document).ready(function() {
       });
     }
   });
+
+  $(".admin-dashboard").on("click", ".conversations-table-div .pagination-links a", function(event) {
+    event.preventDefault();
+    var link = $(this).attr('href');
+    $.get( link, function( data ) {
+      $('.admin-dashboard .panel-body .admin-conversations').remove();
+      $('.admin-dashboard .panel-body').append(data);
+    });
+  });
 });
