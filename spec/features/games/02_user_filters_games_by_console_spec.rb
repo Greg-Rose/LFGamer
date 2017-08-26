@@ -12,10 +12,13 @@ feature 'user filters games by console' do
   #   - I can remove the filter to view all games again
 
   let!(:games) { create_list(:game, 2) }
+  let!(:console) { create(:console, name: "Xbox One", abbreviation: "XBOne") }
   let!(:console_0) { games[0].consoles.first }
   let!(:console_1) { games[1].consoles.first }
 
   scenario 'there\'s a filter for each console' do
+    games[0].consoles << console
+    games[0].save
     visit games_path
 
     Console.all.each do |c|
