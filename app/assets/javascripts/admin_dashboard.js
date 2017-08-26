@@ -127,4 +127,16 @@ $(document).ready(function() {
       $('.admin-dashboard .panel-body').append(data);
     });
   });
+
+  $(".admin-dashboard").on("click", ".conversations-count a", function(event) {
+    if (!$(".admin-dashboard .admin-conversations").length) {
+      if ($(".admin-dashboard .panel-body").children().length > 2) {
+        $(".admin-dashboard .panel-body").children().last().remove();
+      }
+      $.get( "/admin/conversations", function( data ) {
+        $('.admin-dashboard .panel-body').append(data);
+        $( ".admin-dashboard .admin-conversations").hide().slideDown(500);
+      });
+    }
+  });
 });
