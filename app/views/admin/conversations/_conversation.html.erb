@@ -1,0 +1,24 @@
+<tr>
+  <td class="text-center">
+    <%= conversation.id %>
+  <td>
+    <div>
+      <%= conversation.sender.username %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= conversation.recipient.username %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= conversation.messages.count %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= conversation.created_at %>
+    </div>
+  </td>
+</tr>
