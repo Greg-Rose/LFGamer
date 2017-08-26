@@ -106,4 +106,16 @@ $(document).ready(function() {
       $('.admin-dashboard .panel-body').append(data);
     });
   });
+
+  $(".admin-dashboard").on("click", ".lfgs-count a", function(event) {
+    if (!$(".admin-dashboard .admin-lfgs").length) {
+      if ($(".admin-dashboard .panel-body").children().length > 2) {
+        $(".admin-dashboard .panel-body").children().last().remove();
+      }
+      $.get( "/admin/lfgs", function( data ) {
+        $('.admin-dashboard .panel-body').append(data);
+        $( ".admin-dashboard .admin-lfgs").hide().slideDown(500);
+      });
+    }
+  });
 });
