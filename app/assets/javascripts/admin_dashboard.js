@@ -5,24 +5,25 @@ $(document).ready(function() {
     $(this).addClass("stats-clicked");
   });
 
-  $(".admin-dashboard").on("click", ".users-count a", function(event) {
-    if (!$(".admin-dashboard .admin-users").length) {
+  $(".admin-dashboard").on("click", ".count-stats", function(event) {
+    var type = $(this).attr("data");
+    if (!$(".admin-dashboard .admin-" + type).length) {
       if ($(".admin-dashboard .panel-body").children().length > 2) {
         $(".admin-dashboard .panel-body").children().last().remove();
       }
-      $.get( "/admin/users", function( data ) {
+      $.get( "/admin/" + type, function( data ) {
         $('.admin-dashboard .panel-body').append(data);
-        $( ".admin-dashboard .admin-users").hide().slideDown(500);
+        $( ".admin-dashboard .admin-" + type).hide().slideDown(500);
       });
     }
-  });
 
-  $(".admin-dashboard").on("click", ".users-table-div .pagination-links a", function(event) {
-    event.preventDefault();
-    var link = $(this).attr('href');
-    $.get( link, function( data ) {
-      $('.admin-dashboard .panel-body .admin-users').remove();
-      $('.admin-dashboard .panel-body').append(data);
+    $(".admin-dashboard").on("click", "." + type + "-table-div .pagination-links a", function(event) {
+      event.preventDefault();
+      var link = $(this).attr('href');
+      $.get( link, function( data ) {
+        $('.admin-dashboard .panel-body .admin-' + type).remove();
+        $('.admin-dashboard .panel-body').append(data);
+      });
     });
   });
 
@@ -41,111 +42,6 @@ $(document).ready(function() {
       }
       $('.admin-dashboard .admin-users').append(data);
       $('#userModal').modal('show');
-    });
-  });
-
-  $(".admin-dashboard").on("click", ".consoles-count a", function(event) {
-    if (!$(".admin-dashboard .admin-consoles").length) {
-      if ($(".admin-dashboard .panel-body").children().length > 2) {
-        $(".admin-dashboard .panel-body").children().last().remove();
-      }
-      $.get( "/admin/consoles", function( data ) {
-        $('.admin-dashboard .panel-body').append(data);
-        $( ".admin-dashboard .admin-consoles").hide().slideDown(500);
-      });
-    }
-  });
-
-  $(".admin-dashboard").on("click", ".consoles-table-div .pagination-links a", function(event) {
-    event.preventDefault();
-    var link = $(this).attr('href');
-    $.get( link, function( data ) {
-      $('.admin-dashboard .panel-body .admin-consoles').remove();
-      $('.admin-dashboard .panel-body').append(data);
-    });
-  });
-
-  $(".admin-dashboard").on("click", ".ownerships-count a", function(event) {
-    if (!$(".admin-dashboard .admin-ownerships").length) {
-      if ($(".admin-dashboard .panel-body").children().length > 2) {
-        $(".admin-dashboard .panel-body").children().last().remove();
-      }
-      $.get( "/admin/ownerships", function( data ) {
-        $('.admin-dashboard .panel-body').append(data);
-        $( ".admin-dashboard .admin-ownerships").hide().slideDown(500);
-      });
-    }
-  });
-
-  $(".admin-dashboard").on("click", ".ownerships-table-div .pagination-links a", function(event) {
-    event.preventDefault();
-    var link = $(this).attr('href');
-    $.get( link, function( data ) {
-      $('.admin-dashboard .panel-body .admin-ownerships').remove();
-      $('.admin-dashboard .panel-body').append(data);
-    });
-  });
-
-  $(".admin-dashboard").on("click", ".games-count a", function(event) {
-    if (!$(".admin-dashboard .admin-games").length) {
-      if ($(".admin-dashboard .panel-body").children().length > 2) {
-        $(".admin-dashboard .panel-body").children().last().remove();
-      }
-      $.get( "/admin/games", function( data ) {
-        $('.admin-dashboard .panel-body').append(data);
-        $( ".admin-dashboard .admin-games").hide().slideDown(500);
-      });
-    }
-  });
-
-  $(".admin-dashboard").on("click", ".games-table-div .pagination-links a", function(event) {
-    event.preventDefault();
-    var link = $(this).attr('href');
-    $.get( link, function( data ) {
-      $('.admin-dashboard .panel-body .admin-games').remove();
-      $('.admin-dashboard .panel-body').append(data);
-    });
-  });
-
-  $(".admin-dashboard").on("click", ".lfgs-count a", function(event) {
-    if (!$(".admin-dashboard .admin-lfgs").length) {
-      if ($(".admin-dashboard .panel-body").children().length > 2) {
-        $(".admin-dashboard .panel-body").children().last().remove();
-      }
-      $.get( "/admin/lfgs", function( data ) {
-        $('.admin-dashboard .panel-body').append(data);
-        $( ".admin-dashboard .admin-lfgs").hide().slideDown(500);
-      });
-    }
-  });
-
-  $(".admin-dashboard").on("click", ".lfgs-table-div .pagination-links a", function(event) {
-    event.preventDefault();
-    var link = $(this).attr('href');
-    $.get( link, function( data ) {
-      $('.admin-dashboard .panel-body .admin-lfgs').remove();
-      $('.admin-dashboard .panel-body').append(data);
-    });
-  });
-
-  $(".admin-dashboard").on("click", ".conversations-count a", function(event) {
-    if (!$(".admin-dashboard .admin-conversations").length) {
-      if ($(".admin-dashboard .panel-body").children().length > 2) {
-        $(".admin-dashboard .panel-body").children().last().remove();
-      }
-      $.get( "/admin/conversations", function( data ) {
-        $('.admin-dashboard .panel-body').append(data);
-        $( ".admin-dashboard .admin-conversations").hide().slideDown(500);
-      });
-    }
-  });
-
-  $(".admin-dashboard").on("click", ".conversations-table-div .pagination-links a", function(event) {
-    event.preventDefault();
-    var link = $(this).attr('href');
-    $.get( link, function( data ) {
-      $('.admin-dashboard .panel-body .admin-conversations').remove();
-      $('.admin-dashboard .panel-body').append(data);
     });
   });
 });
