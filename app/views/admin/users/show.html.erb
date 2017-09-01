@@ -10,15 +10,31 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-xs-6 modal-users-name">
+          <div class="col-xs-6 modal-users-name modal-account-profile-info">
             <span>First Name:</span> <%= @user.first_name %>
           </div>
-          <div class="col-xs-6 modal-users-name">
+          <div class="col-xs-6 modal-users-name modal-account-profile-info">
             <span>Last Name:</span> <%= @user.last_name %>
           </div>
 
-          <div class="col-xs-12 modal-email">
+          <div class="col-xs-12 modal-email modal-account-profile-info">
             <span>Email:</span> <%= @user.email %>
+          </div>
+
+          <div class="col-xs-12 modal-location modal-account-profile-info">
+            <span>Location:</span> <%= @user.profile.zipcode %>
+          </div>
+
+          <div class="col-sm-6 modal-psn-id modal-account-profile-info">
+            <span>PSN ID:</span> <%= @user.profile.psn_id %>
+          </div>
+
+          <div class="col-sm-6 modal-xbox-gamertag modal-account-profile-info">
+            <span>Xbox Gamertag:</span> <%= @user.profile.xbox_gamertag %>
+          </div>
+
+          <div class="col-xs-12 modal-about-me modal-account-profile-info">
+            <span>About Me:</span> <%= @user.profile.about_me %>
           </div>
         </div>
 

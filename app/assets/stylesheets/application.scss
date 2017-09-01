@@ -699,9 +699,24 @@ p.profile-privacy-options-label {
   color: $monokai-pink;
 }
 
-.modal-email {
-  margin-top: 15px;
+.modal-account-profile-info {
   margin-bottom: 15px;
+}
+
+.modal-location span {
+  color: $monokai-purple;
+}
+
+.modal-psn-id span {
+  color: $monokai-blue;
+}
+
+.modal-xbox-gamertag span {
+  color: $monokai-green;
+}
+
+.modal-about-me span {
+  color: $monokai-orange;
 }
 
 .modal-count-stats {
