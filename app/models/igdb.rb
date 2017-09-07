@@ -2,8 +2,8 @@
 # API documenation at https://igdb.github.io/api/about/welcome/
 module IGDB
   class Base
-    @@headers = { 'X-Mashape-Key' => ENV["IGDB_API_KEY"] }
-    @@base_url = "https://igdbcom-internet-game-database-v1.p.mashape.com"
+    @@headers = { 'user-key' => ENV["IGDB_API_KEY"] }
+    @@base_url = "https://api-2445582011268.apicast.io"
 
     # Search the IGDB API with specific query
     # Params:
