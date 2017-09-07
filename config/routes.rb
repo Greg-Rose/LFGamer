@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show]
     resources :consoles, only: [:index]
     resources :ownerships, only: [:index]
-    resources :games, only: [:index]
+    resources :games, only: [:index, :new]
     resources :lfgs, only: [:index]
     resources :conversations, only: [:index]
   end
