@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/platforms/?fields=name&search=PlayStation%204
+    uri: https://api-2445582011268.apicast.io/platforms/?fields=name&search=PlayStation%204
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200
@@ -38,13 +38,13 @@ http_interactions:
   recorded_at: Sun, 02 Jul 2017 18:41:01 GMT
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name,release_dates.platform,cover.cloudinary_id,game_modes&filter%5Bcategory%5D%5Beq%5D=0&filter%5Bcover%5D%5Bexists%5D&filter%5Bgame_modes%5D%5Beq%5D=2&filter%5Brelease_dates.date%5D%5Blt%5D=2017-07-02&filter%5Brelease_dates.platform%5D%5Beq%5D=48&limit=40&order=popularity:desc
+    uri: https://api-2445582011268.apicast.io/games/?fields=name,release_dates.platform,cover.cloudinary_id,game_modes&filter%5Bcategory%5D%5Beq%5D=0&filter%5Bcover%5D%5Bexists%5D&filter%5Bgame_modes%5D%5Beq%5D=2&filter%5Brelease_dates.date%5D%5Blt%5D=2017-07-02&filter%5Brelease_dates.platform%5D%5Beq%5D=48&limit=40&order=popularity:desc
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200
@@ -136,13 +136,13 @@ http_interactions:
   recorded_at: Sun, 02 Jul 2017 18:41:02 GMT
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/platforms/49?fields=name
+    uri: https://api-2445582011268.apicast.io/platforms/49?fields=name
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200
@@ -169,13 +169,13 @@ http_interactions:
   recorded_at: Sun, 02 Jul 2017 18:41:02 GMT
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/platforms/48?fields=name
+    uri: https://api-2445582011268.apicast.io/platforms/48?fields=name
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200
@@ -202,13 +202,13 @@ http_interactions:
   recorded_at: Sun, 02 Jul 2017 18:41:02 GMT
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/platforms/6?fields=name
+    uri: https://api-2445582011268.apicast.io/platforms/6?fields=name
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200
@@ -299,13 +299,13 @@ http_interactions:
   recorded_at: Sun, 02 Jul 2017 18:41:03 GMT
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/platforms/72?fields=name
+    uri: https://api-2445582011268.apicast.io/platforms/72?fields=name
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200
@@ -332,13 +332,13 @@ http_interactions:
   recorded_at: Sun, 02 Jul 2017 18:41:05 GMT
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/platforms/6?fields=name
+    uri: https://api-2445582011268.apicast.io/platforms/6?fields=name
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200
@@ -365,13 +365,13 @@ http_interactions:
   recorded_at: Sun, 02 Jul 2017 18:41:05 GMT
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/platforms/14?fields=name
+    uri: https://api-2445582011268.apicast.io/platforms/14?fields=name
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200
@@ -398,13 +398,13 @@ http_interactions:
   recorded_at: Sun, 02 Jul 2017 18:41:05 GMT
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/platforms/3?fields=name
+    uri: https://api-2445582011268.apicast.io/platforms/3?fields=name
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200
@@ -431,13 +431,13 @@ http_interactions:
   recorded_at: Sun, 02 Jul 2017 18:41:06 GMT
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/platforms/48?fields=name
+    uri: https://api-2445582011268.apicast.io/platforms/48?fields=name
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200
@@ -464,13 +464,13 @@ http_interactions:
   recorded_at: Sun, 02 Jul 2017 18:41:06 GMT
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/platforms/49?fields=name
+    uri: https://api-2445582011268.apicast.io/platforms/49?fields=name
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200

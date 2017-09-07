@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name,release_dates.platform,cover.cloudinary_id,game_modes&filter%5Brelease_dates.date%5D%5Blt%5D=2017-06-28&limit=1&offset=0&search=destiny
+    uri: https://api-2445582011268.apicast.io/games/?fields=name,release_dates.platform,cover.cloudinary_id,game_modes&filter%5Brelease_dates.date%5D%5Blt%5D=2017-06-28&limit=1&offset=0&search=destiny
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      X-Mashape-Key:
-      - 6Qo8sTOCiZmshuepqRyRlGFb4bBgp1WbPzgjsn8rqiqjqEKikI
+      user-key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
       code: 200
@@ -31,6 +31,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '[{"id":1939,"name":"Destiny","game_modes":[1,2,3,5],"release_dates":[{"platform":49},{"platform":12},{"platform":9},{"platform":48}],"cover":{"cloudinary_id":"gare7ypeguuqmcsoatsu"}}]'
-    http_version: 
+    http_version:
   recorded_at: Sun, 02 Jul 2017 18:41:00 GMT
 recorded_with: VCR 2.9.3
