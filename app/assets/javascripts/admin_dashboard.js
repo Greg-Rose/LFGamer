@@ -44,4 +44,15 @@ $(document).ready(function() {
       $('#userModal').modal('show');
     });
   });
+
+  $(".admin-dashboard").on("click", "#add-game-btn", function(event) {
+    event.preventDefault();
+    $.get( '/admin/games/new', function( data ) {
+      if ($('.admin-dashboard .modal').length) {
+        $('.admin-dashboard .modal').remove();
+      }
+      $('.admin-dashboard .admin-games').append(data);
+      $('#addGameModal').modal('show');
+    });
+  });
 });
