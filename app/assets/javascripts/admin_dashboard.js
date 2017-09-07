@@ -55,4 +55,16 @@ $(document).ready(function() {
       $('#addGameModal').modal('show');
     });
   });
+
+  $(".admin-dashboard").on("click", ".admin-games #search-btn", function(event) {
+    event.preventDefault();
+    var search = $("#add-game-search").val();
+    $.get( '/admin/games/new', { search: search }, function( data ) {
+      if ($('.admin-dashboard .modal').length) {
+        $('.admin-dashboard .modal').remove();
+      }
+      $('.admin-dashboard .admin-games').append(data);
+      $('#addGameModal').modal('show');
+    });
+  });
 });

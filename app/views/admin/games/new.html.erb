@@ -9,8 +9,37 @@
       </div>
       <div class="modal-body">
         <div class="row">
-
+          <%= form_tag(new_admin_game_path, method: "get", class: "navbar-form navbar-left") do %>
+            <div class="input-group">
+              <%= text_field_tag :search, params[:search], placeholder: "Search For Game", class: "form-control", id: "add-game-search" %>
+              <div class="input-group-btn">
+                <%= button_tag(type: "submit", name: nil, class: "btn btn-default", id: "search-btn") do %>
+                  <span class="glyphicon glyphicon-search"></span>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
+
+        <% if @games %>
+          <div class="row">
+            <% @games.each do |game| %>
+              <div class="col-sm-6 col-md-4 col-lg-3 add-game-div">
+                <div class="index-cover-image-div">
+                  <%= image_tag("https://images.igdb.com/igdb/image/upload/t_cover_big"\
+                                "/#{game['cover']['cloudinary_id']}.jpg", height: "150", class: "add-game-cover-image") %>
+                </div>
+                <h4 class="text-center"><%= game["name"] %></h4>
+                <p class="text-center">
+                  <% applicable_consoles(game["release_dates"]).each do |c| %>
+                    <%= themed_console_name(c, true) %>
+                    <%= "/" if game["release_dates"].last != c %>
+                  <% end %>
+                </p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
