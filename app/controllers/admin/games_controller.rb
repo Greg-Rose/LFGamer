@@ -6,7 +6,7 @@ class Admin::GamesController < AdminController
 
   def new
     search = params["search"]
-    @games = IGDB::Game.search(search) if search
+    @searched_games = IGDB::Game.search(search) if search
     render layout: false
   end
 end
