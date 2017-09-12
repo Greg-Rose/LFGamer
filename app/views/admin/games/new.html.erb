@@ -24,7 +24,7 @@
         <% if @searched_games %>
           <div class="row">
             <% @searched_games.each do |searched_game| %>
-              <div class="col-sm-6 col-md-4 col-lg-3 add-game-div">
+              <div class="col-sm-6 col-md-4 col-lg-4 add-game-div">
                 <div class="index-cover-image-div">
                   <%= image_tag("https://images.igdb.com/igdb/image/upload/t_cover_big/#{searched_game['cover']['cloudinary_id']}.jpg", height: "150", class: "add-game-cover-image") if searched_game.has_key?('cover') %>
                 </div>
