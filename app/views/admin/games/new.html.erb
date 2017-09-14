@@ -20,27 +20,6 @@
             </div>
           <% end %>
         </div>
-
-        <% if @searched_games %>
-          <div class="row">
-            <% @searched_games.each do |searched_game| %>
-              <div class="col-sm-6 col-md-4 col-lg-4 add-game-div">
-                <div class="index-cover-image-div">
-                  <%= image_tag("https://images.igdb.com/igdb/image/upload/t_cover_big/#{searched_game['cover']['cloudinary_id']}.jpg", height: "150", class: "add-game-cover-image") if searched_game.has_key?('cover') %>
-                </div>
-                <h4 class="text-center"><%= searched_game["name"] %></h4>
-                <% if searched_game.has_key?("release_dates") %>
-                  <p class="text-center">
-                    <% applicable_consoles(searched_game["release_dates"]).each do |c| %>
-                      <%= themed_console_name(c, true) %>
-                      <%= "/" if applicable_consoles(searched_game["release_dates"]).last != c %>
-                    <% end %>
-                  </p>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
       </div>
     </div>
   </div>

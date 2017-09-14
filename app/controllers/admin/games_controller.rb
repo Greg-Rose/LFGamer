@@ -5,8 +5,12 @@ class Admin::GamesController < AdminController
   end
 
   def new
+    render layout: false
+  end
+
+  def search
     search = params["search"]
-    @searched_games = IGDB::Game.search(search, nil, ["[cover.cloudinary_id][exists]"]) if search
+    @searched_games = IGDB::Game.search(search, nil, ["[cover.cloudinary_id][exists]"])
     render layout: false
   end
 end

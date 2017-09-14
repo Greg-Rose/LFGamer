@@ -58,13 +58,14 @@ $(document).ready(function() {
 
   $(".admin-dashboard").on("click", ".admin-games #search-btn", function(event) {
     event.preventDefault();
+    if ($('.games-search-results').length) {
+      $('.games-search-results').slideUp();
+    }
     var search = $("#add-game-search").val();
-    $.get( '/admin/games/new', { search: search }, function( data ) {
-      if ($('.admin-dashboard .modal').length) {
-        $('.admin-dashboard .modal').remove();
-      }
-      $('.admin-dashboard .admin-games').append(data);
-      $('#addGameModal').modal('show');
+    $.get( '/admin/games/search', { search: search }, function( data ) {
+      $('.games-search-results').remove();
+      $('#addGameModal .modal-body').append(data);
+      $('.games-search-results').slideDown();
     });
   });
 });

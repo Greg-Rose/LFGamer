@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :games, only: [:index, :new]
     resources :lfgs, only: [:index]
     resources :conversations, only: [:index]
+    get 'games/search', to: 'games#search', as: 'games_search'
   end
 
   root 'games#index'
