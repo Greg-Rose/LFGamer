@@ -33,7 +33,7 @@
                   <p class="text-center">
                     <% applicable_consoles(searched_game["release_dates"]).each do |c| %>
                       <%= themed_console_name(c, true) %>
-                      <%= "/" if searched_game["release_dates"].last != c %>
+                      <%= "/" if applicable_consoles(searched_game["release_dates"]).last != c %>
                     <% end %>
                   </p>
                 <% end %>

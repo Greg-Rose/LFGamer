@@ -11,6 +11,6 @@ module AddGameHelper
         checked_platforms << platform_id
       end
     end
-    consoles
+    consoles.sort
   end
 end
