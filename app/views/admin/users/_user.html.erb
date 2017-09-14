@@ -1,0 +1,31 @@
+<tr>
+  <td class="text-center">
+    <%= user.id %>
+  <td>
+    <div>
+      <%= link_to "#", class: "btn user-info-btn", "data-uid" => user.id, id: user.username do %>
+        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+      <% end %>
+      <%= user.username %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= user.full_name %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <%= user.email %>
+    </div>
+  </td>
+  <td class="text-center">
+    <div>
+      <% if user.deleted_at %>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <% end %>
+    </div>
+  </td>
+</tr>

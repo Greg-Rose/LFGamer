@@ -20,5 +20,16 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+  namespace :admin do
+    get '', to: 'dashboard#index', as: '/'
+    resources :users, only: [:index, :show]
+    resources :consoles, only: [:index]
+    resources :ownerships, only: [:index]
+    resources :games, only: [:index, :new]
+    resources :lfgs, only: [:index]
+    resources :conversations, only: [:index]
+    get 'games/search', to: 'games#search', as: 'games_search'
+  end
+
   root 'games#index'
 end

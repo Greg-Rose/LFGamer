@@ -1,0 +1,33 @@
+<div class="row admin-users">
+  <div class="col-xs-12 col-md-1 col-lg-1">
+    <%= link_to "#", class: "btn btn-lg admin-back-btn" do %>
+      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+    <% end %>
+  </div>
+
+  <div class="col-xs-6 col-md-4 col-md-offset-1 col-lg-2 col-lg-offset-3 text-center" id="active_accounts">
+    <h4>Active Accounts</h4>
+    <div class="accounts-count"><%= @active_accounts %></div>
+  </div>
+
+  <div class="col-xs-6 col-md-4 col-lg-2 text-center" id="deleted_accounts">
+    <h4>Deleted Accounts</h4>
+    <div class="accounts-count"><%= @deleted_accounts %></div>
+  </div>
+
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 users-table-div">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <tr>
+          <th class="text-center">#</th>
+          <th class="text-center">Username</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Email</th>
+          <th class="text-center account-status">Account Status</th>
+        </tr>
+        <%= render partial: "user", collection: @all_users %>
+      </table>
+    </div>
+    <%= will_paginate @all_users, class: "text-center pagination-links" %>
+  </div>
+</div>

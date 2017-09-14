@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  scope :active_accounts, -> { where(deleted_at: nil) }
+  scope :deleted_accounts, -> { where.not(deleted_at: nil) }
+
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login
 
@@ -62,5 +65,9 @@ class User < ApplicationRecord
 
   def has_game?(game)
     games.include?(game)
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 end

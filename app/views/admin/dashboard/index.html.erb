@@ -1,0 +1,65 @@
+<div class="row admin-dashboard">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2 class="text-center">Administrative Dashboard</h2>
+
+        <div class="row">
+          <div class="col-xs-6 col-sm-4 col-md-2 users-count">
+            <%= link_to "#" do %>
+              <div class="count-stats", data="users">
+                <span>Users</span>
+                <div class="count"><%= @user_count %></div>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="col-xs-6 col-sm-4 col-md-2 games-count">
+            <%= link_to "#" do %>
+              <div class="count-stats", data="games">
+                <span>Games</span>
+                <div class="count"><%= @game_count %></div>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="col-xs-6 col-sm-4 col-md-2 consoles-count">
+            <%= link_to "#" do %>
+              <div class="count-stats", data="consoles">
+                <span>Consoles</span>
+                <div class="count"><%= @console_count %></div>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="col-xs-6 col-sm-4 col-md-2 ownerships-count">
+            <%= link_to "#" do %>
+              <div class="count-stats", data="ownerships">
+                <span>Ownerships</span>
+                <div class="count"><%= @ownership_count %></div>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="col-xs-6 col-sm-4 col-md-2 lfgs-count">
+            <%= link_to "#" do %>
+              <div class="count-stats", data="lfgs">
+                <span>LFGs</span>
+                <div class="count"><%= @lfg_count %></div>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="col-xs-6 col-sm-4 col-md-2 conversations-count">
+            <%= link_to "#" do %>
+              <div class="count-stats", data="conversations">
+                <span>Conversations</span>
+                <div class="count"><%= @conversation_count %></div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -48,6 +48,9 @@
                     <%= current_user.username %> <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-left">
+                    <% if current_user.try(:admin?) %>
+                      <li><%= link_to "Admin Dashboard", admin_path %></li>
+                    <% end %>
                     <li><%= link_to "My Profile", profile_path(current_user.profile) %></li>
                     <li><%= link_to "My Account", edit_user_registration_path %></li>
                   </ul>
