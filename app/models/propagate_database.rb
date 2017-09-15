@@ -11,6 +11,8 @@ class PropagateDatabase
     new_console = Console.find_or_initialize_by(name: console[0])
     if new_console.new_record?
       new_console.abbreviation = console[1] if console[1]
+      igdb_id = IGDB::Platform.search(new_console.name, "id").first["id"]
+      new_console.igdb_id = igdb_id
       new_console.save
     end
   end
