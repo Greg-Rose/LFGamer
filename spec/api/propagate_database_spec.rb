@@ -15,7 +15,7 @@ describe PropagateDatabase do
   describe ".add_game" do
     it "adds a game to the database (and relavant console associations)" do
       VCR.use_cassette("propagate_database/add_game") do
-        Console.create(name: "PlayStation 4", abbreviation: "PS4")
+        Console.create(name: "PlayStation 4", abbreviation: "PS4", igdb_id: 48)
         game = {
           "name" => "Destiny 2",
           "game_modes" => [1,2,3,5],
