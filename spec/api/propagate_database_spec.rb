@@ -3,19 +3,21 @@ require 'rails_helper'
 describe PropagateDatabase do
   describe ".add_console" do
     it "adds a console to the database" do
-      PropagateDatabase.add_console(["PlayStation 4", "PS4"])
-      console = Console.first
+      VCR.use_cassette("propagate_database/add_console") do
+        PropagateDatabase.add_console(["PlayStation 4", "PS4"])
+        console = Console.first
 
-      expect(Console.count).to be 1
-      expect(console.name).to eq "PlayStation 4"
-      expect(console.abbreviation).to eq "PS4"
+        expect(Console.count).to be 1
+        expect(console.name).to eq "PlayStation 4"
+        expect(console.abbreviation).to eq "PS4"
+      end
     end
   end
 
   describe ".add_game" do
     it "adds a game to the database (and relavant console associations)" do
       VCR.use_cassette("propagate_database/add_game") do
-        Console.create(name: "PlayStation 4", abbreviation: "PS4")
+        Console.create(name: "PlayStation 4", abbreviation: "PS4", igdb_id: 48)
         game = {
           "name" => "Destiny 2",
           "game_modes" => [1,2,3,5],

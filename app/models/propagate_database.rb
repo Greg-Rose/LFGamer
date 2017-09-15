@@ -11,6 +11,8 @@ class PropagateDatabase
     new_console = Console.find_or_initialize_by(name: console[0])
     if new_console.new_record?
       new_console.abbreviation = console[1] if console[1]
+      igdb_id = IGDB::Platform.search(new_console.name, "id").first["id"]
+      new_console.igdb_id = igdb_id
       new_console.save
     end
   end
@@ -37,8 +39,7 @@ class PropagateDatabase
       game["release_dates"].each do |rd|
         platform_id = rd["platform"]
         if !checked_platforms.include?(platform_id)
-          platform = IGDB::Platform.find(platform_id)[0]
-          console = Console.find_by(name: platform["name"])
+          console = Console.find_by(igdb_id: platform_id)
           new_game.consoles << console if console
           checked_platforms << platform_id
         end
