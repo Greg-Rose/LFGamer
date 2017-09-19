@@ -28,7 +28,10 @@ $(document).ready(function() {
   });
 
   $(".admin-dashboard").on("click", ".admin-back-btn", function(event) {
-    $(".admin-back-btn").parent().parent().remove();
+    var adminElement = $(".admin-back-btn").parent().parent();
+    adminElement.slideUp(600, function() {
+      $(this).remove();
+    });
     $(".admin-dashboard h2").slideDown(500);
     $(".admin-dashboard .count-stats").removeClass("stats-clicked");
   });
