@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-2445582011268.apicast.io/games/?fields=name,release_dates.platform,cover.cloudinary_id,game_modes&filter%5Bcategory%5D%5Beq%5D=0&filter%5Bcover.cloudinary_id%5D%5Bexists%5D&filter%5Brelease_dates.platform%5D%5Bexists%5D&search=destiny
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 19 Sep 2017 19:12:06 GMT
+      Server:
+      - openresty/1.9.15.1
+      X-Powered-By:
+      - 3scale API Management - http://www.3scale.net
+      Content-Length:
+      - '1644'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"id":1939,"name":"Destiny","game_modes":[1,2,3,5],"release_dates":[{"platform":9},{"platform":9},{"platform":49},{"platform":12},{"platform":9},{"platform":48}],"cover":{"cloudinary_id":"gare7ypeguuqmcsoatsu"}},{"id":25657,"name":"Destiny
+        2","game_modes":[1,2,3,5],"release_dates":[{"platform":6},{"platform":49},{"platform":48}],"cover":{"cloudinary_id":"o1yenovvskchtjrl48v5"}},{"id":47684,"name":"Fighter
+        Destiny 2","release_dates":[{"platform":4}],"cover":{"cloudinary_id":"yrdeqp9wdlukfj1vqsbi"}},{"id":1203,"name":"Tales
+        of Destiny 2","game_modes":[1,2],"release_dates":[{"platform":8},{"platform":38}],"cover":{"cloudinary_id":"dfmn0a5ftretm5kppbuw"}},{"id":5302,"name":"X-Men:
+        Destiny","game_modes":[1],"release_dates":[{"platform":9},{"platform":9},{"platform":5},{"platform":12},{"platform":20},{"platform":9}],"cover":{"cloudinary_id":"qclv6wpckpgd8lmkcud9"}},{"id":3496,"name":"Fighters
+        Destiny","game_modes":[1,4],"release_dates":[{"platform":4},{"platform":4},{"platform":4}],"cover":{"cloudinary_id":"mebrd91omfgr5sozefpd"}},{"id":2304,"name":"Altered
+        Destiny","game_modes":[1],"release_dates":[{"platform":13},{"platform":16}],"cover":{"cloudinary_id":"sicclmlnrlqmuc5kr3uh"}},{"id":6633,"name":"Spear
+        of Destiny","game_modes":[1],"release_dates":[{"platform":39},{"platform":13},{"platform":6},{"platform":13}],"cover":{"cloudinary_id":"t133yecucz10jhfgn9zd"}},{"id":28031,"name":"Destiny
+        Warriors RPG","game_modes":[1],"release_dates":[{"platform":6}],"cover":{"cloudinary_id":"x5mdtvs8inja59urkl4p"}},{"id":23007,"name":"Swords
+        of Destiny","release_dates":[{"platform":8}],"cover":{"cloudinary_id":"iz2iuwjmjlr2llhlqsjz"}}]'
+    http_version: 
+  recorded_at: Tue, 19 Sep 2017 19:12:20 GMT
+recorded_with: VCR 2.9.3

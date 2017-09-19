@@ -28,7 +28,10 @@ $(document).ready(function() {
   });
 
   $(".admin-dashboard").on("click", ".admin-back-btn", function(event) {
-    $(".admin-back-btn").parent().parent().remove();
+    var adminElement = $(".admin-back-btn").parent().parent();
+    adminElement.slideUp(600, function() {
+      $(this).remove();
+    });
     $(".admin-dashboard h2").slideDown(500);
     $(".admin-dashboard .count-stats").removeClass("stats-clicked");
   });
@@ -65,7 +68,24 @@ $(document).ready(function() {
     $.get( '/admin/games/search', { search: search }, function( data ) {
       $('.games-search-results').remove();
       $('#addGameModal .modal-body').append(data);
+      $(".games-search-results .existing-game .text").text("Already Added");
       $('.games-search-results').slideDown();
+    });
+  });
+
+  $(".admin-dashboard").on("click", ".new-game .overlay", function(event) {
+    event.preventDefault();
+    var searchedGameElement = $(this).parent();
+    var gameId = searchedGameElement.data("api-game-id");
+    var request = $.ajax({
+      method: "POST",
+      url: "/admin/games",
+      data: { id: gameId }
+    });
+
+    request.done(function() {
+      searchedGameElement.removeClass("new-game").addClass("existing-game");
+      searchedGameElement.find(".text").text("Added");
     });
   });
 });
