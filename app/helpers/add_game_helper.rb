@@ -12,4 +12,13 @@ module AddGameHelper
     end
     consoles.sort
   end
+
+  def add_game_check(game)
+    existing_game = Game.find_by(name: game["name"])
+    if existing_game
+      "existing-game"
+    else
+      "new-game"
+    end
+  end
 end

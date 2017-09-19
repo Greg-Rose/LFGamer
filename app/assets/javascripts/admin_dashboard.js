@@ -65,7 +65,24 @@ $(document).ready(function() {
     $.get( '/admin/games/search', { search: search }, function( data ) {
       $('.games-search-results').remove();
       $('#addGameModal .modal-body').append(data);
+      $(".games-search-results .existing-game .text").text("Already Added");
       $('.games-search-results').slideDown();
+    });
+  });
+
+  $(".admin-dashboard").on("click", ".new-game .overlay", function(event) {
+    event.preventDefault();
+    var searchedGameElement = $(this).parent();
+    var gameId = searchedGameElement.data("api-game-id");
+    var request = $.ajax({
+      method: "POST",
+      url: "/admin/games",
+      data: { id: gameId }
+    });
+
+    request.done(function() {
+      searchedGameElement.removeClass("new-game").addClass("existing-game");
+      searchedGameElement.find(".text").text("Added");
     });
   });
 });

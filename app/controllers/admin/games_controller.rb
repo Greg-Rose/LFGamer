@@ -8,6 +8,12 @@ class Admin::GamesController < AdminController
     render layout: false
   end
 
+  def create
+    game = IGDB::Game.find(params[:id]).first
+    PropagateDatabase.add_game(game)
+    render json: :nothing, status: :created
+  end
+
   def search
     search = params["search"]
     @searched_games = IGDB::Game.search(search, nil, ["[cover.cloudinary_id][exists]", "[release_dates.platform][exists]", "[category][eq]=0"])
