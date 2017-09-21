@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update]
+  before_action :active_account_check!, only: [:show]
 
   def show
     @profile = Profile.find(params[:id])
@@ -30,5 +31,12 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:about_me, :psn_id, :xbox_gamertag,
       :zipcode, :psn_id_public, :xbox_gamertag_public)
+  end
+
+  def active_account_check!
+    @profile = Profile.find(params[:id])
+    if @profile.user.deleted_at && !current_user.admin?
+      redirect_to root_path, alert: "No Profile Found"
+    end
   end
 end
