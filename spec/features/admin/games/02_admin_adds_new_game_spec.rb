@@ -24,11 +24,11 @@ feature 'admin adds new games' do
     VCR.use_cassette("admin/search-new-game") do
       # click_button 'search-btn'
       find('.modal #search-btn').click
-      sleep 0.1
+      sleep 1
       VCR.use_cassette("admin/add_new_game") do
         find('#Destiny-img').click
 
-        sleep 0.1
+        sleep 1
         expect(Game.count).to eq 1
         expect(find('#Destiny-overlay .text').text).to eq "Added"
       end
