@@ -112,4 +112,27 @@ $(document).ready(function() {
       $('.console-search-results').slideDown();
     });
   });
+
+  $(".admin-dashboard").on("click", ".console-search-results #add-console-submit-btn", function(event) {
+    event.preventDefault();
+    var name = $("#add-console-name").val();
+    var abbreviation = $("#add-console-abbreviation").val();
+    var request = $.ajax({
+      method: "POST",
+      url: "/admin/consoles",
+      data: { name: name, abbreviation: abbreviation }
+    });
+
+    request.done(function() {
+      $(".console-search-results").slideUp();
+      var message = '<div class="col-md-12">' +
+                      '<p class="text-center">' +
+                        name + ' has been added.' +
+                      '</p>' +
+                    '</div>';
+
+      $(".console-search-results").html(message);
+      $(".console-search-results").slideDown();
+    });
+  });
 });
