@@ -11,6 +11,9 @@ class Admin::ConsolesController < AdminController
   def search
     search = params["search"]
     @searched_console = IGDB::Platform.search(search).first
+    if @searched_console
+      @already_added = true if Console.find_by(name: @searched_console["name"])
+    end
 
     render layout: false
   end

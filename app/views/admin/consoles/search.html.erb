@@ -3,6 +3,10 @@
     <div class="col-md-12">
       <p class="text-center">No console was found matching your search.</p>
     </div>
+  <% elsif @already_added %>
+  <div class="col-md-12">
+    <p class="text-center"><%= @searched_console["name"] %> has already been added.</p>
+  </div>
   <% else %>
     <div class="col-md-12">
       <%= form_tag(admin_consoles_search_path, method: "post") do %>
