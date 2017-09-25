@@ -99,4 +99,17 @@ $(document).ready(function() {
       $('#addConsoleModal').modal('show');
     });
   });
+
+  $(".admin-dashboard").on("click", ".admin-consoles #search-btn", function(event) {
+    event.preventDefault();
+    if ($('.console-search-results').length) {
+      $('.console-search-results').slideUp();
+    }
+    var search = $("#add-console-search").val();
+    $.get( '/admin/consoles/search', { search: search }, function( data ) {
+      $('.console-search-results').remove();
+      $('#addConsoleModal .modal-body').append(data);
+      $('.console-search-results').slideDown();
+    });
+  });
 });
