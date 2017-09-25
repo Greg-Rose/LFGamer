@@ -10,7 +10,7 @@ class Admin::ConsolesController < AdminController
 
   def search
     search = params["search"]
-    @searched_console = IGDB::Platform.search(search).first["name"]
+    @searched_console = IGDB::Platform.search(search).first
 
     render layout: false
   end
