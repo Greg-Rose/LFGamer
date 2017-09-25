@@ -88,4 +88,15 @@ $(document).ready(function() {
       searchedGameElement.find(".text").text("Added");
     });
   });
+
+  $(".admin-dashboard").on("click", "#add-console-btn", function(event) {
+    event.preventDefault();
+    $.get( '/admin/consoles/new', function( data ) {
+      if ($('.admin-dashboard .modal').length) {
+        $('.admin-dashboard .modal').remove();
+      }
+      $('.admin-dashboard .admin-consoles').append(data);
+      $('#addConsoleModal').modal('show');
+    });
+  });
 });
