@@ -8,6 +8,15 @@ class Admin::ConsolesController < AdminController
     render layout: false
   end
 
+  def create
+    name = params[:name]
+    abbreviation = params[:abbreviation]
+    abbreviation = nil if abbreviation.blank?
+    console = [name, abbreviation]
+    PropagateDatabase.add_console(console)
+    render json: :nothing, status: :created
+  end
+
   def search
     search = params["search"]
     @searched_console = IGDB::Platform.search(search).first
