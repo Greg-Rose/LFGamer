@@ -124,15 +124,16 @@ $(document).ready(function() {
     });
 
     request.done(function() {
-      $(".console-search-results").slideUp();
-      var message = '<div class="col-md-12">' +
-                      '<p class="text-center">' +
-                        name + ' has been added.' +
-                      '</p>' +
-                    '</div>';
+      $(".console-search-results").slideUp(600, function() {
+        var message = '<div class="col-md-12">' +
+                        '<p class="text-center">' +
+                          name + ' has been added.' +
+                        '</p>' +
+                      '</div>';
 
-      $(".console-search-results").html(message);
-      $(".console-search-results").slideDown();
+        $(".console-search-results").html(message);
+      });
+      $(".console-search-results").slideDown(600);
     });
   });
 });
