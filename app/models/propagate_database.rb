@@ -11,12 +11,13 @@ class PropagateDatabase
     new_console = Console.find_or_initialize_by(name: console[0])
     if new_console.new_record?
       new_console.abbreviation = console[1] if console[1]
-      igdb_id = IGDB::Platform.search(new_console.name, "id").first["id"]
+      api_game_data = IGDB::Platform.search(new_console.name, "id,games").first
+      igdb_id = api_game_data["id"]
       new_console.igdb_id = igdb_id
       new_console.save
 
       # check for and set any current games in app that are available for new console
-      all_consoles_games = IGDB::Platform.find(new_console.igdb_id, "games")[0]["games"]
+      all_consoles_games = api_game_data["games"]
       Game.all.each do |g|
         new_console.games << g if all_consoles_games.include?(g.igdb_id)
       end
