@@ -37,7 +37,10 @@ describe PropagateDatabase do
 
   describe ".initial_seed" do
     it "seeds database with initial consoles and games" do
-      # normally seeds 40 games, test only seeds 2 for speed
+      # Normally seeds 40 games, test only seeds 2 for speed
+      # When updating/recreating cassette:
+      #   - temporarily change seed_initial_games limit from 40 to 2
+      #   - after new cassette is created, change limit back and in cassette find the limit of 2 and change to 40
       VCR.use_cassette("propagate_database/seed_initial_games") do
         PropagateDatabase.initial_seed("2017-07-02")
         consoles = Console.all
