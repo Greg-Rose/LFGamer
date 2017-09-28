@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api-2445582011268.apicast.io/platforms/?fields=name&search=playstation%204
+    uri: https://api-2445582011268.apicast.io/platforms/?fields=name&search=switch
     body:
       encoding: US-ASCII
       string: ''
@@ -17,20 +17,18 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 28 Sep 2017 04:53:03 GMT
+      - Thu, 28 Sep 2017 06:43:04 GMT
       Server:
       - openresty/1.9.15.1
       X-Powered-By:
       - 3scale API Management - http://www.3scale.net
       Content-Length:
-      - '284'
+      - '37'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '[{"id":48,"name":"PlayStation 4"},{"id":7,"name":"PlayStation"},{"id":8,"name":"PlayStation
-        2"},{"id":9,"name":"PlayStation 3"},{"id":38,"name":"PlayStation Portable"},{"id":45,"name":"PlayStation
-        Network"},{"id":46,"name":"PlayStation Vita"},{"id":131,"name":"Nintendo PlayStation"}]'
+      string: '[{"id":130,"name":"Nintendo Switch"}]'
     http_version: 
-  recorded_at: Thu, 28 Sep 2017 04:53:02 GMT
+  recorded_at: Thu, 28 Sep 2017 06:43:04 GMT
 recorded_with: VCR 2.9.3
