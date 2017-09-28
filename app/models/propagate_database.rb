@@ -11,9 +11,16 @@ class PropagateDatabase
     new_console = Console.find_or_initialize_by(name: console[0])
     if new_console.new_record?
       new_console.abbreviation = console[1] if console[1]
-      igdb_id = IGDB::Platform.search(new_console.name, "id").first["id"]
+      api_game_data = IGDB::Platform.search(new_console.name, "id,games").first
+      igdb_id = api_game_data["id"]
       new_console.igdb_id = igdb_id
       new_console.save
+
+      # check for and set any current games in app that are available for new console
+      all_consoles_games = api_game_data["games"]
+      Game.all.each do |g|
+        new_console.games << g if all_consoles_games.include?(g.igdb_id)
+      end
     end
   end
 
@@ -24,6 +31,7 @@ class PropagateDatabase
     multiplayer_id = 2
     split_screen_id = 4
     name = game["name"]
+    igdb_id = game["id"]
     multiplayer = game["game_modes"].include?(multiplayer_id)
     split_screen = game["game_modes"].include?(split_screen_id)
     cover_image_url = "https://images.igdb.com/igdb/image/upload/t_cover_big"\
@@ -31,6 +39,7 @@ class PropagateDatabase
 
     new_game = Game.find_or_initialize_by(name: name)
     if new_game.new_record?
+      new_game.igdb_id = igdb_id
       new_game.online = multiplayer
       new_game.split_screen = split_screen
       new_game.remote_cover_image_url = cover_image_url

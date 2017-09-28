@@ -88,4 +88,52 @@ $(document).ready(function() {
       searchedGameElement.find(".text").text("Added");
     });
   });
+
+  $(".admin-dashboard").on("click", "#add-console-btn", function(event) {
+    event.preventDefault();
+    $.get( '/admin/consoles/new', function( data ) {
+      if ($('.admin-dashboard .modal').length) {
+        $('.admin-dashboard .modal').remove();
+      }
+      $('.admin-dashboard .admin-consoles').append(data);
+      $('#addConsoleModal').modal('show');
+    });
+  });
+
+  $(".admin-dashboard").on("click", ".admin-consoles #search-btn", function(event) {
+    event.preventDefault();
+    if ($('.console-search-results').length) {
+      $('.console-search-results').slideUp();
+    }
+    var search = $("#add-console-search").val();
+    $.get( '/admin/consoles/search', { search: search }, function( data ) {
+      $('.console-search-results').remove();
+      $('#addConsoleModal .modal-body').append(data);
+      $('.console-search-results').slideDown();
+    });
+  });
+
+  $(".admin-dashboard").on("click", ".console-search-results #add-console-submit-btn", function(event) {
+    event.preventDefault();
+    var name = $("#add-console-name").val();
+    var abbreviation = $("#add-console-abbreviation").val();
+    var request = $.ajax({
+      method: "POST",
+      url: "/admin/consoles",
+      data: { name: name, abbreviation: abbreviation }
+    });
+
+    request.done(function() {
+      $(".console-search-results").slideUp(600, function() {
+        var message = '<div class="col-md-12">' +
+                        '<p class="text-center">' +
+                          name + ' has been added.' +
+                        '</p>' +
+                      '</div>';
+
+        $(".console-search-results").html(message);
+      });
+      $(".console-search-results").slideDown(600);
+    });
+  });
 });

@@ -1,0 +1,34 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-2445582011268.apicast.io/platforms/?fields=name&search=switch
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Key:
+      - 87a1b4c54c376447a8cd24b4be77ae8e
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 28 Sep 2017 06:43:04 GMT
+      Server:
+      - openresty/1.9.15.1
+      X-Powered-By:
+      - 3scale API Management - http://www.3scale.net
+      Content-Length:
+      - '37'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"id":130,"name":"Nintendo Switch"}]'
+    http_version: 
+  recorded_at: Thu, 28 Sep 2017 06:43:04 GMT
+recorded_with: VCR 2.9.3

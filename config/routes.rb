@@ -23,12 +23,13 @@ Rails.application.routes.draw do
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'
     resources :users, only: [:index, :show]
-    resources :consoles, only: [:index]
+    resources :consoles, only: [:index, :new, :create]
     resources :ownerships, only: [:index]
     resources :games, only: [:index, :new, :create]
     resources :lfgs, only: [:index]
     resources :conversations, only: [:index]
     get 'games/search', to: 'games#search', as: 'games_search'
+    get 'consoles/search', to: 'consoles#search', as: 'consoles_search'
   end
 
   root 'games#index'
