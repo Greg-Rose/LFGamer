@@ -62,7 +62,10 @@ Capybara.javascript_driver = :poltergeist
 
 Capybara.register_driver :poltergeist do |app|
   #  Change domain name as necessary
-  options = { url_blacklist: ['/uploads/game/cover_image/*/test_cover.jpg'] } # you can also use * as a wildcard
+  options = {
+    url_blacklist: ['/uploads/game/cover_image/*/test_cover.jpg'],
+    extensions: ["#{Rails.root}/spec/support/phantomjs/disable_animations.js"]
+  }
   Capybara::Poltergeist::Driver.new(app, options)
 end
 
