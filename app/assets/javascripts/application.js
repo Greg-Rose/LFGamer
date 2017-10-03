@@ -26,8 +26,8 @@ $(document).ready(function() {
   $("time.timeago").timeago();
   if ($("#sign-out-btn").length) {
     lfgChannel();
-    lfgNewFormListener();
-    lfgEditFormListener();
+    lfgFormListener("form#new_lfg", true);
+    lfgFormListener("form.edit_lfg", false);
     lfgRemoveButtonListener();
     checkForChats();
     setInterval(function(){ checkForChats(); }, 3000);

@@ -1,11 +1,11 @@
 class Admin::GamesController < AdminController
+  layout false
+
   def index
     @games = Game.paginate(page: params[:page], per_page: 10).order(:id)
-    render layout: false
   end
 
   def new
-    render layout: false
   end
 
   def create
@@ -30,7 +30,5 @@ class Admin::GamesController < AdminController
       end
       next valid_console
     end
-
-    render layout: false
   end
 end

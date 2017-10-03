@@ -14,6 +14,8 @@ feature 'admin adds new games' do
 
   let!(:admin) { create(:user, admin: true) }
   let!(:console) { create(:console, name: "PlayStation 4", abbreviation: "PS4", igdb_id: 48) }
+  # To test add_game_check() method
+  let!(:game) { create(:game, name: "Destiny 2", igdb_id: 25657) }
 
   scenario 'add game', js: true do
     sign_in admin
@@ -29,7 +31,7 @@ feature 'admin adds new games' do
         find('#Destiny-img').click
 
         sleep 1
-        expect(Game.count).to eq 1
+        expect(Game.count).to eq 2
         expect(find('#Destiny-overlay .text').text).to eq "Added"
       end
     end

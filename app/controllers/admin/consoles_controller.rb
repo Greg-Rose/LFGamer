@@ -1,11 +1,11 @@
 class Admin::ConsolesController < AdminController
+  layout false
+
   def index
     @consoles = Console.paginate(page: params[:page], per_page: 10).order(:id)
-    render layout: false
   end
 
   def new
-    render layout: false
   end
 
   def create
@@ -23,7 +23,5 @@ class Admin::ConsolesController < AdminController
     if @searched_console
       @already_added = true if Console.find_by(name: @searched_console["name"])
     end
-
-    render layout: false
   end
 end

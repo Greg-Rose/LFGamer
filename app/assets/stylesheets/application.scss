@@ -136,6 +136,9 @@ body {
 
 .navbar-inverse .navbar-header a {
   color: $monokai-brighter-blue;
+  font-family: 'Geo';
+  font-size: 24px;
+  font-style: italic;
 }
 
 .navbar-inverse .navbar-header a:hover {
@@ -655,7 +658,7 @@ p.profile-privacy-options-label {
 }
 
 .modal-content {
-  background-color: #595959;
+  background-color: #333333;
   color: $monokai-white;
 }
 
@@ -747,7 +750,7 @@ p.profile-privacy-options-label {
 }
 
 .modal-backdrop.in {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .admin-dashboard .table>tbody>tr>th, .admin-dashboard .table>tbody>tr>td {
