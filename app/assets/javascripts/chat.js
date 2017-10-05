@@ -64,19 +64,19 @@ var ready = function () {
 
         restructure: function () {
             align = 0;
+            totalWidth = 0;
             for (var x in chatBoxes) {
                 chatbox_id = chatBoxes[x];
 
                 if ($("#chatbox_" + chatbox_id).css('display') !== 'none') {
                     if (align === 0) {
                         $("#chatbox_" + chatbox_id).css('right', '20px');
+                        totalWidth += 20;
                     } else {
-                        var previousChatboxId = chatBoxes[x - 1];
-                        var chatWidth = $("#chatbox_" + previousChatboxId).width();
-                        width = (align) * (chatWidth + 7) + 20;
-                        $("#chatbox_" + chatbox_id).css('right', width + 'px');
+                        $("#chatbox_" + chatbox_id).css('right', totalWidth + 'px');
                     }
                     align++;
+                    totalWidth += $("#chatbox_" + chatbox_id).width() + 7;
                 }
             }
 
