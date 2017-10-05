@@ -8,8 +8,14 @@ var listenForChatboxes = function () {
     $('.start-conversation').off('click').click(function (e) {
         e.preventDefault();
         var recipient_id = $(this).data('rid');
+        var cid;
         $.post("/conversations", { recipient_id: recipient_id }, function (data) {
-            chatBox.chatWith(data.conversation_id);
+            cid = data.conversation_id;
+            chatBox.chatWith(cid);
+        }).done(function() {
+          setTimeout(function() {
+            $("#chatbox_" + cid + " .chatboxtextarea").focus();
+          }, 100);
         });
     });
 
