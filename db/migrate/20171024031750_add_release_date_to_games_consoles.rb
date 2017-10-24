@@ -4,7 +4,7 @@ class AddReleaseDateToGamesConsoles < ActiveRecord::Migration[5.1]
     games_igdb_ids = Game.pluck(:igdb_id).join(",")
     games_data = IGDB::Game.find(games_igdb_ids, "release_dates.platform,release_dates.date")
     games_data.each do |game_data|
-      game = Game.find_by(igdb_id: games_data["id"])
+      game = Game.find_by(igdb_id: game_data["id"])
       game_data["release_dates"].each do |rd|
         console = Console.find_by(igdb_id: rd["platform"])
         if console
