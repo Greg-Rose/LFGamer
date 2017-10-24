@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927033949) do
+ActiveRecord::Schema.define(version: 20171024031750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20170927033949) do
     t.bigint "console_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "release_date"
     t.index ["console_id"], name: "index_games_consoles_on_console_id"
     t.index ["game_id"], name: "index_games_consoles_on_game_id"
   end
