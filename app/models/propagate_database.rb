@@ -49,7 +49,11 @@ class PropagateDatabase
         platform_id = rd["platform"]
         if !checked_platforms.include?(platform_id)
           console = Console.find_by(igdb_id: platform_id)
-          new_game.consoles << console if console
+          if console
+            date = rd["date"].to_s[0..9].to_i
+            release_date = Time.at(date).to_datetime.in_time_zone('GMT')
+            new_game.games_consoles.build(console: console, release_date: release_date)
+          end
           checked_platforms << platform_id
         end
       end
