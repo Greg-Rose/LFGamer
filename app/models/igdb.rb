@@ -69,7 +69,7 @@ module IGDB
 
   class Game < IGDB::Base
     @path = "games"
-    @defualt_fields = "name,release_dates.platform,cover.cloudinary_id,game_modes"
+    @defualt_fields = "name,release_dates.platform,release_dates.date,cover.cloudinary_id,game_modes"
     @order = "popularity:desc"
   end
 
