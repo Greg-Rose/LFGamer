@@ -17,9 +17,22 @@ class PropagateDatabase
       new_console.save
 
       # check for and set any current games in app that are available for new console
-      all_consoles_games = api_game_data["games"]
-      Game.all.each do |g|
-        new_console.games << g if all_consoles_games.include?(g.igdb_id)
+      if Game.count >= 1
+        all_consoles_games = api_game_data["games"]
+        game_ids = Game.pluck(:igdb_id).select { |id| all_consoles_games.include?(id) }.join(",")
+
+        games_data = IGDB::Game.find(game_ids, "release_dates.platform,release_dates.date")
+
+        games_data.each do |gd|
+          release_data = gd["release_dates"].find { |rd| rd["platform"] == new_console.igdb_id }
+          if release_data
+            game = Game.find_by(igdb_id: gd["id"])
+            date = release_data["date"].to_s[0..9].to_i
+            release_date = Time.at(date).to_datetime.in_time_zone('GMT')
+
+            GamesConsole.create(console: new_console, game: game, release_date: release_date)
+          end
+        end
       end
     end
   end
