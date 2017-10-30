@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api-2445582011268.apicast.io/games/?fields=name,release_dates.platform,cover.cloudinary_id,game_modes&filter%5Bcategory%5D%5Beq%5D=0&filter%5Bcover.cloudinary_id%5D%5Bexists%5D&filter%5Brelease_dates.platform%5D%5Bexists%5D&search=destiny
+    uri: https://api-2445582011268.apicast.io/games/?fields=name,release_dates.platform,release_dates.date,cover.cloudinary_id,game_modes&filter%5Bcategory%5D%5Beq%5D=0&filter%5Bcover.cloudinary_id%5D%5Bexists%5D&filter%5Brelease_dates.platform%5D%5Bexists%5D&search=destiny
     body:
       encoding: US-ASCII
       string: ''
@@ -17,27 +17,19 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 19 Sep 2017 19:12:06 GMT
+      - Mon, 30 Oct 2017 03:13:49 GMT
       Server:
       - openresty/1.9.15.1
       X-Powered-By:
       - 3scale API Management - http://www.3scale.net
-      Content-Length:
-      - '1644'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
     body:
-      encoding: UTF-8
-      string: '[{"id":1939,"name":"Destiny","game_modes":[1,2,3,5],"release_dates":[{"platform":9},{"platform":9},{"platform":49},{"platform":12},{"platform":9},{"platform":48}],"cover":{"cloudinary_id":"gare7ypeguuqmcsoatsu"}},{"id":25657,"name":"Destiny
-        2","game_modes":[1,2,3,5],"release_dates":[{"platform":6},{"platform":49},{"platform":48}],"cover":{"cloudinary_id":"o1yenovvskchtjrl48v5"}},{"id":47684,"name":"Fighter
-        Destiny 2","release_dates":[{"platform":4}],"cover":{"cloudinary_id":"yrdeqp9wdlukfj1vqsbi"}},{"id":1203,"name":"Tales
-        of Destiny 2","game_modes":[1,2],"release_dates":[{"platform":8},{"platform":38}],"cover":{"cloudinary_id":"dfmn0a5ftretm5kppbuw"}},{"id":5302,"name":"X-Men:
-        Destiny","game_modes":[1],"release_dates":[{"platform":9},{"platform":9},{"platform":5},{"platform":12},{"platform":20},{"platform":9}],"cover":{"cloudinary_id":"qclv6wpckpgd8lmkcud9"}},{"id":3496,"name":"Fighters
-        Destiny","game_modes":[1,4],"release_dates":[{"platform":4},{"platform":4},{"platform":4}],"cover":{"cloudinary_id":"mebrd91omfgr5sozefpd"}},{"id":2304,"name":"Altered
-        Destiny","game_modes":[1],"release_dates":[{"platform":13},{"platform":16}],"cover":{"cloudinary_id":"sicclmlnrlqmuc5kr3uh"}},{"id":6633,"name":"Spear
-        of Destiny","game_modes":[1],"release_dates":[{"platform":39},{"platform":13},{"platform":6},{"platform":13}],"cover":{"cloudinary_id":"t133yecucz10jhfgn9zd"}},{"id":28031,"name":"Destiny
-        Warriors RPG","game_modes":[1],"release_dates":[{"platform":6}],"cover":{"cloudinary_id":"x5mdtvs8inja59urkl4p"}},{"id":23007,"name":"Swords
-        of Destiny","release_dates":[{"platform":8}],"cover":{"cloudinary_id":"iz2iuwjmjlr2llhlqsjz"}}]'
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3siaWQiOjE5MzksIm5hbWUiOiJEZXN0aW55IiwiZ2FtZV9tb2RlcyI6WzEsMiwzLDVdLCJyZWxlYXNlX2RhdGVzIjpbeyJwbGF0Zm9ybSI6OSwiZGF0ZSI6MTQxMDIyMDgwMDAwMH0seyJwbGF0Zm9ybSI6OSwiZGF0ZSI6MTQxMDIyMDgwMDAwMH0seyJwbGF0Zm9ybSI6NDksImRhdGUiOjE0MTAyMjA4MDAwMDB9LHsicGxhdGZvcm0iOjEyLCJkYXRlIjoxNDEwMjIwODAwMDAwfSx7InBsYXRmb3JtIjo5LCJkYXRlIjoxNDEwMjIwODAwMDAwfSx7InBsYXRmb3JtIjo0OCwiZGF0ZSI6MTQxMDIyMDgwMDAwMH1dLCJjb3ZlciI6eyJjbG91ZGluYXJ5X2lkIjoiZ2FyZTd5cGVndXVxbWNzb2F0c3UifX0seyJpZCI6MjU2NTcsIm5hbWUiOiJEZXN0aW55IDIiLCJnYW1lX21vZGVzIjpbMSwyLDMsNV0sInJlbGVhc2VfZGF0ZXMiOlt7InBsYXRmb3JtIjo2LCJkYXRlIjoxNTA4ODAzMjAwMDAwfSx7InBsYXRmb3JtIjo0OSwiZGF0ZSI6MTUwNDY1NjAwMDAwMH0seyJwbGF0Zm9ybSI6NDgsImRhdGUiOjE1MDQ2NTYwMDAwMDB9XSwiY292ZXIiOnsiY2xvdWRpbmFyeV9pZCI6Im8xeWVub3Z2c2tjaHRqcmw0OHY1In19LHsiaWQiOjUyODg3LCJuYW1lIjoiRGVzdGlueSAyOiBEaWdpdGFsIERlbHV4ZSBFZGl0aW9uIiwicmVsZWFzZV9kYXRlcyI6W3sicGxhdGZvcm0iOjYsImRhdGUiOjE1MDQxMzc2MDAwMDB9LHsicGxhdGZvcm0iOjQ4LCJkYXRlIjoxNTA0MTM3NjAwMDAwfSx7InBsYXRmb3JtIjo0OSwiZGF0ZSI6MTUwNDEzNzYwMDAwMH1dLCJjb3ZlciI6eyJjbG91ZGluYXJ5X2lkIjoiaHVxcGxvdzZ4bHQ2a3phbm5zZm0ifX0seyJpZCI6MzcyMTMsIm5hbWUiOiJUaGUgRGVzdGlueSAyOiBDb2xsZWN0b3LigJlzIEVkaXRpb24iLCJyZWxlYXNlX2RhdGVzIjpbeyJwbGF0Zm9ybSI6NiwiZGF0ZSI6MTUwNDY1NjAwMDAwMH0seyJwbGF0Zm9ybSI6NDksImRhdGUiOjE1MDQ2NTYwMDAwMDB9LHsicGxhdGZvcm0iOjQ4LCJkYXRlIjoxNTA0NjU2MDAwMDAwfV0sImNvdmVyIjp7ImNsb3VkaW5hcnlfaWQiOiJ0YmJzdmZxbWFkc2VyNWV6MTl5byJ9fSx7ImlkIjo0MjY4MiwibmFtZSI6IkRlc3Rpbnkgb2YgU3Bpcml0cyIsInJlbGVhc2VfZGF0ZXMiOlt7InBsYXRmb3JtIjo0NSwiZGF0ZSI6MTM5NTcwNTYwMDAwMH0seyJwbGF0Zm9ybSI6NDUsImRhdGUiOjEzOTU3OTIwMDAwMDB9LHsicGxhdGZvcm0iOjQ2LCJkYXRlIjoxMzk4Mzg0MDAwMDAwfV0sImNvdmVyIjp7ImNsb3VkaW5hcnlfaWQiOiJ0d3JzbmI4amFuN2k2cTN5YXd0biJ9fSx7ImlkIjo0NzY4NCwibmFtZSI6IkZpZ2h0ZXIgRGVzdGlueSAyIiwicmVsZWFzZV9kYXRlcyI6W3sicGxhdGZvcm0iOjQsImRhdGUiOjk2NDIyNDAwMDAwMH1dLCJjb3ZlciI6eyJjbG91ZGluYXJ5X2lkIjoieXJkZXFwOXdkbHVrZmoxdnFzYmkifX0seyJpZCI6MjU5NDQsIm5hbWUiOiJEb29tICYgRGVzdGlueSBBZHZhbmNlZCIsImdhbWVfbW9kZXMiOlsxLDJdLCJyZWxlYXNlX2RhdGVzIjpbeyJwbGF0Zm9ybSI6MzQsImRhdGUiOjE0Mzg1NjAwMDAwMDB9LHsicGxhdGZvcm0iOjM5LCJkYXRlIjoxNDM4NTYwMDAwMDAwfSx7InBsYXRmb3JtIjo3NCwiZGF0ZSI6MTQzODU2MDAwMDAwMH0seyJwbGF0Zm9ybSI6NiwiZGF0ZSI6MTQ3OTE2ODAwMDAwMH0seyJwbGF0Zm9ybSI6MTQsImRhdGUiOjE0NzkxNjgwMDAwMDB9LHsicGxhdGZvcm0iOjMsImRhdGUiOjE0NzkxNjgwMDAwMDB9LHsicGxhdGZvcm0iOjkyLCJkYXRlIjoxNDc5MTY4MDAwMDAwfV0sImNvdmVyIjp7ImNsb3VkaW5hcnlfaWQiOiJmeHZmN251N3p6dmNqcXV6eXpsZSJ9fSx7ImlkIjoxMjAzLCJuYW1lIjoiVGFsZXMgb2YgRGVzdGlueSAyIiwiZ2FtZV9tb2RlcyI6WzEsMl0sInJlbGVhc2VfZGF0ZXMiOlt7InBsYXRmb3JtIjo4LCJkYXRlIjoxMDM4NDQxNjAwMDAwfSx7InBsYXRmb3JtIjozOCwiZGF0ZSI6MTE3MTQ5NzYwMDAwMH1dLCJjb3ZlciI6eyJjbG91ZGluYXJ5X2lkIjoiZGZtbjBhNWZ0cmV0bTVrcHBidXcifX0seyJpZCI6NDgwNjQsIm5hbWUiOiJEZXN0aW55IG9mIGFuIEVtcGVyb3IiLCJyZWxlYXNlX2RhdGVzIjpbeyJwbGF0Zm9ybSI6MTgsImRhdGUiOjYxMzg3MjAwMDAwMH1dLCJjb3ZlciI6eyJjbG91ZGluYXJ5X2lkIjoiazdia3hjdHBhbHAzeTJqenJmaHQifX0seyJpZCI6MzIxNTQsIm5hbWUiOiJEZXN0aW55IG9mIEFuY2llbnQgS2luZ2RvbXMiLCJnYW1lX21vZGVzIjpbMiw1XSwicmVsZWFzZV9kYXRlcyI6W3sicGxhdGZvcm0iOjYsImRhdGUiOjE0NzI1MTUyMDAwMDB9LHsicGxhdGZvcm0iOjYsImRhdGUiOjE0NzI0Mjg4MDAwMDB9XSwiY292ZXIiOnsiY2xvdWRpbmFyeV9pZCI6Iml2bHlxYTRhcHoyNmh3bmtmOW05In19XQ==
     http_version: 
-  recorded_at: Tue, 19 Sep 2017 19:12:20 GMT
+  recorded_at: Mon, 30 Oct 2017 03:13:54 GMT
 recorded_with: VCR 2.9.3
