@@ -6,9 +6,9 @@
   </div>
   <h4 class="text-center"><%= link_to game.name, game_path(game) %></h4>
   <p class="text-center">
-    <% game.consoles.each do |c| %>
+    <% game.consoles.order(:name).each do |c| %>
       <%= themed_console_name(c, true) %>
-      <%= "/" if game.consoles.last != c %>
+      <%= "/" if game.consoles.order(:name).last != c %>
     <% end %>
   </p>
 </div>

@@ -31,7 +31,7 @@ class Game < ApplicationRecord
   end
 
   def last_release_date
-    release_dates = games_consoles.order(release_date: :asc)
-    release_dates.first.release_date
+    release_dates = games_consoles.order(release_date: :desc).pluck(:release_date)
+    release_dates.first
   end
 end

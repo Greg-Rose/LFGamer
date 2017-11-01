@@ -3,7 +3,7 @@ class GamesController < ApplicationController
     filter = params[:console]
     search = params[:search]
     @consoles = Console.all
-    @games = Game.browse(search, filter).sort_by { |game| game.last_release_date }.reverse
+    @games = Game.browse(search, filter).includes(:games_consoles).order("games_consoles.release_date desc")
   end
 
   def show
