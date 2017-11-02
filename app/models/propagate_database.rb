@@ -31,6 +31,9 @@ class PropagateDatabase
             release_date = Time.at(date).to_datetime.in_time_zone('GMT')
 
             GamesConsole.create(console: new_console, game: game, release_date: release_date)
+
+            release_dates = game.games_consoles.order(release_date: :desc).pluck(:release_date)
+            game.update_attributes(last_release_date: release_dates.first)
           end
         end
       end
@@ -57,6 +60,7 @@ class PropagateDatabase
       new_game.split_screen = split_screen
       new_game.remote_cover_image_url = cover_image_url
 
+      last_release_date = nil
       checked_platforms = []
       game["release_dates"].each do |rd|
         platform_id = rd["platform"]
@@ -66,10 +70,14 @@ class PropagateDatabase
             date = rd["date"].to_s[0..9].to_i
             release_date = Time.at(date).to_datetime.in_time_zone('GMT')
             new_game.games_consoles.build(console: console, release_date: release_date)
+
+            last_release_date = release_date if last_release_date == nil || release_date > last_release_date
           end
           checked_platforms << platform_id
         end
       end
+
+      new_game.last_release_date = last_release_date
 
       new_game.save
     end
