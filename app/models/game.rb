@@ -29,9 +29,4 @@ class Game < ApplicationRecord
       includes(:consoles)
     end
   end
-
-  def last_release_date
-    release_dates = games_consoles.order(release_date: :desc).pluck(:release_date)
-    release_dates.first
-  end
 end
