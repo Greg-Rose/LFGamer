@@ -3,7 +3,7 @@ class GamesController < ApplicationController
     filter = params[:console]
     search = params[:search]
     @consoles = Console.all
-    @games = Game.browse(search, filter).order(last_release_date: :desc)
+    @games = Game.browse(search, filter).order(last_release_date: :desc).paginate(page: params[:page], per_page: 20)
   end
 
   def show
