@@ -1,0 +1,7 @@
+$('.browse-games-results').append('<%= j render @games %>');
+<% if @games.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @games %>');
+<% else %>
+  $('.pagination').remove();
+  $('#load_more_games').remove();
+<% end %>

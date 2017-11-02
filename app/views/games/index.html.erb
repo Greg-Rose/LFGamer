@@ -17,3 +17,8 @@
 <div class="row text-center">
   <%= will_paginate @games %>
 </div>
+<div class="row text-center">
+  <% if @games.next_page %>
+    <div id="load_more_games" class="btn btn-primary">More Games</div>
+  <% end %>
+</div>
