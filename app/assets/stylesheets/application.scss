@@ -308,6 +308,26 @@ span.xbox {
           box-shadow: inset 0 0 0 1px #002d4d,inset 0 5px 30px #001e33;
 }
 
+.index-filters .btn-nintendo {
+  color: #fff;
+  background: -webkit-linear-gradient(top, #ff3333, #cc0000);
+  background: -o-linear-gradient(top, #ff3333, #cc0000);
+  background: -moz-linear-gradient(top, #ff3333, #cc0000);
+  background: linear-gradient(top, #ff3333, #cc0000);
+  background-color: #ff3333;
+  border-color: #990000;
+  text-shadow: 2px 2px 5px #b30000;
+}
+
+.index-filters .btn-nintendo.disabled, .index-filters .btn-nintendo:hover, .index-filters .btn-nintendo:active {
+  border-color: #660000;
+  color: #fff;
+  outline: none;
+  -webkit-box-shadow: inset 0 0 0 1px #990000,inset 0 5px 30px #660000;
+     -moz-box-shadow: inset 0 0 0 1px #990000,inset 0 5px 30px #660000;
+          box-shadow: inset 0 0 0 1px #990000,inset 0 5px 30px #660000;
+}
+
 .search-apology {
   text-align: center;
   margin-left: 15px;
@@ -545,6 +565,11 @@ a.lfg-chat-btns:hover {
 
 .xbox {
   color: $monokai-green;
+}
+
+.nintendo {
+  color: $monokai-pink;
+  // color: #ff3333;
 }
 
 /*------ Profiles#Edit ------*/
