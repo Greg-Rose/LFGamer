@@ -324,8 +324,9 @@ span.xbox {
   background-position: right center;
 }
 
-.index-games-sort a {
-  padding: 12px;
+.index-games-sort a, .index-games-sort p {
+  color: $monokai-white;
+  padding: 0 12px;
 }
 
 /*------ Games#Show ------*/
