@@ -318,6 +318,16 @@ span.xbox {
   margin-bottom: 10px; /* Some margin to separate it from the footer */
 }
 
+.index-games-sort p .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.index-games-sort a {
+  padding: 12px;
+}
+
 /*------ Games#Show ------*/
 
 .show-game {

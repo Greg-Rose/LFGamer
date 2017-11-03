@@ -1,11 +1,14 @@
 <div class="panel panel-default index-filters">
   <div class="panel-body">
     <% @consoles.each do |c| %>
-      <%= link_to c.name, games_path(console: c.id, search: params[:search]),
+      <%= link_to c.name, games_path(console: c.id, search: params[:search], direction: params[:direction], sort: params[:sort]),
           class: "btn btn-default#{add_console_color_to_button(c)}" %>
     <% end %>
     <%= link_to "All", games_path(search: params[:search]),
         class: "btn btn-default btn-filter-all#{' disabled' if params[:console].nil?}" %>
+  </div>
+  <div class="index-games-sort text-center">
+    <%= render partial: "sort_bar" %>
   </div>
 </div>
 <% if params[:search] && @games.blank? %>
