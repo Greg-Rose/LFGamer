@@ -17,9 +17,25 @@ class PropagateDatabase
       new_console.save
 
       # check for and set any current games in app that are available for new console
-      all_consoles_games = api_game_data["games"]
-      Game.all.each do |g|
-        new_console.games << g if all_consoles_games.include?(g.igdb_id)
+      if Game.count >= 1
+        all_consoles_games = api_game_data["games"]
+        game_ids = Game.pluck(:igdb_id).select { |id| all_consoles_games.include?(id) }.join(",")
+
+        games_data = IGDB::Game.find(game_ids, "release_dates.platform,release_dates.date")
+
+        games_data.each do |gd|
+          release_data = gd["release_dates"].find { |rd| rd["platform"] == new_console.igdb_id }
+          if release_data
+            game = Game.find_by(igdb_id: gd["id"])
+            date = release_data["date"].to_s[0..9].to_i
+            release_date = Time.at(date).to_datetime.in_time_zone('GMT')
+
+            GamesConsole.create(console: new_console, game: game, release_date: release_date)
+
+            release_dates = game.games_consoles.order(release_date: :desc).pluck(:release_date)
+            game.update_attributes(last_release_date: release_dates.first)
+          end
+        end
       end
     end
   end
@@ -44,15 +60,24 @@ class PropagateDatabase
       new_game.split_screen = split_screen
       new_game.remote_cover_image_url = cover_image_url
 
+      last_release_date = nil
       checked_platforms = []
       game["release_dates"].each do |rd|
         platform_id = rd["platform"]
         if !checked_platforms.include?(platform_id)
           console = Console.find_by(igdb_id: platform_id)
-          new_game.consoles << console if console
+          if console
+            date = rd["date"].to_s[0..9].to_i
+            release_date = Time.at(date).to_datetime.in_time_zone('GMT')
+            new_game.games_consoles.build(console: console, release_date: release_date)
+
+            last_release_date = release_date if last_release_date == nil || release_date > last_release_date
+          end
           checked_platforms << platform_id
         end
       end
+
+      new_game.last_release_date = last_release_date
 
       new_game.save
     end

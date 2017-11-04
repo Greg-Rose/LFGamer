@@ -6,6 +6,8 @@ module ApplicationHelper
       css_classes = " btn-playstation"
     elsif console.name.include?("Xbox")
       css_classes = " btn-xbox"
+    elsif console.name.include?("Nintendo")
+      css_classes = " btn-nintendo"
     end
     css_classes += " disabled" if params[:console].to_i == console.id
 

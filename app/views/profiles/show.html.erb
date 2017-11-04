@@ -63,7 +63,7 @@
 
       <% if @user.games.present? %>
         <div class="row">
-          <%= render partial: "game", collection: @user.games %>
+          <%= render partial: "game", collection: @user.games.order(:name) %>
         </div>
       <% else %>
         <% if @user == current_user %>

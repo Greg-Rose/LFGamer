@@ -16,7 +16,7 @@ feature 'user views LFGs for game' do
   #   - Each LFG also has a button to Send Play Request
 
   let!(:users) { create_list(:user, 3) }
-  let!(:console) { create(:console, name: "PlayStation 4", abbreviation: "PS4")}
+  let!(:console) { create(:console, name: "Nintendo Switch", abbreviation: "Switch")}
   let!(:game) { create(:game) }
   let!(:ownerships) do
     game.consoles << console

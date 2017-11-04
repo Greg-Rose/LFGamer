@@ -1,16 +1,22 @@
 <div class="panel panel-default index-filters">
   <div class="panel-body">
-    <% @consoles.each do |c| %>
-      <%= link_to c.name, games_path(console: c.id, search: params[:search]),
-          class: "btn btn-default#{add_console_color_to_button(c)}" %>
-    <% end %>
-    <%= link_to "All", games_path(search: params[:search]),
-        class: "btn btn-default btn-filter-all#{' disabled' if params[:console].nil?}" %>
+    <%= render partial: "filters" %>
+  </div>
+  <div class="index-games-sort text-center">
+    <%= render partial: "sort_bar" %>
   </div>
 </div>
 <% if params[:search] && @games.blank? %>
   <p class="search-apology">We're sorry but we couldn't find the game you're looking for.</p>
 <% end %>
-<div class="row">
+<div class="row browse-games-results">
   <%= render partial: "game", collection: @games %>
+</div>
+<div class="row text-center pagination-div">
+  <%= will_paginate @games %>
+</div>
+<div class="row text-center load-more-div">
+  <% if @games.next_page %>
+    <%= render partial: "load_more" %>
+  <% end %>
 </div>

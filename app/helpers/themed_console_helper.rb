@@ -6,6 +6,8 @@ module ThemedConsoleHelper
       html += '<span class="playstation">'
     elsif console.name.include?("Xbox")
       html += '<span class="xbox">'
+    elsif console.name.include?("Nintendo")
+      html += '<span class="nintendo">'
     end
 
     if abbreviation && console.abbreviation
@@ -23,6 +25,8 @@ module ThemedConsoleHelper
       "playstation"
     elsif console.name.include?("Xbox")
       "xbox"
+    elsif console.name.include?("Nintendo")
+      "nintendo"
     end
   end
 end

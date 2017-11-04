@@ -2,12 +2,12 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api-2445582011268.apicast.io/games/25657?fields=name,release_dates.platform,cover.cloudinary_id,game_modes
+    uri: https://api-2445582011268.apicast.io/games/25657?fields=name,release_dates.platform,release_dates.date,cover.cloudinary_id,game_modes
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      user-key:
+      User-Key:
       - 87a1b4c54c376447a8cd24b4be77ae8e
   response:
     status:
@@ -17,20 +17,18 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Sun, 02 Jul 2017 18:40:38 GMT
+      - Mon, 30 Oct 2017 03:11:12 GMT
       Server:
-      - Mashape/5.0.6
-      X-Ratelimit-Requests-Limit:
-      - '7000'
-      X-Ratelimit-Requests-Remaining:
-      - '6765'
+      - openresty/1.9.15.1
+      X-Powered-By:
+      - 3scale API Management - http://www.3scale.net
       Content-Length:
-      - '170'
+      - '233'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '[{"id":25657,"name":"Destiny 2","game_modes":[1,2,3,5],"release_dates":[{"platform":6},{"platform":49},{"platform":48}],"cover":{"cloudinary_id":"o1yenovvskchtjrl48v5"}}]'
-    http_version:
-  recorded_at: Sun, 02 Jul 2017 18:41:00 GMT
+      string: '[{"id":25657,"name":"Destiny 2","game_modes":[1,2,3,5],"release_dates":[{"platform":6,"date":1508803200000},{"platform":49,"date":1504656000000},{"platform":48,"date":1504656000000}],"cover":{"cloudinary_id":"o1yenovvskchtjrl48v5"}}]'
+    http_version: 
+  recorded_at: Mon, 30 Oct 2017 03:11:17 GMT
 recorded_with: VCR 2.9.3
