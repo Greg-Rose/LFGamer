@@ -1,7 +1,29 @@
-$('.browse-games-results').append('<%= j render @games %>');
-<% if @games.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate @games %>');
+<% if params[:page] %>
+  $('.browse-games-results').append('<%= j render @games %>');
+  <% if @games.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate @games %>');
+    $('.pagination').hide();
+  <% else %>
+    $('.pagination').remove();
+    $('#load_more_games').remove();
+  <% end %>
 <% else %>
-  $('.pagination').remove();
-  $('#load_more_games').remove();
+  $('.browse-games-results').html('<%= j render @games %>')
+  $('.index-filters .panel-body').html('<%= j render partial: "filters" %>')
+  $('.index-games-sort').html('<%= j render partial: "sort_bar" %>')
+  <% if @games.next_page %>
+    if ($('.pagination').length) {
+      $('.pagination').replaceWith('<%= j will_paginate @games %>');
+    } else {
+      $('.pagination-div').append('<%= j will_paginate @games %>')
+    }
+    $('.pagination').hide();
+    if ($('#load_more_games').length == 0) {
+      $('.load-more-div').append('<%= j render partial: "load_more" %>')
+      paginationListener();
+    }
+  <% else %>
+    $('.pagination').remove();
+    $('#load_more_games').remove();
+  <% end %>
 <% end %>

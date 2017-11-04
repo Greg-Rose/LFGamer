@@ -1,4 +1,8 @@
 $(document).ready(function(){
+  paginationListener();
+});
+
+var paginationListener = function () {
   if ($('.browse-games-results').length && $('.pagination').length) {
     $('.pagination').hide();
     $('#load_more_games').click(function() {
@@ -8,4 +12,4 @@ $(document).ready(function(){
       }
     });
   }
-});
+};

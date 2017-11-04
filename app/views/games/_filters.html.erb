@@ -1,0 +1,6 @@
+<% @consoles.each do |c| %>
+  <%= link_to c.name, games_path(console: c.id, search: params[:search], direction: params[:direction], sort: params[:sort]),
+      class: "btn btn-default#{add_console_color_to_button(c)}" %>
+<% end %>
+<%= link_to "All", games_path(search: params[:search], direction: params[:direction], sort: params[:sort]),
+    class: "btn btn-default btn-filter-all#{' disabled' if params[:console].nil?}" %>
