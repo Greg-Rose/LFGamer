@@ -12,6 +12,13 @@ feature 'user filters game searche results' do
 
   let!(:games) { create_list(:game, 3) }
   let!(:console_0) { games[0].consoles.first }
+  let!(:console) { create(:console, name: "Nintendo Switch", abbreviation: "Switch")}
+
+  scenario 'page has filter button for console' do
+    visit games_path
+
+    expect(page).to have_link "Nintendo Switch"
+  end
 
   scenario 'filter search results' do
     visit games_path
