@@ -1,0 +1,2 @@
+$('.owned-games .games-list').html('<%= j render @games %>');
+$('.pagination').replaceWith('<%= j will_paginate @games %>');
