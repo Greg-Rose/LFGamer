@@ -35,8 +35,10 @@ feature 'user views LFGs for game' do
 
     expect(page).to have_button "Update My Games"
     expect(page).to have_button "Look For Group"
-    expect(page).to_not have_content "LFGs"
-    expect(page).to_not have_content users[0].username
+    within(".show-game") do
+      expect(page).to_not have_content "LFGs"
+      expect(page).to_not have_content users[0].username
+    end
   end
 
   scenario 'user can see all of the game\'s LFGs for the console they LFG\'d it for' do
