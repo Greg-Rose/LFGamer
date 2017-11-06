@@ -1,2 +1,2 @@
-$('.owned-games .games-list').html('<%= j render @games %>');
+$('.owned-games .games-list').html('<%= j render partial: "profiles/game", collection: @games %>');
 $('.pagination').replaceWith('<%= j will_paginate @games %>');
