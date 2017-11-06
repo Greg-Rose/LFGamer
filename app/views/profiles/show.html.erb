@@ -61,9 +61,12 @@
     <div class="well">
       <h3 class="text-center"><%= "My" if @user == current_user %> Games</h3>
 
-      <% if @user.games.present? %>
-        <div class="row">
-          <%= render partial: "game", collection: @user.games.order(:name) %>
+      <% if @games.present? %>
+        <div class="row games-list">
+          <%= render partial: "game", collection: @games %>
+        </div>
+        <div class="row text-center pagination-div">
+          <%= will_paginate @games %>
         </div>
       <% else %>
         <% if @user == current_user %>

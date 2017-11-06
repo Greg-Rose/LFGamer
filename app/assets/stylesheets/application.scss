@@ -571,6 +571,19 @@ a.lfg-chat-btns:hover {
   color: #ff3333;
 }
 
+.profile-show .pagination a {
+  color: $monokai-white;
+}
+
+.profile-show .pagination a:hover {
+  color: $monokai-purple;
+  text-decoration: none;
+}
+
+.profile-show .pagination span, .profile-show .pagination em {
+  color: grey;
+}
+
 /*------ Profiles#Edit ------*/
 
 .profile-edit .panel {
