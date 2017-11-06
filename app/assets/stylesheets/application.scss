@@ -402,16 +402,17 @@ span.xbox {
   color: $monokai-gold;
 }
 
-.game-lfgs-list .table>tbody>tr>th, .game-lfgs-list .table>tbody>tr>td {
+.game-lfgs-list .table>tbody>tr>th, .game-lfgs-list .table>tbody>tr>td, .my-lfgs .table>tbody>tr>th, .my-lfgs .table>tbody>tr>td {
   vertical-align: middle;
 }
 
-.game-lfgs-list .table>tbody>tr>td {
+.game-lfgs-list .table>tbody>tr>td, .my-lfgs .table>tbody>tr>td {
   background: #404040;
   border-color: #595959;
 }
 
-.game-lfgs-list span.lfg-username, .game-lfgs-list span.lfg-username a {
+.game-lfgs-list span.lfg-username, .game-lfgs-list span.lfg-username a,
+.my-lfgs span.lfg-game-console, .my-lfgs span.lfg-game-console a {
   color: $monokai-orange;
   font-weight: 400;
 }
@@ -424,7 +425,7 @@ span.xbox {
   min-width: 300px;
 }
 
-.game-lfgs-list .lfg-when {
+.game-lfgs-list .lfg-when, .my-lfgs .lfg-when {
   color: $monokai-gold;
 }
 
@@ -436,12 +437,14 @@ a.lfg-chat-btns:hover {
   color: #f471a1;
 }
 
-.game-lfgs-list .table-striped > tbody > tr:nth-child(2n+1) > td, .game-lfgs-list .table-striped > tbody > tr:nth-child(2n+1) > th {
+.game-lfgs-list .table-striped > tbody > tr:nth-child(2n+1) > td, .game-lfgs-list .table-striped > tbody > tr:nth-child(2n+1) > th,
+.my-lfgs .table-striped > tbody > tr:nth-child(2n+1) > td, .my-lfgs .table-striped > tbody > tr:nth-child(2n+1) > th {
    background-color: #333333;
    border-color: #595959;
 }
 
-.game-lfgs-list .table-striped > tbody > tr:nth-child(1) > td, .game-lfgs-list .table-striped > tbody > tr:nth-child(1) > th {
+.game-lfgs-list .table-striped > tbody > tr:nth-child(1) > td, .game-lfgs-list .table-striped > tbody > tr:nth-child(1) > th,
+.my-lfgs .table-striped > tbody > tr:nth-child(1) > td, .my-lfgs .table-striped > tbody > tr:nth-child(1) > th {
    background-color: #282828;
 }
 
@@ -611,6 +614,13 @@ a.lfg-chat-btns:hover {
 p.profile-privacy-options-label {
   font-weight: 700;
   margin-bottom: 5px;
+}
+
+/*------ My LFGs - Lfgs#Index ------*/
+
+.my-lfgs h3 {
+  color: $monokai-gold;
+  margin-bottom: 30px;
 }
 
 /*------ Admin Dashboard#Index ------*/

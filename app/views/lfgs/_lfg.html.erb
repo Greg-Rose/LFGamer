@@ -1,0 +1,19 @@
+<tr class="text-center" data-lfg-id="<%= lfg.id %>">
+  <td>
+    <div>
+      <span class="lfg-game-console"><%= link_to lfg.game.name, game_path(lfg.game) %></span>
+      - <%= themed_console_name(lfg.console, true) %>
+    </div>
+  <td>
+    <div class="lfgs-specifics">
+      <%= lfg.specifics %>
+    </div>
+  </td>
+  <td>
+    <div>
+      <time class="timeago lfg-when" datetime="<%= lfg.created_at.getutc.iso8601 %>" title="<%= lfg.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %b %e %Y %r EST") %>">
+        <%= time_ago_in_words(lfg.created_at) %> ago
+      </time>
+    </div>
+  </td>
+</tr>
