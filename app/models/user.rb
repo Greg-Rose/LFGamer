@@ -10,8 +10,8 @@ class User < ApplicationRecord
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login
 
-  has_one :profile
-  has_many :ownerships
+  has_one :profile, dependent: :destroy
+  has_many :ownerships, dependent: :destroy
   has_many :games_consoles, through: :ownerships
   has_many :games, -> { distinct }, through: :games_consoles
   has_many :consoles, -> { distinct }, through: :games_consoles

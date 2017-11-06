@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-  has_many :games_consoles
+  has_many :games_consoles, dependent: :destroy
   has_many :consoles, -> { order(:name) }, through: :games_consoles
   has_many :ownerships, through: :games_consoles
   has_many :users, -> { distinct }, through: :ownerships
