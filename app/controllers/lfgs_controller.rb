@@ -1,6 +1,10 @@
 class LfgsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :create, :update, :destroy]
 
+  def index
+    @lfgs = current_user.lfgs
+  end
+  
   def create
     @user = current_user
     @game = Game.find(params[:game][:id])
