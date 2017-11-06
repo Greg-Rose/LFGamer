@@ -2,7 +2,7 @@ class LfgsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create, :update, :destroy]
 
   def index
-    @lfgs = current_user.lfgs
+    @lfgs = current_user.lfgs.order(created_at: :desc)
   end
   
   def create
