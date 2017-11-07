@@ -40,25 +40,25 @@ $ rake db:migrate
 
 1. Create a .env file in project root directory
 2. Add to .env file:
-3. RACK_ENV=development
-4. PORT=3000
+  * RACK_ENV=development
+  * PORT=3000
 
 #### Setup external API for game data
 
 1. Create a free account at https://api.igdb.com/signup
 2. Get your API Credentials User Key from your account
 3. Add user key to .env file:
-4. IGDB_API_KEY=YOUR_USER_KEY_HERE
+  * IGDB_API_KEY=YOUR_USER_KEY_HERE
 
 #### Setup AWS S3
 
 1. Create an AWS account at https://aws.amazon.com/
 2. Add your AWS credentials to .env file:
-3. AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY_HERE
-4. AWS_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY_HERE
-5. Create an S3 bucket
-6. Add your S3 bucket name to .env file:
-7. S3_DEV_BUCKET=YOUR_BUCKET_NAME_HERE
+  * AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY_HERE
+  * AWS_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY_HERE
+3. Create an S3 bucket
+4. Add your S3 bucket name to .env file:
+  * S3_DEV_BUCKET=YOUR_BUCKET_NAME_HERE
 
 If deploying to production, set bucket environment variable as S3_PRODUCTION_BUCKET=YOUR_PRODUCTION_BUCKET_NAME_HERE
 
