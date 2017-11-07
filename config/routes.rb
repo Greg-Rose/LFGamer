@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show]
   resource :profile, only: [:edit, :update]
   resource :ownerships, only: [:create]
-  resources :lfgs, only: [:create, :update, :destroy]
+  resources :lfgs, only: [:index, :create, :update, :destroy]
 
   namespace :api do
     namespace :v1 do
