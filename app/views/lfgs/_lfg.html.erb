@@ -13,7 +13,10 @@
     <div>
       <time class="timeago lfg-when" datetime="<%= lfg.created_at.getutc.iso8601 %>" title="<%= lfg.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %b %e %Y %r EST") %>">
         <%= time_ago_in_words(lfg.created_at) %> ago
-      </time>
+      </time> -
+      <%= link_to lfg_path(lfg, from: "my_lfgs"), method: :delete, class: "delete-my-lfg-btn", "data-lfgid" => lfg.id do %>
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+      <% end %>
     </div>
   </td>
 </tr>

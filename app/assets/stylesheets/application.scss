@@ -623,6 +623,14 @@ p.profile-privacy-options-label {
   margin-bottom: 30px;
 }
 
+.delete-my-lfg-btn {
+  color: $monokai-pink;
+}
+
+.delete-my-lfg-btn:hover {
+  color: $monokai-white;
+}
+
 /*------ Admin Dashboard#Index ------*/
 
 .admin-dashboard .panel {
