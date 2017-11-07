@@ -34,18 +34,61 @@ $ bundle install
 # Create and migrate database
 $ rake db:create
 $ rake db:migrate
+```
 
+#### Create .env file
+
+1. Create a .env file in project root directory
+2. Add to .env file:
+3. RACK_ENV=development
+4. PORT=3000
+
+#### Setup external API for game data
+
+1. Create a free account at https://api.igdb.com/signup
+2. Get your API Credentials User Key from your account
+3. Add user key to .env file:
+4. IGDB_API_KEY=YOUR_USER_KEY_HERE
+
+#### Setup AWS S3
+
+1. Create an AWS account at https://aws.amazon.com/
+2. Add your AWS credentials to .env file:
+3. AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY_HERE
+4. AWS_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY_HERE
+5. Create an S3 bucket
+6. Add your S3 bucket name to .env file:
+7. S3_DEV_BUCKET=YOUR_BUCKET_NAME_HERE
+
+If deploying to production, set bucket environment variable as S3_PRODUCTION_BUCKET=YOUR_PRODUCTION_BUCKET_NAME_HERE
+
+#### Run Server
+
+```bash
 # Run application, by default starts at localhost:3000
 $ rails s
-
 ```
 
 Visit the site in your browser at localhost:3000.
 
+#### Seed Database
+
+To seed the database with games and consoles:
+
+```bash
+# Run rails console
+$ rails c
+
+# Run initial seed
+$ PropagateDatabase.initial_seed
+```
+
+#### Admins
+
 To give a user admin status and/or try out admin functionality:
 
 ```bash
-# Run rails consoles
+# Run rails console
 $ rails c
 
 # Get the user you want to give admin status, for example:
