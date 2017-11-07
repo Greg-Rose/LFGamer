@@ -16,10 +16,10 @@ feature 'user deletes LFG from My LFGs' do
   let!(:console) { create(:console, name: "Xbox One", abbreviation: nil) }
   let!(:games) { create_list(:game, 3) }
   let!(:lfgs) do
-    games.each do |game|
+    games.each_with_index do |game, index|
       game.consoles << console
       user.games_consoles << game.games_consoles.last
-      Lfg.create(ownership: user.ownerships.last, specifics: "Test 1 2 3")
+      Lfg.create(ownership: user.ownerships.last, specifics: "Test #{index}")
     end
   end
 
@@ -33,7 +33,7 @@ feature 'user deletes LFG from My LFGs' do
       expect(page).to_not have_content lfg_to_delete.game.name
       expect(page).to_not have_content lfg_to_delete.specifics
 
-      user.lfgs.each do |lfg|
+      User.first.lfgs.each do |lfg|
         expect(page).to have_content lfg.game.name
         expect(page).to have_content lfg.console.name
         expect(page).to have_content lfg.specifics
@@ -43,6 +43,6 @@ feature 'user deletes LFG from My LFGs' do
     expect(page).to have_current_path lfgs_path
 
     expect(Lfg.count).to eq(2)
-    expect(user.lfgs.count).to eq(2)
+    expect(User.first.lfgs.count).to eq(2)
   end
 end

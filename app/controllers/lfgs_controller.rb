@@ -55,7 +55,11 @@ class LfgsController < ApplicationController
     if lfg.user == user
       lfg.destroy
       flash[:notice] = "Your LFG Has Been Removed!"
-      redirect_to game
+      if params[:from] == "my_lfgs"
+        redirect_to lfgs_path
+      else
+        redirect_to game
+      end
     end
   end
 
