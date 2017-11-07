@@ -10,7 +10,6 @@ feature 'user views My LFGs' do
   #   - I can click the My LFGs link in the user dropdown menu in navbar
   #   - It shows each of my LFGs
   #   - Each LFG shows the game as a link, console, specifics, and when it's from
-  #   - Each LFG also has a button to delete the LFG
   #   - If I have no LFGs, I am given a message
 
   let!(:users) { create_list(:user, 2) }
