@@ -114,7 +114,7 @@ To run the JavaScript enabled tests you will need to install PhantomJS
 $ brew install node
 
 # Install PhantomJS
-$ npm install phantomjs-prebuilt
+$ npm install -g phantomjs-prebuilt
 
 # Run JS tests
 $ rspec . -t js:true
