@@ -7,9 +7,9 @@ var ready = function () {
         close: chatClose,
         notify: chatNotify,
         restructure: chatRestructure,
-        createChatBox: chatCreateChatBox,
+        createChatBox: createChatBox,
         checkInputKey: chatCheckInputKey,
-        toggleChatBoxGrowth: chatToggleChatBoxGrowth
+        toggleChatBoxGrowth: toggleChatBoxGrowth
     };
 
     jQuery.cookie = cookies;
@@ -104,7 +104,7 @@ var chatRestructure = function () {
  * @param minimizeChatBox
  */
 
-var chatCreateChatBox = function (conversation_id, minimizeChatBox) {
+var createChatBox = function (conversation_id, minimizeChatBox) {
     if ($("#chatbox_" + conversation_id).length > 0) {
       if ($("#chatbox_" + conversation_id).css('display') === 'none') {
           $("#chatbox_" + conversation_id).css('display', 'block');
@@ -231,7 +231,7 @@ var chatCheckInputKey = function (event, chatboxtextarea, conversationId) {
  * @param conversation_id
  */
 
-var chatToggleChatBoxGrowth = function (conversation_id) {
+var toggleChatBoxGrowth = function (conversation_id) {
     var newCookie;
     if ($('#chatbox_' + conversation_id + ' .chatboxcontent').css('display') === 'none') {
 
