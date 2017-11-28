@@ -23,24 +23,13 @@ var listenForChatboxes = function () {
      * Used to minimize the chatbox
      */
 
-    $(document).off('click', '.toggleChatBox').on('click', '.toggleChatBox', function (e) {
-        e.preventDefault();
-
-        var id = $(this).data('cid');
-        chatBox.toggleChatBoxGrowth(id);
-    });
+    changeChatBox("minimize");
 
     /**
      * Used to close the chatbox
      */
 
-    $(document).off('click', '.closeChat').on('click', '.closeChat', function (e) {
-        e.preventDefault();
-
-        var id = $(this).data('cid');
-        chatBox.close(id);
-    });
-
+    changeChatBox("close");
 
     /**
      * Listen on keypress' in our chat textarea and call the
@@ -52,6 +41,29 @@ var listenForChatboxes = function () {
         chatBox.checkInputKey(event, $(this), id);
     });
 
+};
+
+// params: "minimize" or "close"
+var changeChatBox = function(type) {
+  var className;
+  if(type == "minimize") {
+    className = ".toggleChatBox";
+  }else if (type == "close") {
+    className = ".closeChat";
+  }else {
+    return undefined;
+  }
+
+  $(document).off('click', className).on('click', className, function (e) {
+      e.preventDefault();
+
+      var id = $(this).data('cid');
+      if(type == "minimize") {
+        chatBox.toggleChatBoxGrowth(id);
+      }else {
+        chatBox.close(id);
+      }
+  });
 };
 
 $(document).ready(listenForChatboxes);
