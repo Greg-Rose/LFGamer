@@ -11,8 +11,6 @@ var ready = function () {
         checkInputKey: chatCheckInputKey,
         toggleChatBoxGrowth: toggleChatBoxGrowth
     };
-
-    jQuery.cookie = cookies;
 };
 
 /**
@@ -137,8 +135,6 @@ var createChatBox = function (conversation_id, minimizeChatBox) {
 
     chatBoxes.push(conversation_id);
 
-    checkChatBoxMinimize(conversation_id, minimizeChatBox);
-
     setChatBoxFocus(conversation_id);
 
     $("#chatbox_" + conversation_id).show();
@@ -156,27 +152,6 @@ var getConversation = function(conversation_id) {
       $('#chatbox_' + conversation_id).append(html);
       $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
   }, "html");
-};
-
-var checkChatBoxMinimize = function(conversation_id, minimizeChatBox) {
-  if (minimizeChatBox === 1) {
-      var minimizedChatBoxes = [];
-
-      if ($.cookie('chatbox_minimized')) {
-          minimizedChatBoxes = $.cookie('chatbox_minimized').split(/\|/);
-      }
-      minimize = 0;
-      for (j = 0; j < minimizedChatBoxes.length; j++) {
-          if (minimizedChatBoxes[j] === conversation_id) {
-              minimize = 1;
-          }
-      }
-
-      if (minimize === 1) {
-          $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'none');
-          $('#chatbox_' + conversation_id + ' .chatboxinput').css('display', 'none');
-      }
-  }
 };
 
 var setChatBoxFocus = function(conversation_id) {
@@ -244,99 +219,18 @@ var chatCheckInputKey = function (event, chatboxtextarea, conversationId) {
  */
 
 var toggleChatBoxGrowth = function (conversation_id) {
-    var newCookie;
     if ($('#chatbox_' + conversation_id + ' .chatboxcontent').css('display') === 'none') {
-
-        var minimizedChatBoxes = [];
-
-        if ($.cookie('chatbox_minimized')) {
-            minimizedChatBoxes = $.cookie('chatbox_minimized').split(/\|/);
-        }
-
-        newCookie = '';
-
-        for (i = 0; i < minimizedChatBoxes.length; i++) {
-            if (minimizedChatBoxes[i] !== conversation_id) {
-                newCookie += conversation_id + '|';
-            }
-        }
-
-        newCookie = newCookie.slice(0, -1);
-
-
-        $.cookie('chatbox_minimized', newCookie);
         $('#chatbox_' + conversation_id).removeClass('chatboxminimized');
         $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'block');
         $('#chatbox_' + conversation_id + ' .chatboxinput').css('display', 'block');
         $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
     } else {
-
-        newCookie = conversation_id;
-
-        if ($.cookie('chatbox_minimized')) {
-            newCookie += '|' + $.cookie('chatbox_minimized');
-        }
-
-
-        $.cookie('chatbox_minimized', newCookie);
         $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'none');
         $('#chatbox_' + conversation_id + ' .chatboxinput').css('display', 'none');
         $('#chatbox_' + conversation_id).addClass('chatboxminimized');
     }
 
     chatBox.restructure();
-};
-
-/**
- * Cookie plugin
- *
- * Copyright (c) 2006 Klaus Hartl (stilbuero.de)
- * Dual licensed under the MIT and GPL licenses:
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.gnu.org/licenses/gpl.html
- *
- */
-
-var cookies = function (name, value, options) {
-    if (typeof value !== 'undefined') { // name and value given, set cookie
-        options = options || {};
-        if (value === null) {
-            value = '';
-            options.expires = -1;
-        }
-        var expires = '';
-        if (options.expires && (typeof options.expires === 'number' || options.expires.toUTCString)) {
-            var date;
-            if (typeof options.expires === 'number') {
-                date = new Date();
-                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
-            } else {
-                date = options.expires;
-            }
-            expires = '; expires=' + date.toUTCString(); // use expires attribute, max-age is not supported by IE
-        }
-        // CAUTION: Needed to parenthesize options.path and options.domain
-        // in the following expressions, otherwise they evaluate to undefined
-        // in the packed version for some reason...
-        var path = options.path ? '; path=' + (options.path) : '';
-        var domain = options.domain ? '; domain=' + (options.domain) : '';
-        var secure = options.secure ? '; secure' : '';
-        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
-    } else { // only name given, get cookie
-        var cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = jQuery.trim(cookies[i]);
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
 };
 
 $(document).ready(ready);
