@@ -29,6 +29,7 @@ feature 'user sends message in chat' do
     chat = Conversation.create(sender_id: users[0].id, recipient_id: users[1].id)
     sign_in users[0]
     visit game_path(game)
+    sleep(1)
     within "#chatbox_#{chat.id}" do
       text_area = first(:css, '.chatboxtextarea').native
       text_area.send_keys('testing 1, 2, 3')
