@@ -48,16 +48,7 @@ $(document).ready(function() {
     });
   });
 
-  $(".admin-dashboard").on("click", "#add-game-btn", function(event) {
-    event.preventDefault();
-    $.get( '/admin/games/new', function( data ) {
-      if ($('.admin-dashboard .modal').length) {
-        $('.admin-dashboard .modal').remove();
-      }
-      $('.admin-dashboard .admin-games').append(data);
-      $('#addGameModal').modal('show');
-    });
-  });
+  addBtnClick("game");
 
   $(".admin-dashboard").on("click", ".admin-games #search-btn", function(event) {
     event.preventDefault();
@@ -89,16 +80,7 @@ $(document).ready(function() {
     });
   });
 
-  $(".admin-dashboard").on("click", "#add-console-btn", function(event) {
-    event.preventDefault();
-    $.get( '/admin/consoles/new', function( data ) {
-      if ($('.admin-dashboard .modal').length) {
-        $('.admin-dashboard .modal').remove();
-      }
-      $('.admin-dashboard .admin-consoles').append(data);
-      $('#addConsoleModal').modal('show');
-    });
-  });
+  addBtnClick("console");
 
   $(".admin-dashboard").on("click", ".admin-consoles #search-btn", function(event) {
     event.preventDefault();
@@ -137,3 +119,28 @@ $(document).ready(function() {
     });
   });
 });
+
+// params: "game" or "console"
+
+var addBtnClick = function(recordType) {
+  var modal;
+
+  if(recordType == "game") {
+    modal = "#addGameModal";
+  }else if (recordType == "console") {
+    modal = "#addConsoleModal";
+  }else {
+    return undefined;
+  }
+
+  $(".admin-dashboard").on("click", "#add-" + recordType + "-btn", function(event) {
+    event.preventDefault();
+    $.get( '/admin/' + recordType + 's/new', function( data ) {
+      if ($('.admin-dashboard .modal').length) {
+        $('.admin-dashboard .modal').remove();
+      }
+      $('.admin-dashboard .admin-' + recordType + 's').append(data);
+      $(modal).modal('show');
+    });
+  });
+};

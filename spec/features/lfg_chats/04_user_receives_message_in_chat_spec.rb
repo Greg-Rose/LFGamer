@@ -33,7 +33,7 @@ feature 'user receives message in chat' do
     expect(page).to_not have_css ".chatbox"
 
     chat = Conversation.create(sender_id: users[1].id, recipient_id: users[0].id)
-    sleep(1)
+    sleep(3)
 
     expect(page).to have_css ".chatbox#chatbox_#{chat.id}"
     expect(Conversation.count).to be 1
@@ -50,6 +50,8 @@ feature 'user receives message in chat' do
 
     users[1].messages.create!(body: "what's up?", conversation: chat)
 
+    sleep(3)
+    
     within "#chatbox_#{chat.id}" do
       expect(page).to have_css ".chatboxmessagecontent"
       expect(page).to have_content "what's up?"
