@@ -116,16 +116,7 @@ var createChatBox = function (conversation_id, minimizeChatBox) {
 
     $("body").append('<div id="chatbox_' + conversation_id + '" class="chatbox"></div>');
 
-    $.get("/conversations/" + conversation_id, function (data) {
-        var html = $.parseHTML(data);
-        var title = $(html[0]).children()[0];
-        var h1 = $(title).children()[1];
-        var otherUsersUsername = $(h1).text();
-        $(html[2]).children("li").addClass('self');
-        $(html[2]).children("li.msg-usr-" + otherUsersUsername).removeClass('self').addClass('other');
-        $('#chatbox_' + conversation_id).append(html);
-        $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
-    }, "html");
+    getConversation(conversation_id);
 
     $("#chatbox_" + conversation_id).css('bottom', '0px');
 
@@ -146,44 +137,65 @@ var createChatBox = function (conversation_id, minimizeChatBox) {
 
     chatBoxes.push(conversation_id);
 
-    if (minimizeChatBox === 1) {
-        var minimizedChatBoxes = [];
+    checkChatBoxMinimize(conversation_id, minimizeChatBox);
 
-        if ($.cookie('chatbox_minimized')) {
-            minimizedChatBoxes = $.cookie('chatbox_minimized').split(/\|/);
-        }
-        minimize = 0;
-        for (j = 0; j < minimizedChatBoxes.length; j++) {
-            if (minimizedChatBoxes[j] === conversation_id) {
-                minimize = 1;
-            }
-        }
-
-        if (minimize === 1) {
-            $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'none');
-            $('#chatbox_' + conversation_id + ' .chatboxinput').css('display', 'none');
-        }
-    }
-
-    chatboxFocus[conversation_id] = false;
-
-    $("#chatbox_" + conversation_id + " .chatboxtextarea").blur(function () {
-        chatboxFocus[conversation_id] = false;
-        $("#chatbox_" + conversation_id + " .chatboxtextarea").removeClass('chatboxtextareaselected');
-    }).focus(function () {
-        chatboxFocus[conversation_id] = true;
-        $('#chatbox_' + conversation_id + ' .chatboxhead').removeClass('chatboxblink');
-        $("#chatbox_" + conversation_id + " .chatboxtextarea").addClass('chatboxtextareaselected');
-    });
-
-    $("#chatbox_" + conversation_id).click(function () {
-        if ($('#chatbox_' + conversation_id + ' .chatboxcontent').css('display') !== 'none') {
-            $("#chatbox_" + conversation_id + " .chatboxtextarea").focus();
-        }
-    });
+    setChatBoxFocus(conversation_id);
 
     $("#chatbox_" + conversation_id).show();
     chatChannel(conversation_id);
+};
+
+var getConversation = function(conversation_id) {
+  $.get("/conversations/" + conversation_id, function (data) {
+      var html = $.parseHTML(data);
+      var title = $(html[0]).children()[0];
+      var h1 = $(title).children()[1];
+      var otherUsersUsername = $(h1).text();
+      $(html[2]).children("li").addClass('self');
+      $(html[2]).children("li.msg-usr-" + otherUsersUsername).removeClass('self').addClass('other');
+      $('#chatbox_' + conversation_id).append(html);
+      $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
+  }, "html");
+};
+
+var checkChatBoxMinimize = function(conversation_id, minimizeChatBox) {
+  if (minimizeChatBox === 1) {
+      var minimizedChatBoxes = [];
+
+      if ($.cookie('chatbox_minimized')) {
+          minimizedChatBoxes = $.cookie('chatbox_minimized').split(/\|/);
+      }
+      minimize = 0;
+      for (j = 0; j < minimizedChatBoxes.length; j++) {
+          if (minimizedChatBoxes[j] === conversation_id) {
+              minimize = 1;
+          }
+      }
+
+      if (minimize === 1) {
+          $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'none');
+          $('#chatbox_' + conversation_id + ' .chatboxinput').css('display', 'none');
+      }
+  }
+};
+
+var setChatBoxFocus = function(conversation_id) {
+  chatboxFocus[conversation_id] = false;
+
+  $("#chatbox_" + conversation_id + " .chatboxtextarea").blur(function () {
+      chatboxFocus[conversation_id] = false;
+      $("#chatbox_" + conversation_id + " .chatboxtextarea").removeClass('chatboxtextareaselected');
+  }).focus(function () {
+      chatboxFocus[conversation_id] = true;
+      $('#chatbox_' + conversation_id + ' .chatboxhead').removeClass('chatboxblink');
+      $("#chatbox_" + conversation_id + " .chatboxtextarea").addClass('chatboxtextareaselected');
+  });
+
+  $("#chatbox_" + conversation_id).click(function () {
+      if ($('#chatbox_' + conversation_id + ' .chatboxcontent').css('display') !== 'none') {
+          $("#chatbox_" + conversation_id + " .chatboxtextarea").focus();
+      }
+  });
 };
 
 /**
