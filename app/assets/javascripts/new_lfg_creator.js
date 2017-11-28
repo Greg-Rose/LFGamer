@@ -19,12 +19,7 @@ var newLfgCreator = function(lfgAttributes) {
         lfgChannel();
       });
 
-      request.error(function() {
-        setLfgFormAlert("danger", "Specifics is too long (maximum is 150 characters)");
-        setTimeout(function() {
-          $('div#form-buttons').find('input').removeAttr('disabled');
-        }, 10);
-      });
+      request.error(lfgFormErrorHandler());
     },
     updateForm: function(json) {
       var lfgId = json.lfg.id;
@@ -71,4 +66,11 @@ var newLfgCreator = function(lfgAttributes) {
       $("time.timeago").timeago();
     }
   };
+};
+
+var lfgFormErrorHandler = function() {
+  setLfgFormAlert("danger", "Specifics is too long (maximum is 150 characters)");
+  setTimeout(function() {
+    $('div#form-buttons').find('input').removeAttr('disabled');
+  }, 50);
 };

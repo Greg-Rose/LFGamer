@@ -18,12 +18,8 @@ var editLfgUpdater = function(lfgAttributes) {
         lfgUpdaterObject.updateLfgsList(response);
       });
 
-      request.error(function() {
-        setLfgFormAlert("danger", "Specifics is too long (maximum is 150 characters)");
-        setTimeout(function() {
-          $('div#form-buttons').find('input').removeAttr('disabled');
-        }, 10);
-      });
+      // lfgFormErrorHandler() is in new_lfg_creator.js
+      request.error(lfgFormErrorHandler());
     },
     updateForm: function(json) {
       var lfgId = json.lfg.id;
